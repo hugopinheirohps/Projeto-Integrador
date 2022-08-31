@@ -6,7 +6,7 @@ const {categoria} = require('../../database/models');
 const produtoController ={
     produto:async (req,res) =>{
         
-        let carros = await produto.findAll()
+        let carros = await produtos.findAll()
 
         let marcas = await marca.findAll(
             {
