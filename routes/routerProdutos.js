@@ -7,6 +7,8 @@ router.get('/', produtoController.produto);
 
 router.get('/carrinho', produtoController.carrinho);
 
+router.post('/carrinho', produtoController.carrinho);
+
 router.get('/finalizacao', produtoController.finalizacao);
 
 router.get('/sucesso', produtoController.sucesso);
