@@ -1,62 +1,73 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-  <section>
-    <link rel="stylesheet" href="/css/inicial.css">
-    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-  </section>
+<section>
+  <link rel="stylesheet" href="/css/inicial.css">
+  <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+</section>
 
- <%-include("./partiels/header.ejs")%>
+<%- include("./partiels/header.ejs")%>
 
-  <body> 
-    <%-include('./partiels/navbar.ejs')%>
+  <body>
+    <%- include('./partiels/navbar.ejs') %>
 
-    <section>
+      <section>
         <div class="box-anuncio">
-            <h1>Compre seu veículo pelo melhor preço</h1>
-            <p class="box-convite">A gente faz de tudo pra descomplicar sua compra e chegar o mais próximo do preço que você deseja para <strong>adquirir seu automóvel dos sonhos</strong>. Conte com a gente!<p>
-            
+          <h1>Compre seu veículo pelo melhor preço</h1>
+          <p class="box-convite">A gente faz de tudo pra descomplicar sua compra e chegar o mais próximo do preço que
+            você deseja para <strong>adquirir seu automóvel dos sonhos</strong>. Conte com a gente!
+          <p>
+
             <button class="botao-comprar">Compre Já!</button>
             <input type="checkbox" id="scales" name="scales">
             <label for="scales" class="label-check">Quero receber descontos, ofertas e informações.</label>
         </div>
-        <img src="https://production.autoforce.com/uploads/version/profile_image/8017/comprar-trekking-1-3_8de196c88f.png" alt="Retrato de um Fiat Argo" class="banner-argo">
-    </section>
+        <img
+          src="https://production.autoforce.com/uploads/version/profile_image/8017/comprar-trekking-1-3_8de196c88f.png"
+          alt="Retrato de um Fiat Argo" class="banner-argo">
+      </section>
 
-    <main>
-        <h2 class ="destaques">CARROS EM DESTAQUE</h2>
-        <%veiculos.forEach(veiculo =>{ %>
-          <div class="slider owl-carousel">
+      <main>
+        <h2 class="destaques">VEICULOS EM DESTAQUE</h2>
+        <div class="slider owl-carousel">
+          <% for(veiculo of veiculos){ %>
+
             <div class="card">
-              <div class="camry">
-                <img src="<%= veiculo.Imagem %>" alt="">
-              </div>
+              <div class="camry"><img src="<%= veiculo.Imagem %>" alt=""></div>
               <div class="content">
-                <div class="title"><%= veiculo.Modelo %></div>
-                <div class="sub-title">R$ <%= veiculo.Valor %></div>
-                <p><%= veiculo.Descricao %></p>
-                <div class="btn">
-                  <a href="/usuarios/login"><button>Ver Mais</button></a>
+                <div class="title">
+                  <%= veiculo.Nome %>
                 </div>
-              </div>
+                <div class="sub-title">R$ <%= veiculo.Valor %>
+                </div>
+                <p>
+                  <%= veiculo.Descricao %>
+                </p>
                 <div class="btn">
-                  <button>Ver Mais</button>
+                  <a href="/produtos/produto/<%=veiculo.idProduto %>"><button>Ver Mais</button></a>
                 </div>
               </div>
             </div>
-          </div>-->
+            <%}%>
+        </div>
+
+
+
+        
+
         <script>
           $(".slider").owlCarousel({
-            loop:true,
-            autoplay:true,
+            loop: true,
+            autoplay: true,
             autoplayTimeout: 5000,
             autoplayHoverPause: true,
           })
         </script>
-    </main>
-    <%-include("./partiels/footer.ejs")%>
+      </main>
+      <%- include("./partiels/footer.ejs")%>
 
   </body>
+
 </html>

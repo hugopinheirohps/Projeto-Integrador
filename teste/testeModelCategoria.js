@@ -1,8 +1,8 @@
-const {Categoria} = require('../database/models');
+const {categoria} = require('../database/models');
 
 async function teste(){
-    let categoria = await Categoria.findAll()
-    console.log(categoria.map(p=>p.toJSON())
+    let categorias = await categoria.findAll()
+    console.log(categorias.map(p=>p.toJSON())
         )}
 
 teste();
