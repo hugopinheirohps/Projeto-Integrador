@@ -1,6 +1,6 @@
 const loginCadastro = require('express').Router();
 
-loginCadastro.get('/login/cadastro',(req,res) =>{
+loginCadastro.get('/login',(req,res) =>{
     res.render('loginCadastro.ejs');
 })
 

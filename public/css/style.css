@@ -26,8 +26,7 @@ header{
 }
 header h2{
     color:#fff;
-    
-     text-size-adjust: 100%;
+    text-size-adjust: 100%;
      font-size: 2.5vh;
 }
 nav > ul {
@@ -44,9 +43,8 @@ section{
     width: 100%;
     max-width: 1100px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     margin:0 auto;
+    justify-content: center;
     gap: 50px;
     margin-top: 50px;
     text-align: center;
@@ -56,6 +54,10 @@ section{
     flex-direction: column;
     font-weight: bold;
     width: 320px;
+}
+h2{
+    
+    font-weight:bolder;
 }
 form > input{
     padding: 10px;
@@ -119,6 +121,10 @@ footer{
     nav{
         display: none;
     }
+    section{
+        flex-direction: column;
+       align-items: center;
+    }
    
     .material-symbols-outlined {
         font-variation-settings:
@@ -141,6 +147,7 @@ footer{
       section{
         gap: 20px;
         }
+
 }
 @media(max-width:530px){
     nav > ul > a{
@@ -177,7 +184,7 @@ footer{
         
          margin-left: 2px;
 }
-
+}}
 
 
     
