@@ -6,6 +6,10 @@ const app = express();
 
 //importando o roteador loginCadastro
 const loginCadastro = require('./src/routes/routerloginCadastro');
+const finalizacao = require('./src/routes/routerFinalizacao');
+const finalizacaodecompra = require('./src/routes/routerFinalizacao');
+const sucessodacompra = require('./src/routes/routerSucesso');
+
 
 // qual view engine vamos usar
 app.set('view engine', 'ejs');
@@ -24,6 +28,8 @@ app.use(express.json())
 
 // usando o roteador
 app.use(loginCadastro)
+app.use(finalizacaodecompra)
+app.use(sucessodacompra)
 
 
 

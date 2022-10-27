@@ -1,0 +1,28 @@
+<%- include ('./partiels/header.ejs') %>
+
+<body>
+    <%- include('./partiels/navbar.ejs') %>
+        <main>
+            <section>
+                <form id="form-login">
+                    <h1>Compra realizada com sucesso!</h1><br><br>
+                    <label for="">Detalhes do pedido</label><br>
+                    <input type="text" name="texto" id="texto"><br><br>
+                    <label for="">código de rastreamento</label><br>
+                    <input type="text" name="name" id="name"><br><br><br>
+                    <label for="">Data prevista da chegada do produto ao destinatário</label><br>
+                    <input type="date" name="entrega" id="entrega">
+                    <button type="submit">FINALIZAR</button>    
+                </form>
+
+                <form id="form-cadastro">
+                    <h1>Deixe aqui seus feedbacks :)</h1>
+                    <input type="text" name="pesquisad" id="pesquisad">
+                    <button type="submit">FINALIZAR MEU FEEDBACK</button>    
+                </form>
+            </section>
+        </main>
+        <%- include('./partiels/footer.ejs') %>
+            
+</body>
+</html>

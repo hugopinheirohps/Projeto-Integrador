@@ -39,6 +39,9 @@ nav > ul > a{
    font-size: 2vh;
   
 }
+h1 {
+    background-color: #9DD3DF;
+}
 section{
     width: 100%;
     max-width: 1100px;
