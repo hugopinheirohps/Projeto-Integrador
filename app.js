@@ -5,7 +5,7 @@ const express = require('express');
 const app = express();
 
 //importando o roteador loginCadastro
-const loginCadastro = require('./src/routes/routerloginCadastro');
+const login = require('./src/routes/routerlogin');
 const finalizacao = require('./src/routes/routerFinalizacao');
 const finalizacaodecompra = require('./src/routes/routerFinalizacao');
 const sucessodacompra = require('./src/routes/routerSucesso');
@@ -27,7 +27,7 @@ app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 
 // usando o roteador
-app.use(loginCadastro)
+app.use(login)
 app.use(finalizacaodecompra)
 app.use(sucessodacompra)
 
