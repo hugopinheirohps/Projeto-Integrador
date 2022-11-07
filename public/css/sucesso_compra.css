@@ -20,6 +20,7 @@ button{
 #form-pix {
   display: flex;
   flex-direction: column;
+  
   font-weight: bold;
   width: 320px;
 }
