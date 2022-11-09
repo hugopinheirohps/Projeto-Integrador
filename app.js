@@ -31,11 +31,8 @@ app.use(express.json())
 app.use(login)
 app.use(finalizacaodecompra)
 app.use(sucessodacompra)
-<<<<<<< HEAD
 app.use(produtos)
-=======
 app.use(produtoInterno)
->>>>>>> da83e7a7970cf3ca3ba8c8267a2e7c0132df64c1
 
 
 
