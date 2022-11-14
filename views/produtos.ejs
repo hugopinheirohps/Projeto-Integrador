@@ -1,30 +1,88 @@
 <%- include ('./partiels/header.ejs') %>
 
 <body>
-    <link rel="stylesheet" href="/css/sucesso_compra.css">
+    <link rel="stylesheet" href="/css/produtos.css">
     <%- include('./partiels/navbar.ejs') %>
-        <main>
-            <section>
-                <form id="form-finalize">
-                    <h1>Compra realizada com sucesso!</h1><br><br>
-                    <label for="">Detalhes do pedido</label><br>
-                    <input type="text" name="texto" id="texto"><br><br>
-                    <label for="">código de rastreamento</label><br>
-                    <input type="text" name="name" id="name"><br><br><br>
-                    <label for="">Data prevista da chegada do produto ao destinatário</label><br>
-                    <input type="date" name="entrega" id="entrega">
-                      
+
+        <options>
+            <article>   
+                <img src="/img/viewProdutos/imagemBrasil.png" alt="Seleção de estado">
+
+                <form action="">
+                    <label>Estado: </label>
+                    <input list="estados">
+                    <datalist id="estados">
+                        <option value="TO" />
+                        <option value="MA" />
+                    </datalist>
                 </form>
 
-                <form id="form-pix">
-                    <h1>Deixe aqui o seu feedback!</h1><br>
-                    
-                        <input type="text" name="pesquisad" id="pesquisad"><br>
-                    
-                    <button type="submit">FINALIZAR MEU FEEDBACK</button>    
+                <form action="">
+                    <label>Cidade: </label>
+                    <input list="cidade">
+                    <datalist id="cidade">
+                        <option value="Palmas" />
+                        <option value="Gurupi" />
+                    </datalist>
                 </form>
-            </section>
+                
+                <input type="text" name="pesquisa" placeholder="Digite a marca, modelo, cidade, estado ou escolha abaixo" autocomplete="off" value="">
+            </article>
+            <article>   
+                
+                <img src="/img/viewProdutos/icone_Moto.png" alt="Seleção de moto">
+
+
+                <form action="">
+                    <label>Marca: </label>
+                    <input list="marca">
+                    <datalist id="marca">
+                        <option value="Renault" />
+                        <option value="Ford" />
+                    </datalist>
+                </form>
+
+                <form action="">
+                    <label>Modelo: </label>
+                    <input list="modelo">
+                    <datalist id="modelo">
+                        <option value="Megane" />
+                        <option value="Logan" />
+                    </datalist>
+                </form>
+
+                <form action="">
+                    <label>Ordenar por: </label>
+                    <input list="ordenar">
+                    <datalist id="ordenar">
+                        <option value="Relevância" />
+                        <option value="Menor preço" />
+                    </datalist>
+                </form>
+
+                <button type="submit">Filtros</button>
+
+            </article>
+        </options>
+
+        <main>
+
+            <% for(let c=0; c<carros; c++) { %>
+                
+                <carro>   
+                    <img src="/img/viewProdutos/Moto.png" alt="Seleção de moto">
+                    <p>Nome Marca Ano </p>
+                    <label>Característica</label>
+                    <label>Km</label>
+                    <label>Localidade</label>
+                    <p>Preço</p>                       
+                </carro>
+
+            <% } %>
+
         </main>
+
+
         <%- include('./partiels/footer.ejs') %>
             
 </body>

@@ -1,7 +1,9 @@
 const produtos = require('express').Router();
 
 produtos.get('/produtos', (req,res)=>{
-    res.render('produtos')
+    let carros = 4;
+    res.render('produtos', {carros});
+
 } )
 
 module.exports = produtos;
