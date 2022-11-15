@@ -65,23 +65,20 @@
             </article>
         </options>
 
-        <main>
-
+        <produtos>
             <% for(let c=0; c<carros; c++) { %>
-                
-                <carro>   
-                    <img src="/img/viewProdutos/Moto.png" alt="Seleção de moto">
-                    <p>Nome Marca Ano </p>
-                    <label>Característica</label>
-                    <label>Km</label>
-                    <label>Localidade</label>
-                    <p>Preço</p>                       
-                </carro>
-
+                <a href="/produtoInterno/<%= c %>">
+                    <veiculo>   
+                        <img src="/img/viewProdutos/Moto.png" alt="Seleção de moto">
+                        <p>Nome Marca Ano </p>
+                        <label>Característica</label>
+                        <label>Km</label>
+                        <label>Localidade</label>
+                        <p>Preço</p>                       
+                    </veiculo>  
+                </a>      
             <% } %>
-
-        </main>
-
+        </produtos>
 
         <%- include('./partiels/footer.ejs') %>
             

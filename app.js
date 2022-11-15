@@ -10,7 +10,7 @@ const finalizacaodecompra = require('./src/routes/routerFinalizacao');
 const sucessodacompra = require('./src/routes/routerSucesso');
 const produtos = require('./src/routes/routerProdutos');
 const produtoInterno = require('./src/routes/routerProdutoInterno')
-
+const carrinho = require('./src/routes/routerCarrinho')
 
 // qual view engine vamos usar
 app.set('view engine', 'ejs');
@@ -33,6 +33,8 @@ app.use(finalizacaodecompra)
 app.use(sucessodacompra)
 app.use(produtos)
 app.use(produtoInterno)
+app.use(carrinho)
+
 
 
 
