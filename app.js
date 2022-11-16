@@ -33,6 +33,8 @@ app.use(finalizacaodecompra)
 app.use(sucessodacompra)
 app.use(produtos)
 app.use(produtoInterno)
+//falta rota painel de usuario
+// falta rota home
 
 
 
