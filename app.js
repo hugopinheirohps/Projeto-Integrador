@@ -7,8 +7,7 @@ const app = express();
 //importando o roteador 
 const usuario = require('./src/routes/routerUsuario');
 const produtos = require('./src/routes/routerProdutos');
-
-
+const carrinho = require('./src/routes/routerCarrinho')
 
 // qual view engine vamos usar
 app.set('view engine', 'ejs');
