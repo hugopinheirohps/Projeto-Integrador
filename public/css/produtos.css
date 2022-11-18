@@ -33,15 +33,17 @@ article > input,button{
 }
 
 produtos {
-    display: flex;
-    flex-direction: row;
+    width: 100%;
+    
+  display: flex;
+    justify-content: space-around;
     margin: auto;
     justify-content: center;
     margin-top: 50px;
     text-align: center;
 }  
 
-veiculo{  
+/*veiculo{  
   text-align: left;
   background-color: #F7F7F7;
   border-color: #F7F7F7;
@@ -51,7 +53,7 @@ veiculo{
   flex-direction: column;
   column-gap: 5px;
   row-gap: 5px;
-}
+}*/
 
 veiculo p{
   font-size: 20px;

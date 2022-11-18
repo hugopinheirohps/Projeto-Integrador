@@ -4,16 +4,18 @@ const express = require('express');
 //chamando a biblioteca express
 const app = express();
 
+const path = require('path')
+
 //importando o roteador 
-const usuario = require('./src/routes/routerUsuario');
-const produtos = require('./src/routes/routerProdutos');
-const carrinho = require('./src/routes/routerCarrinho')
+const routerUsuario = require('./routes/routerUsuario');
+const produtos = require('./routes/routerProdutos');
+const carrinho = require('./routes/routerCarrinho')
 
 // qual view engine vamos usar
 app.set('view engine', 'ejs');
 
 //onde está localizado a engine
-app.set('views','./views');
+app.set('views',path.resolve('./src/views'));
 
 //Onde vai ficar os recursos estáticos, na pasta public.
 app.use(express.static('public'));
@@ -25,7 +27,7 @@ app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 
 // usando o roteador
-app.use('/usuarios',usuario)
+app.use('/usuarios',routerUsuario);
 app.use('/produtos',produtos)
 
 
