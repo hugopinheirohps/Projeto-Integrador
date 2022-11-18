@@ -1,10 +1,14 @@
 const express = require('express');
 
-const router = express.Router();
-
-router.get('/', (req,res)=>{
-    let carros = 5;
+router.get('/produtos', (req,res)=>{
+    let carros = 4;
     res.render('produtos', {carros});
+
+} )
+
+router.get('/carrinho', (req,res)=>{
+    let carros = 4;
+    res.render('carrinho', {carros});
 
 } )
 
