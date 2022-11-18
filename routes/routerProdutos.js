@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const produtoController = require('../src/controller/produtoController');
 
-router.get('/produtos', (req,res)=>{
-    let carros = 4;
-    res.render('produtos', {carros});
+router.get('/', produtoController.produto);
 
-} )
+router.get('/carrinho', produtoController.carrinho);
 
 router.get('/interno',(req,res) =>{
     res.render('produtoInterno')
