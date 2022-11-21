@@ -9,6 +9,27 @@ section {
   text-align: center;
 }
 
+ul{
+  list-style: none;
+  display: flex;
+}
+
+img{
+  width: 368px;
+  height: 350px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+ /* box-sizing: border-box;*/
+}
+
+div{
+  display:inline-block;
+}
+
+
 
 
 @media (max-width: 700px) {

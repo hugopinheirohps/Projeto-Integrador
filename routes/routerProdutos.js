@@ -6,16 +6,10 @@ router.get('/', produtoController.produto);
 
 router.get('/carrinho', produtoController.carrinho);
 
-router.get('/interno',(req,res) =>{
-    res.render('produtoInterno')
-}),
+router.get('/produtoInterno', produtoController.produtoInterno);
 
-router.get('/finalizacao',(req,res) =>{
-    res.render('finalizacao')
-}),
+router.get('/finalizacao', produtoController.finalizacao);
 
-router.get('/sucesso',(req,res) =>{
-    res.render('sucesso')
-})
+router.get('/sucesso', produtoController.sucesso);
 
 module.exports = router;
