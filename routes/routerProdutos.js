@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const produtoController = require('../src/controller/produtoController');
 
+
 router.get('/', produtoController.produto);
+
 
 router.get('/carrinho', produtoController.carrinho);
 

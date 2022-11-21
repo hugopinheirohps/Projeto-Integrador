@@ -6,9 +6,13 @@ const app = express();
 
 const path = require('path')
 
+const multer = require('multer')
+
 //importando o roteador 
 const routerUsuario = require('./routes/routerUsuario');
+
 const routerProdutos = require('./routes/routerProdutos');
+
 
 // qual view engine vamos usar
 app.set('view engine', 'ejs');
