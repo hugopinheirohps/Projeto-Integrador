@@ -10,7 +10,9 @@ const multer = require('multer')
 
 //importando o roteador 
 const routerUsuario = require('./routes/routerUsuario');
-const produtos = require('./routes/routerProdutos');
+
+const routerProdutos = require('./routes/routerProdutos');
+
 
 // qual view engine vamos usar
 app.set('view engine', 'ejs');
@@ -29,7 +31,7 @@ app.use(express.json())
 
 // usando o roteador
 app.use('/usuarios',routerUsuario);
-app.use('/produtos',produtos)
+app.use('/produtos',routerProdutos)
 
 
 
