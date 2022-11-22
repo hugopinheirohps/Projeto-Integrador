@@ -1,52 +1,57 @@
 // importando o express
-const express = require('express');
+const express = require("express");
 
 //chamando a biblioteca express
 const app = express();
 
-const path = require('path')
+// impportando o express-validator
+const validator = require("express-validator");
 
-const multer = require('multer')
+const path = require("path");
 
-//importando o roteador 
-const routerUsuario = require('./routes/routerUsuario');
+//Fazer upload de arquivo
+const multer = require("multer");
 
-const routerProdutos = require('./routes/routerProdutos');
+//session do usuario
+const session = require("express-session");
 
+app.use(
+  session({
+    secret: "não revele o seu segredo",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
+//importando o roteador
+const routerUsuario = require("./routes/routerUsuario");
+
+const routerProdutos = require("./routes/routerProdutos");
 
 // qual view engine vamos usar
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
 //onde está localizado a engine
-app.set('views',path.resolve('./src/views'));
+app.set("views", path.resolve("./src/views"));
 
 //Onde vai ficar os recursos estáticos, na pasta public.
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 // receber requisição do corpo do formulario
-app.use(express.urlencoded({extended:false}))
+app.use(express.urlencoded({ extended: false }));
 
 // receber requisição do tipo json
-app.use(express.json())
+app.use(express.json());
 
 // usando o roteador
-app.use('/usuarios',routerUsuario);
-app.use('/produtos',routerProdutos)
+app.use("/usuarios", routerUsuario);
+app.use("/produtos", routerProdutos);
 
-
-
-
+//middleware global
+app.use((req, res, next) => {
+  res.status(404).render("404-page");
+  next();
+});
 
 //chamando o servidor
-app.listen(3000,(console.log("Servidor rodando na porta 3000")));
-
-
-
-
-
-
-
-
-
-
-
+app.listen(3000, console.log("Servidor rodando na porta 3000"));
