@@ -7,7 +7,7 @@ router.get('/', produtoController.produto);
 
 router.get('/carrinho', produtoController.carrinho);
 
-router.get('/produtoInterno', produtoController.produtoInterno);
+router.get('/Interno', produtoController.produtoInterno);
 
 router.get('/finalizacao', produtoController.finalizacao);
 
