@@ -37,6 +37,18 @@ nav > ul > a {
   margin: 50px 20px;
   font-size: 2vh;
 }
+.login{
+  color:#fff;
+  background-color: #3b3737;
+  display: block;
+  width: 70px;
+  height: 20px;
+  text-align: center;
+}
+.login:hover{
+  background-color: black;
+}
+
 footer {
   background-image: url(/img/moto.png);
   background-size: contain;
