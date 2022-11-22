@@ -10,6 +10,8 @@ const middlewareValidator = require("../middleware/middlewareValidator");
 
 const uploadFile = require("../middleware/middlewareMulter");
 
+router.get("/",usuarioController.painel);
+
 router.get("/login", usuarioController.login);
 
 router.post("/login", middlewareValidator, usuarioController.salvarLogin);

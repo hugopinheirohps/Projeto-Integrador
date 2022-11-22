@@ -5,7 +5,6 @@ const produtoController = require('../src/controller/produtoController');
 
 router.get('/', produtoController.produto);
 
-
 router.get('/carrinho', produtoController.carrinho);
 
 router.get('/produtoInterno', produtoController.produtoInterno);
