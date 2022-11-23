@@ -28,6 +28,8 @@ const routerUsuario = require("./routes/routerUsuario");
 
 const routerProdutos = require("./routes/routerProdutos");
 
+const routerInicial = require("./routes/routerinicial");
+
 // qual view engine vamos usar
 app.set("view engine", "ejs");
 
@@ -46,6 +48,7 @@ app.use(express.json());
 // usando o roteador
 app.use("/usuarios", routerUsuario);
 app.use("/produtos", routerProdutos);
+app.use("/", routerInicial);
 
 //middleware global
 app.use((req, res, next) => {
@@ -54,4 +57,4 @@ app.use((req, res, next) => {
 });
 
 //chamando o servidor
-app.listen(3000, console.log("Servidor rodando na porta 3000"));
+app.listen(4000, console.log("Servidor rodando na porta 4000"));
