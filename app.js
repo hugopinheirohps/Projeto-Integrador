@@ -5,7 +5,7 @@ const express = require("express");
 const app = express();
 
 // impportando o express-validator
-const validator = require("express-validator");
+var expressValidator = require('express-validator');
 
 const path = require("path");
 

@@ -10,13 +10,25 @@ section {
 }
 
 ul{
-  list-style: none;
-  display: flex;
+  border-radius: 20px;
+  font-size: 17px;
+}
+#ul21{
+  background-color: #C9D1D3;
+ 
+}
+
+#ul22 {
+  background-color: #3B3737;
 }
 
 img{
   width: 368px;
   height: 350px;
+}
+
+ul{
+  border-radius: 10px;
 }
 
 * {
@@ -27,6 +39,13 @@ img{
 
 div{
   display:inline-block;
+
+}
+#ul2{
+  background-color: gray;
+  border-radius: 4px;
+  font-size: 17px;
+
 }
 
 
