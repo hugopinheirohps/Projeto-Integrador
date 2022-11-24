@@ -14,7 +14,6 @@ html {
 header {
     display: flex;
     width: 100vw;
-    /* max-width: 1100px; */
     background-size: cover;
     height: 100px;
     margin: 0 auto;
@@ -24,8 +23,6 @@ header {
     background-repeat: no-repeat;
     align-items: center;    
     justify-content: space-between;
-    
-    /* box-shadow: 0px 3px 3px black; */
 }
 
 header h2 {
@@ -36,7 +33,6 @@ header h2 {
 nav>ul {
     display: flex;
     padding-right: 140px;
-    /* background-color: blueviolet; */
 }
 
 nav>ul>a {
@@ -45,13 +41,6 @@ nav>ul>a {
     font-size: 20px;
     
 }
-
-
-
-
-
-
-
 
 
 /* main */
@@ -97,7 +86,6 @@ main {
     justify-content: space-between;
     align-items: center;
     width: 70%;
-    /* background-color: brown; */
 
 }
 
@@ -146,14 +134,12 @@ main {
     .imagens{
         flex-direction: column;
         justify-content: space-around;
-        /* background-color: aqua; */
         width: 200px;
         height: 100%;
     }
     .moto1,
     .moto2 {
         height: 180px;
-        /* width: 180px; */
         
     }
     
@@ -179,15 +165,12 @@ main {
 
 
 footer {
-    /* background-color: black; */
     background-image: url(/img/moto.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 100vw;
-    /* max-width: 11000px; */
     height: 220px;
-    /* margin: 0 0 0 0; */
     margin-top: 40px;
     display: flex;
     align-items: center;
@@ -200,7 +183,6 @@ footer {
     display: flex;
     justify-content: space-around;
     padding-top: 50px;
-    /* background-color: aqua; */
     width: 97%;
 }
 
@@ -222,13 +204,11 @@ footer {
 .social2 h3 {
     color: #fff;
     padding-left: 10px;
-    /* background-color: aqua; */
 }
 
 
 
 
-/* Responsividade*/
 
 
 
