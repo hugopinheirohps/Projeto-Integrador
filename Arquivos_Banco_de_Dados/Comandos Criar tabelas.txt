@@ -1,0 +1,164 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema webveiculos
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema webveiculos
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `webveiculos` DEFAULT CHARACTER SET utf8 ;
+USE `webveiculos` ;
+
+-- -----------------------------------------------------
+-- Table `webveiculos`.`Clientes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `webveiculos`.`Clientes` (
+  `idCliente` INT NOT NULL AUTO_INCREMENT,
+  `Nome` VARCHAR(45) NOT NULL,
+  `Endereco` VARCHAR(250) NOT NULL,
+  `Telefone` VARCHAR(45) NOT NULL,
+  `Email` VARCHAR(45) NOT NULL,
+  `Senha` VARCHAR(128) NOT NULL,
+  `CPF` CHAR(11) NOT NULL,
+  PRIMARY KEY (`idCliente`),
+  UNIQUE INDEX `CPF_UNIQUE` (`CPF` ASC) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `webveiculos`.`Categorias`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `webveiculos`.`Categorias` (
+  `idCategoria` INT NOT NULL AUTO_INCREMENT,
+  `Nome` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idCategoria`),
+  UNIQUE INDEX `Nome_UNIQUE` (`Nome` ASC) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `webveiculos`.`Pagamentos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `webveiculos`.`Pagamentos` (
+  `idPagamentos` INT NOT NULL AUTO_INCREMENT,
+  `Nome` VARCHAR(45) NULL,
+  PRIMARY KEY (`idPagamentos`),
+  UNIQUE INDEX `idPagamentos_UNIQUE` (`idPagamentos` ASC) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `webveiculos`.`Pedidos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `webveiculos`.`Pedidos` (
+  `idPedidos` INT NOT NULL AUTO_INCREMENT,
+  `Clientes_idCliente` INT NOT NULL,
+  `Status` VARCHAR(45) NULL,
+  `Pagamentos_idPagamentos` INT NOT NULL,
+  PRIMARY KEY (`idPedidos`, `Pagamentos_idPagamentos`),
+  INDEX `fk_Pedidos_Clientes1_idx` (`Clientes_idCliente` ASC) ,
+  INDEX `fk_Pedidos_Pagamentos1_idx` (`Pagamentos_idPagamentos` ASC) ,
+  UNIQUE INDEX `idPedidos_UNIQUE` (`idPedidos` ASC) ,
+  CONSTRAINT `fk_Pedidos_Clientes1`
+    FOREIGN KEY (`Clientes_idCliente`)
+    REFERENCES `webveiculos`.`Clientes` (`idCliente`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Pedidos_Pagamentos1`
+    FOREIGN KEY (`Pagamentos_idPagamentos`)
+    REFERENCES `webveiculos`.`Pagamentos` (`idPagamentos`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `webveiculos`.`Marcas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `webveiculos`.`Marcas` (
+  `idMarcas` INT NOT NULL AUTO_INCREMENT,
+  `Nome` VARCHAR(45) NULL,
+  PRIMARY KEY (`idMarcas`),
+  UNIQUE INDEX `Nome_UNIQUE` (`Nome` ASC) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `webveiculos`.`Produtos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `webveiculos`.`Produtos` (
+  `idProduto` INT NOT NULL AUTO_INCREMENT,
+  `Valor` DECIMAL(6,2) NOT NULL,
+  `Modelo` VARCHAR(45) NOT NULL,
+  `Placa` VARCHAR(45) NOT NULL,
+  `Ano` VARCHAR(45) NOT NULL,
+  `Categorias_idCategorias` INT NOT NULL,
+  `Pedidos_idPedidos` INT NOT NULL,
+  `Marcas_idMarcas` INT NOT NULL,
+  `Quantidade` DECIMAL(6) NOT NULL,
+  `Ativo` TINYINT NOT NULL,
+  `Oferta` VARCHAR(45) NULL,
+  PRIMARY KEY (`idProduto`),
+  INDEX `fk_Produtos_Categoria_idx` (`Categorias_idCategorias` ASC) ,
+  UNIQUE INDEX `Placa_UNIQUE` (`Placa` ASC) ,
+  INDEX `fk_Produtos_Pedidos1_idx` (`Pedidos_idPedidos` ASC) ,
+  INDEX `fk_Produtos_Marcas1_idx` (`Marcas_idMarcas` ASC) ,
+  CONSTRAINT `fk_Produtos_Categoria`
+    FOREIGN KEY (`Categorias_idCategorias`)
+    REFERENCES `webveiculos`.`Categorias` (`idCategoria`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Produtos_Pedidos1`
+    FOREIGN KEY (`Pedidos_idPedidos`)
+    REFERENCES `webveiculos`.`Pedidos` (`idPedidos`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Produtos_Marcas1`
+    FOREIGN KEY (`Marcas_idMarcas`)
+    REFERENCES `webveiculos`.`Marcas` (`idMarcas`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `webveiculos`.`Combustiveis`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `webveiculos`.`Combustiveis` (
+  `idCombustiveis` INT NOT NULL AUTO_INCREMENT,
+  `Tipo` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idCombustiveis`),
+  UNIQUE INDEX `idCombustiveis_UNIQUE` (`idCombustiveis` ASC) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `webveiculos`.`Produtos_has_Combustiveis`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `webveiculos`.`Produtos_has_Combustiveis` (
+  `Produtos_idProduto` INT NOT NULL,
+  `Combustiveis_idCombustiveis` INT NOT NULL,
+  PRIMARY KEY (`Produtos_idProduto`, `Combustiveis_idCombustiveis`),
+  INDEX `fk_Produtos_has_Combustiveis_Combustiveis1_idx` (`Combustiveis_idCombustiveis` ASC) ,
+  INDEX `fk_Produtos_has_Combustiveis_Produtos1_idx` (`Produtos_idProduto` ASC) ,
+  CONSTRAINT `fk_Produtos_has_Combustiveis_Produtos1`
+    FOREIGN KEY (`Produtos_idProduto`)
+    REFERENCES `webveiculos`.`Produtos` (`idProduto`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Produtos_has_Combustiveis_Combustiveis1`
+    FOREIGN KEY (`Combustiveis_idCombustiveis`)
+    REFERENCES `webveiculos`.`Combustiveis` (`idCombustiveis`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
