@@ -12,7 +12,8 @@ const produtoController ={
     },
 
     produtoInterno:(req,res) => {
-        res.render('produtoInterno.ejs',);
+        
+        res.render('produtoInterno.ejs');
     },
     
     finalizacao:(req,res) => {
