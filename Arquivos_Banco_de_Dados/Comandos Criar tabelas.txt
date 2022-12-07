@@ -93,14 +93,13 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `webveiculos`.`Produtos` (
   `idProduto` INT NOT NULL AUTO_INCREMENT,
-  `Valor` DECIMAL(6,2) NOT NULL,
+  `Valor` DECIMAL(8,2) NOT NULL,
   `Modelo` VARCHAR(45) NOT NULL,
   `Placa` VARCHAR(45) NOT NULL,
   `Ano` VARCHAR(45) NOT NULL,
   `Categorias_idCategorias` INT NOT NULL,
   `Pedidos_idPedidos` INT NOT NULL,
   `Marcas_idMarcas` INT NOT NULL,
-  `Quantidade` DECIMAL(6) NOT NULL,
   `Ativo` TINYINT NOT NULL,
   `Oferta` VARCHAR(45) NULL,
   PRIMARY KEY (`idProduto`),
