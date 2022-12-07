@@ -5,31 +5,82 @@ body {
   line-height: 20px;
   letter-spacing: 0em;
   text-align: center;
+  gap: 25%;
 }
 
 options {
-  width: 60vw;
-  display: flex;
+  
+  height: 15vh;
+  display: grid;
   flex-direction: column;
   margin: auto;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 20px;
   text-align: center;
+  gap: 15%;
+  
+}
+
+article{
+  width: 60vw;
+  display: flex;
+  text-align: left;
+  gap: 5%;
+  margin-top: 20px;
+
+  justify-content: center;
+  align-items: center;
 }
 
 
-article{
-    display: flex;
-    text-align: left;
-    gap: 5%;
-    margin-top: 20px;
+@media (max-width: 700px) {
+  article{    
+    display:grid;
+    width: auto;
+    justify-content: left;
+    align-items: left;
   }
+  options {
+    margin-bottom: 220px;
+  }
+}
+@media (max-width: 530px) {
+  article{    
+    display:grid;
+    width: auto;
+  }
+}
+@media (max-width: 430px) {
+  article{    
+    display:grid;
+    width: auto;
+  }
+}
+@media (max-width: 342px) {
+  article{    
+    display:grid;
+    width: auto;
+  }
+}
+
+options > article > input{
+  background-color: #F7F7F7;
+  border-color: #F7F7F7;
+  min-width: 220px;
+  min-height: 35px;
+}
+
+options > article > button{
+  background-color: #F7F7F7;
+  border-color: #F7F7F7;
+  min-width: 80px;
+  min-height: 25px;
+  
+}
 
 article > input,button{
   border-radius: 5px;
-  width: 40vw;
-  background-color: #F7F7F7;
-  border-color: #F7F7F7;
+  width: 35vw;
 }
 
 produtos {
@@ -39,18 +90,42 @@ produtos {
     justify-content: center;
     margin-top: 50px;
     text-align: center;
+
+    width: 50vw;
 }  
 
 veiculo{  
   text-align: left;
   background-color: #F7F7F7;
   border-color: #F7F7F7;
-  width: 275px;
+  width: 270px;
 
-  display: grid;
+  display:flex;
   flex-direction: column;
   column-gap: 5px;
   row-gap: 5px;
+}
+
+
+@media (max-width: 700px) {
+  produtos{    
+    display:grid;
+  }
+}
+@media (max-width: 530px) {
+  produtos{    
+    display:grid;
+  }
+}
+@media (max-width: 430px) {
+  produtos{    
+    display:grid;
+  }
+}
+@media (max-width: 342px) {
+  produtos{    
+    display:grid;
+  }
 }
 
 veiculo p{
