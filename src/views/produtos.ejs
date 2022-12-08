@@ -1,0 +1,87 @@
+<%- include ('./partiels/header.ejs') %>
+
+<body>
+    <link rel="stylesheet" href="/css/produtos.css">
+    <%- include('./partiels/navbar.ejs') %>
+
+        <options>
+            <article>   
+                <img src="/img/viewProdutos/imagemBrasil.png" alt="Seleção de estado">
+
+                <form action="">
+                    <label>Estado: </label>
+                    <input list="estados">
+                    <datalist id="estados">
+                        <option value="TO" />
+                        <option value="MA" />
+                    </datalist>
+                </form>
+
+                <form action="">
+                    <label>Cidade: </label>
+                    <input list="cidade">
+                    <datalist id="cidade">
+                        <option value="Palmas" />
+                        <option value="Gurupi" />
+                    </datalist>
+                </form>
+                
+                <input type="text" name="pesquisa" placeholder="Digite a marca, modelo, cidade, estado ou escolha abaixo" autocomplete="off" value="">
+            </article>
+            
+            <article>   
+                
+                <img src="/img/viewProdutos/icone_Moto.png" alt="Seleção de moto">
+
+
+                <form action="">
+                    <label>Marca: </label>
+                    <input list="marca">
+                    <datalist id="marca">
+                        <option value="Renault" />
+                        <option value="Ford" />
+                    </datalist>
+                </form>
+
+                <form action="">
+                    <label>Modelo: </label>
+                    <input list="modelo">
+                    <datalist id="modelo">
+                        <option value="Megane" />
+                        <option value="Logan" />
+                    </datalist>
+                </form>
+
+                <form action="">
+                    <label>Ordenar por: </label>
+                    <input list="ordenar">
+                    <datalist id="ordenar">
+                        <option value="Relevância" />
+                        <option value="Menor preço" />
+                    </datalist>
+                </form>
+
+                <button type="submit">Filtros</button>
+
+            </article>
+        </options>
+
+        <produtos>
+            <% for(let c=0; c<carros; c++) { %>
+                <a href="/produtoInterno/<%= c %>">
+                    <veiculo>   
+                        <img src="/img/viewProdutos/Moto.png" alt="Seleção de moto">
+                        <p>Nome Marca Ano </p>
+                        <label>Característica</label>
+                        <label>Km</label>
+                        <label>Localidade</label>
+                        <p>Preço</p>                       
+                    </veiculo>  
+                </a>      
+            <% } %>
+        </produtos>
+
+        <%- include('./partiels/footer.ejs') %>
+            
+</body>
+</html>

@@ -1,0 +1,58 @@
+<%- include ('./partiels/header.ejs') %>
+
+    <body>
+        <link rel="stylesheet" href="/css/login.css">
+        <%- include('./partiels/navbar.ejs') %>
+            <main>
+                <section>
+                    <form action="/usuarios/login" method="post" enctype="multipart/form-data" id="form-login">
+                        <h2>Faça Login</h2>
+                        <input type="email" name="email" placeholder="Digite seu email" required>
+                        <input type="password" name="senha" placeholder="Digite sua senha" required>
+                        <button type="submit">ENTRAR</button>
+                        <a href="#">
+                            <p>esqueci minha senha</p>
+                        </a>
+                    </form>
+
+                    <form action="/usuarios/cadastro" method="post" enctype="multipart/form-data" id="form-cadastro">
+                        <h2>Criar Conta</h2>
+                        <input type="text" name="nome" placeholder="Digite seu nome completo" required>
+                        <input type="email" name="email" placeholder="Digite seu email" required>
+                        <input type="tel" name="text" placeholder="Digite seu telefone" required>
+                        <input type="password" name="senha" placeholder="Criar senha" required>
+                        <input type="password" name="senha" placeholder="Confirma senha" required>
+                        <label for="perfil" class="picture"><span class="picture-image"></span></label>
+                        <input type="file" name="avatar" id="perfil" placeholder="imagem usuario">
+
+                        <button type="submit">CADASTRAR</button>
+                    </form>
+                </section>
+            </main>
+            <%- include('./partiels/footer.ejs') %>
+                <Script>
+                    const inputFile = document.querySelector('#perfil');
+
+                    const pictureImg = document.querySelector('.picture-image')
+
+                    const pictureImgText = "imagem do perfil"
+
+                    pictureImg.innerHTML = pictureImgText
+
+                    inputFile.addEventListener('change',(event) =>{
+                        const inputTarget = event.target
+                        
+                        const file = inputTarget.file[0]
+                        
+                        if(file){
+                            pictureImg.innerHTML = "imagem selecionada"
+                        }else{
+                            pictureImg.innerHTML = pictureImgText
+                        }
+                    })
+
+
+                </Script>
+    </body>
+
+    </html>
