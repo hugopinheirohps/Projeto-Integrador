@@ -1,7 +1,9 @@
-const produtoController ={
-    produto:(req,res) =>{
+const {Produtos} = require('../../database/models');
 
-        let carros = 4;
+const produtoController ={
+    produto:async (req,res) =>{
+
+        let carros = await Produtos.findAll({include:'categoria'});
         res.render('produtos.ejs', {carros});
     
     },
