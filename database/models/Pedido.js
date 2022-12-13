@@ -23,7 +23,7 @@ module.exports = (sequelize,DataType)=>{
     
     pedido.associate = (models) =>{
         pedido.belongsTo(models.Pagamento,{
-            as:'pagamneto',
+            as:'pagamento',
             foreignKey:'Pagamentos_idPagamento',
             timestamps:false
         });
