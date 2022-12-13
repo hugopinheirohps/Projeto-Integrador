@@ -1,8 +1,8 @@
-const {Combustiveis} = require('../database/models');
+const {Combustivel} = require('../database/models');
 
 async function teste(){
-    let combustivel = await Combustiveis.findAll()
-    console.log(combustivel);
-}
+    let combustiveis = await Combustivel.findAll()
+    console.log(combustiveis.map(p=>p.toJSON())
+        )};
 
 teste();

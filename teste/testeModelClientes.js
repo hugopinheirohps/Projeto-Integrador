@@ -2,7 +2,7 @@ const {Cliente} = require('../database/models');
 
 async function teste(){
     let clientes = await Cliente.findAll()
-    console.log(clientes);
-}
+    console.log(clientes.map(p=>p.toJSON())
+        )};
 
 teste();

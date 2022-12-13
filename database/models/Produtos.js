@@ -29,7 +29,7 @@ module.exports = (sequelize,DataTypes)=>{
             foreignKey:'Categorias_idCategorias',
             timestamps:false
         })
-        /* Fazer models
+        
         produto.belongsTo(models.Pedidos,{
             as: 'pedido',
             foreignKey:'Pedidos_idPedidos',
@@ -40,7 +40,7 @@ module.exports = (sequelize,DataTypes)=>{
             foreignKey:'Marcas_idMarcas',
             timestamps:false
         })
-        */ 
+       
     }
 
     
