@@ -5,9 +5,19 @@
     list-style: none;
     text-decoration: none;
 }
+li{
+    color: #3b3737;
+}
+
+a {
+    color: #000000;
+}
 
 body,
 html {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 100%;
 }
 
@@ -21,7 +31,7 @@ header {
     background-image: url(/img/carro.webp);
     background-position: center;
     background-repeat: no-repeat;
-    align-items: center;    
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -39,7 +49,7 @@ nav>ul>a {
     color: #fff;
     margin: 50px 20px;
     font-size: 20px;
-    
+
 }
 
 
@@ -47,10 +57,16 @@ nav>ul>a {
 
 
 main {
-    height: 500px;  
+    padding-top: 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    width: 100%;
+
+}
+
+.pedidos h3 {
+    padding-left: 33%;
 }
 
 .dados {
@@ -61,13 +77,6 @@ main {
     justify-content: space-between;
     height: 360px;
     text-align: center;
-}
-
-.dados li {
-    color: #7B7070;
-    margin-top: -40px;
-
-
 }
 
 .moto1,
@@ -81,36 +90,75 @@ main {
     width: 100%;
     height: 100%;
 }
-.imagens{
-    display:flex;
+
+.imagens {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     width: 70%;
 
+
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+    font-size: x-small;
+
+
+
+}
+
+h4 {
+    height: 100%;
+    width: 20%;
+    border: 1px black solid;
+}
+
+.dadosPedidos {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+    font-size: x-small;
+    justify-content: center;
+    width: 100%;
+}
+
+.p {
+    height: 40px;
+    width: 20%;
+    border: 1px black solid;
+}
+
+.pedidos {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    height: 100%;
+
 }
 
 /* Main responsivo*/
-@media(max-width:1130px){
+@media(max-width:1130px) {
     main {
-        height: 400px;
-        }
-    
-    .dados {
-        height: 249px;
+        /* height: 400px; */
+        flex-direction: column;
     }
-    
-    .dados li {
-        margin-top: -20px;
-    
+
+    .dados {
+        height: 500px;
     }
 
     .moto1,
     .moto2 {
         height: 300px;
         width: auto;
-        
+
     }
-    
+
     .moto1 img,
     .moto2 img {
         width: 100%;
@@ -119,44 +167,37 @@ main {
 }
 
 
-@media(max-width:990px){
+@media(max-width:990px) {
+
     .moto1,
     .moto2 {
         height: 250px;
         width: auto;
-        
+
     }
 
 }
 
 
-@media(max-width:825px){
-    .imagens{
+@media(max-width:825px) {
+    .imagens {
         flex-direction: column;
         justify-content: space-around;
         width: 200px;
         height: 100%;
     }
+
     .moto1,
     .moto2 {
         height: 180px;
-        
+
     }
-    
+
     .moto1 img,
     .moto2 img {
         width: 100%;
         height: 100%;
     }
-    .dados {
-        height: 330px;
-    }
-    .dados li {
-        margin-top: -40px;
-    
-    }
-
-
 }
 
 
@@ -175,7 +216,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    
+
 
 }
 
@@ -193,7 +234,7 @@ footer {
 .social1 {
     display: flex;
     gap: 20px;
-    
+
 }
 
 .social2 li {

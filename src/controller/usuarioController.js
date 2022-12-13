@@ -6,6 +6,8 @@ const usuarioController = {
 
   painel: (req, res) => {res.render("usuario.ejs")},
 
+  pedidos:(req,res)=>{res.render("pedidos.ejs")},
+
   cadastrar: (req, res) => {
     if (!req.file) {
       res.send("Você não enviou nenhuma imagem!");
