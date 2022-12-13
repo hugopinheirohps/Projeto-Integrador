@@ -1,3 +1,4 @@
+require('dotenv').config()
 module.exports = (sequelize,DataType)=>{
     const cliente = sequelize.define("Cliente", {
         idCliente:{
@@ -16,7 +17,7 @@ module.exports = (sequelize,DataType)=>{
         Senha:DataType.STRING,
         //Completar os dados de acordo com coluna da tabela
     },{
-        tableName:'clientes',
+        tableName:'Clientes',
         timestamps:false,
     })
     return cliente;

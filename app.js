@@ -1,8 +1,11 @@
+require('dotenv').config();
+
 // importando o express
 const express = require("express");
 
 //chamando a biblioteca express
 const app = express();
+
 
 // impportando o express-validator
 var expressValidator = require('express-validator');
@@ -57,4 +60,4 @@ app.use((req, res, next) => {
 });
 
 //chamando o servidor
-app.listen(4000, console.log("Servidor rodando na porta 4000"));
+app.listen(3000, console.log("Servidor rodando na porta 3000"));
