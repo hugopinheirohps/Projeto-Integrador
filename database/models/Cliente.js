@@ -1,3 +1,4 @@
+require('dotenv').config()
 module.exports = (sequelize,DataType)=>{
     const cliente = sequelize.define("Cliente", {
         idCliente:{

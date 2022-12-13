@@ -1,8 +1,11 @@
+require('dotenv').config();
+
 // importando o express
 const express = require("express");
 
 //chamando a biblioteca express
 const app = express();
+
 
 // impportando o express-validator
 var expressValidator = require('express-validator');
