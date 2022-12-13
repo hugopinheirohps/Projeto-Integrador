@@ -1,6 +1,6 @@
 module.exports = (sequelize,DataTypes)=>{
-    const produto = sequelize.define("Produtos", {
-        idProdutos:{
+    const produto = sequelize.define("Produto", {
+        idProduto:{
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
@@ -20,6 +20,28 @@ module.exports = (sequelize,DataTypes)=>{
         Ano:{
             type: DataTypes.STRING,
         }
+    },{
+        tableName:'Produtos',
+        timestamps:false,
     })
+    produto.associate = (models) =>{
+        produto.belongsTo(models.Categoria,{
+            as: 'categoria',
+            foreignKey:'Categorias_idCategorias',
+            timestamps:false
+        })
+        
+        produto.belongsTo(models.Pedido,{
+            as: 'pedido',
+            foreignKey:'Pedidos_idPedidos',
+            timestamps:false
+        })
+        produto.belongsTo(models.Marca,{
+            as: 'marca',
+            foreignKey:'Marcas_idMarcas',
+            timestamps:false
+        })
+       
+    }
     return produto;
 }
