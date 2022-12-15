@@ -17,7 +17,10 @@ module.exports = (sequelize,DataTypes)=>{
         Ano:{
             type: DataTypes.STRING,
         },
+<<<<<<< HEAD
         
+=======
+>>>>>>> c717a15c172d91e358808d9e6d7fb24781bc095d
     },{
         tableName:'produtos',
         timestamps:false,
@@ -28,7 +31,6 @@ module.exports = (sequelize,DataTypes)=>{
             foreignKey:'Categorias_idCategorias',
             timestamps:false
         })
-        
         produto.belongsTo(models.Pedido,{
             as: 'pedido',
             foreignKey:'Pedidos_idPedidos',
@@ -39,7 +41,6 @@ module.exports = (sequelize,DataTypes)=>{
             foreignKey:'Marcas_idMarcas',
             timestamps:false
         })
-       
     }
     return produto;
 }
