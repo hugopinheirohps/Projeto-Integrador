@@ -1,8 +1,8 @@
-const {Pedidos} = require('../database/models');
+const {Pedido} = require('../database/models');
 
 async function teste(){
     
-    let produto = await Pedidos.findAll()
+    let produto = await Pedido.findAll()
     console.log(produto.map(p=>p.toJSON())
     );
 }

@@ -1,5 +1,5 @@
 module.exports = (sequelize,DataTypes)=>{
-    const produto = sequelize.define("Produto", {
+    const produto = sequelize.define("produto", {
         idProduto:{
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -17,11 +17,9 @@ module.exports = (sequelize,DataTypes)=>{
         Ano:{
             type: DataTypes.STRING,
         },
-        Ano:{
-            type: DataTypes.STRING,
-        }
+        
     },{
-        tableName:'Produtos',
+        tableName:'produtos',
         timestamps:false,
     })
     produto.associate = (models) =>{
