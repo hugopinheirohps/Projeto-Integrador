@@ -1,5 +1,5 @@
 module.exports = (sequelize,DataTypes)=>{
-    const produto = sequelize.define("Produto", {
+    const produto = sequelize.define("produto", {
         idProduto:{
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -17,11 +17,8 @@ module.exports = (sequelize,DataTypes)=>{
         Ano:{
             type: DataTypes.STRING,
         },
-        Ano:{
-            type: DataTypes.STRING,
-        }
     },{
-        tableName:'Produtos',
+        tableName:'produtos',
         timestamps:false,
     })
     produto.associate = (models) =>{
@@ -30,7 +27,6 @@ module.exports = (sequelize,DataTypes)=>{
             foreignKey:'Categorias_idCategorias',
             timestamps:false
         })
-        
         produto.belongsTo(models.Pedido,{
             as: 'pedido',
             foreignKey:'Pedidos_idPedidos',
@@ -41,7 +37,6 @@ module.exports = (sequelize,DataTypes)=>{
             foreignKey:'Marcas_idMarcas',
             timestamps:false
         })
-       
     }
     return produto;
 }
