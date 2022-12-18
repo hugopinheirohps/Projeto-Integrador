@@ -1,5 +1,6 @@
+require('dotenv').config()
 module.exports = (sequelize,DataType)=>{
-    const categoria = sequelize.define("Categoria", {
+    const categoria = sequelize.define("categoria", {
         idCategoria:{
             type:DataType.INTEGER,
             primaryKey: true,
@@ -8,7 +9,7 @@ module.exports = (sequelize,DataType)=>{
         Nome:DataType.STRING,
         
     },{
-        tableName:'Categorias',
+        tableName:'categorias',
         timestamps:false,
     })
     return categoria;

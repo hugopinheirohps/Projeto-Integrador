@@ -7,17 +7,15 @@
         <main>
 
             <produtos>
-                <% for(let c=0; c<carros; c++) { %>
-                    <a href="/produtoInterno/<%= c %>">
+                <% for(let car of carros) { %>
+                    <a href="/produtoInterno/<%= car.idProduto %>">
                         <veiculo>   
                             <img src="/img/viewProdutos/Moto.png" alt="Seleção de moto">
-                            <p>Nome Marca Ano </p>
-                            <label>Característica</label>
-                            <label>Km</label>
-                            <label>Localidade</label>
-                            <p>Preço</p>                       
-                        </veiculo>                      
-                    </a>    
+                            <p><%= marcas[car.Marcas_idMarcas-1].Nome  %> <%= car.Modelo %> <%= car.Ano %> </p>
+                            <label><%= categorias[car.Categorias_idCategorias-1].Nome %></label>
+                            <p>R$ <%= car.Valor %></p>                       
+                        </veiculo>  
+                    </a>   
                 <% } %>
             </produtos>
     
@@ -27,10 +25,10 @@
                     <br><br>
                     <label>Endereço de faturamento</label>
                     <input type="text" name="endereco" placeholder="Rua Exemplo, Número 77..." autocomplete="off" value="" readonly>
-                    <a href="/produtoInterno/<%= 1 %>">Alterar</a>
+                    <a href="/usuarios/cadastro/">Alterar</a>
                     <br><br>
-                    <p>Total</p>  
-                    <p>R$ 20.000,00</p>     
+                    <p>Total</p>    
+                    <p>R$ <%= valorTotal %></p>   
                     
                     <a href="/produtos ">Adicionar outro produto</a>
                     <a href="/finaizacao ">Continuar</a>

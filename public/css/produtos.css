@@ -91,7 +91,8 @@ produtos {
     margin-top: 50px;
     text-align: center;
 
-    width: 50vw;
+    /*config para dar 'quebra de linha' nos blocos  */
+    flex-wrap: wrap;
 }  
 
 veiculo{  
