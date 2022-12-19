@@ -1,33 +1,75 @@
-const {Produtos} = require('../../database/models');
+const {produto} = require('../../database/models');
+const {marca} = require('../../database/models');
+const {categoria} = require('../../database/models');
+
 
 const produtoController ={
     produto:async (req,res) =>{
-
-        let carros = await Produto.findAll();
-        res.render('produtos.ejs', {carros})
-    },
-
-    carrinho:(req,res) => {
-        let carros = 4;
-        res.render('carrinho.ejs', {carros});
-    },
-
-    produtoInterno:(req,res) => {
         
-        res.render('produtoInterno.ejs');
-    },
+        let carros = await produto.findAll()
+
+        let marcas = await marca.findAll(
+            {
+                order: [
+                    ['idMarcas', 'ASC'],
+                ]
+            }
+        ); 
+        let categorias = await categoria.findAll(
+            {
+                order: [
+                    ['idCategoria', 'ASC'],
+                ]
+            }
+        );
+
+        res.render('produtos.ejs', {carros, marcas,categorias});
+
+        //console.log(carros.map(p=>p.toJSON()));        
+        //console.log(marcas.map(p=>p.toJSON()));    
+        //console.log(categorias.map(p=>p.toJSON()));  
     
-    finalizacao:(req,res) => {
+    },
+
+    carrinho: async (req,res) => {
         
-        res.render('finalizacao.ejs');
+        let carros = await produto.findAll()
+        let marcas = await marca.findAll(
+            {
+                order: [
+                    ['idMarcas', 'ASC'],
+                ]
+            }
+        ); 
+        let categorias = await categoria.findAll(
+            {
+                order: [
+                    ['idCategoria', 'ASC'],
+                ]
+            }
+        );
+
+
+        let valorTotal = 0;        
+        for(let car of carros)
+        {
+            valorTotal = valorTotal + parseFloat(car.Valor);
+        }
+
+        res.render('carrinho.ejs', {carros, marcas,categorias,valorTotal});
+
     },
 
-    sucesso:(req,res) => {
-    
-        res.render('sucesso.ejs');
-    }
+  finalizacao: (req, res) => {
+    res.render("finalizacao.ejs");
+  },
 
-
-}
+  sucesso: (req, res) => {
+    res.render("sucesso.ejs");
+  },
+  produtoInterno: (req, res) => {
+    res.render("produtoInterno.ejs");
+  },
+};
 
 module.exports = produtoController;

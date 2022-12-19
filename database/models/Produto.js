@@ -1,21 +1,31 @@
+<<<<<<< HEAD
 module.exports = (sequelize,DataTypes)=>{
     const produto = sequelize.define("Produto", {
+=======
+require('dotenv').config()
+module.exports = (sequelize,DataType)=>{
+    const produto = sequelize.define("produto", {
+>>>>>>> 13dbb0db8d89406e59aaca767571ba1db13986eb
         idProduto:{
-            type: DataTypes.INTEGER,
+            type: DataType.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
+        Nome:{
+            type: DataType.STRING,
+
+        },
         Valor:{
-            type: DataTypes.FLOAT,
+            type: DataType.FLOAT,
         },
         Modelo:{
-            type: DataTypes.STRING,
+            type: DataType.STRING,
         },
         Placa:{
-            type: DataTypes.STRING,
+            type: DataType.STRING,
         },
         Ano:{
-            type: DataTypes.STRING,
+            type: DataType.STRING,
         },
         Imagem:{
             type: DataTypes.STRING,
@@ -29,21 +39,22 @@ module.exports = (sequelize,DataTypes)=>{
         timestamps:false,
     })
     produto.associate = (models) =>{
-        produto.belongsTo(models.Categoria,{
+        produto.belongsTo(models.categoria,{
             as: 'categoria',
             foreignKey:'Categorias_idCategorias',
             timestamps:false
         })
-        produto.belongsTo(models.Pedido,{
+        produto.belongsTo(models.pedido,{
             as: 'pedido',
             foreignKey:'Pedidos_idPedidos',
             timestamps:false
         })
-        produto.belongsTo(models.Marca,{
+        produto.belongsTo(models.marca,{
             as: 'marca',
             foreignKey:'Marcas_idMarcas',
             timestamps:false
         })
     }
+    produto.sync({ alter: true })
     return produto;
 }

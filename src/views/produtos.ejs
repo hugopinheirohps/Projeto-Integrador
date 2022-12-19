@@ -1,9 +1,7 @@
 <%- include ('./partiels/header.ejs') %>
 
 <body>
-    /*Carregar os modelos de carros -- */
-    <h1><%= carros[0].Modelo %></h1>
-
+    
     <link rel="stylesheet" href="/css/produtos.css">
     <%- include('./partiels/navbar.ejs') %>
 
@@ -70,18 +68,19 @@
         </options>
 
         <produtos>
-            <% for(let c=0; c<carros; c++) { %>
-                <a href="/produtoInterno/<%= c %>">
+
+            <% for(let car of carros) { %>
+                <a href="/produtoInterno/<%= car.idProduto %>">
                     <veiculo>   
                         <img src="/img/viewProdutos/Moto.png" alt="Seleção de moto">
-                        <p>Nome Marca Ano </p>
-                        <label>Característica</label>
-                        <label>Km</label>
-                        <label>Localidade</label>
-                        <p>Preço</p>                       
+                        <p><%= marcas[car.Marcas_idMarcas-1].Nome  %> <%= car.Modelo %> <%= car.Ano %> </p>
+                        <label><%= categorias[car.Categorias_idCategorias-1].Nome %></label>
+                        <p>R$ <%= car.Valor %></p>                       
                     </veiculo>  
-                </a>      
+                </a>   
             <% } %>
+
+
         </produtos>
 
         <%- include('./partiels/footer.ejs') %>
