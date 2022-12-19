@@ -1,29 +1,3 @@
-<<<<<<< HEAD
-const { produto } = require("../../database/models");
-
-const produtoController = {
-  produto: async (req, res) => {
-    let carros = await Produto.findAll({ include: "categoria" });
-    res.render("produtos.ejs", { carros });
-  },
-
-  carrinho: (req, res) => {
-    let carros = 4;
-    res.render("carrinho.ejs", { carros });
-  },
-
-  produtoInterno: (req, res) => {
-    const idProduto = req.params.idproduto;
-    console.log(idProduto);
-    produto.findOne({ where: { id: idProduto } }).then((p) => {
-      if (p != undefined) {
-        return res.render("produtoInterno");
-      } else {
-        res.send("Produto não encontrado!");
-      }
-    });
-  },
-=======
 const {produto} = require('../../database/models');
 const {marca} = require('../../database/models');
 const {categoria} = require('../../database/models');
@@ -85,7 +59,6 @@ const produtoController ={
         res.render('carrinho.ejs', {carros, marcas,categorias,valorTotal});
 
     },
->>>>>>> 8deab714c10043d8d6fbb0aad366bb6000df4acd
 
   finalizacao: (req, res) => {
     res.render("finalizacao.ejs");
@@ -93,6 +66,9 @@ const produtoController ={
 
   sucesso: (req, res) => {
     res.render("sucesso.ejs");
+  },
+  produtoInterno: (req, res) => {
+    res.render("produtoInterno.ejs");
   },
 };
 

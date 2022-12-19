@@ -7,7 +7,7 @@ module.exports = (sequelize,DataType)=>{
             autoIncrement: true,
         },
         Nome:{
-            type: DataTypes.STRING,
+            type: DataType.STRING,
 
         },
         Valor:{
@@ -22,30 +22,6 @@ module.exports = (sequelize,DataType)=>{
         Ano:{
             type: DataType.STRING,
         },
-<<<<<<< HEAD
-        Imagem:{
-            type: DataTypes.STRING,
-        },
-        Descricao:{
-            type: DataTypes.TEXT,
-        },
-        Categorias_idCategorias:{
-            type:DataTypes.INTEGER,
-            foreignKey:true,
-            
-        },
-        Pedidos_idPedidos:{
-            type:DataTypes.INTEGER,
-            foreignKey:true
-        },
-        Marcas_idMarcas:{
-            type:DataTypes.INTEGER,
-            foreignKey:true
-        }
-
-        
-=======
->>>>>>> 8deab714c10043d8d6fbb0aad366bb6000df4acd
     },{
         tableName:'produtos',
         timestamps:false,
