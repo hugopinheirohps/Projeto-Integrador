@@ -6,6 +6,6 @@ const config = {
   dialect: process.env.DBDIALECT,
   database: process.env.DBNAME
 }
-console.log(process.env.DBUSER)
+
 
 module.exports = config;

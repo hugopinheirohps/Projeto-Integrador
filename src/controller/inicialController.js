@@ -1,7 +1,11 @@
+const {Produto} =  require('../../database/models');
+
 const inicialController = {
-    paginaHome: (req, res)=>{
-        return res.render('inicial.ejs')
+    paginaHome: async (req, res)=>{
+        const produtos = await Produto.findAll();
+        
+        return res.render('inicial.ejs',{produtos});
     } 
 }
 
-module.exports = inicialController
+module.exports = inicialController;

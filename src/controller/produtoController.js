@@ -3,9 +3,8 @@ const {Produtos} = require('../../database/models');
 const produtoController ={
     produto:async (req,res) =>{
 
-        let carros = await Produtos.findAll({include:'categoria'});
-        res.render('produtos.ejs', {carros});
-    
+        let carros = await Produto.findAll();
+        res.render('produtos.ejs', {carros})
     },
 
     carrinho:(req,res) => {

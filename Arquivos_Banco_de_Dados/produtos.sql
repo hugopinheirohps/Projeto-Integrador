@@ -1,0 +1,12 @@
+/*
+-- Query: SELECT * FROM webveiculos.produtos
+LIMIT 0, 1000
+
+-- Date: 2022-12-19 14:21
+*/
+INSERT INTO `` (`idProduto`,`Nome`,`Valor`,`Modelo`,`Placa`,`Ano`,`Imagem`,`Descricao`,`Categorias_idCategorias`,`Pedidos_idPedidos`,`Marcas_idMarcas`) VALUES (1,'Carro',30000.00,'Toyota Camry','BRA2E19','2008','/img/img_Inicial/Camry.png','Aquecimento dos bancos dianteiros, ar-condicionado digital 3-zone e multimídia 9\" com 6 alto-falantes e conexão com Android Auto® e Apple CarPlay',1,1,1);
+INSERT INTO `` (`idProduto`,`Nome`,`Valor`,`Modelo`,`Placa`,`Ano`,`Imagem`,`Descricao`,`Categorias_idCategorias`,`Pedidos_idPedidos`,`Marcas_idMarcas`) VALUES (2,'Carro',99999.99,'VolvoC40','EUA3214','2012','/img/img_Inicial/Volvo.png','O segmento dos SUVs é aquela badalada festa que ninguém quer ficar de fora. Isso inclui o Volvo XC40 2022, o modelo de entrada da marca sueca que, assim como o restante da linha, aposta apenas em vers',2,2,2);
+INSERT INTO `` (`idProduto`,`Nome`,`Valor`,`Modelo`,`Placa`,`Ano`,`Imagem`,`Descricao`,`Categorias_idCategorias`,`Pedidos_idPedidos`,`Marcas_idMarcas`) VALUES (3,'Carro',99999.99,'Fiat Pulse','BRA1324','2016','/img/img_Inicial/Pulse.png','Fundada em 1977 e adquirida pelo Banco Itaú S/A em 2003, a Fiat Administradora de Consórcios Ltda.',2,6,6);
+INSERT INTO `` (`idProduto`,`Nome`,`Valor`,`Modelo`,`Placa`,`Ano`,`Imagem`,`Descricao`,`Categorias_idCategorias`,`Pedidos_idPedidos`,`Marcas_idMarcas`) VALUES (4,'Carro',92000.00,'Nissan Sentra','PRR5522','2020','/img/img_Inicial/Sentra.png','Importado do México, o Sentra 2021 era encontrado nas versões de acabamento S, SV e SL. Todas elas saem de fábrica com um motor 2.0 litros flex de até 140 cavalos de potência, atrelado a uma transmiss',1,4,5);
+INSERT INTO `` (`idProduto`,`Nome`,`Valor`,`Modelo`,`Placa`,`Ano`,`Imagem`,`Descricao`,`Categorias_idCategorias`,`Pedidos_idPedidos`,`Marcas_idMarcas`) VALUES (5,'Carro',99999.99,'Honda Civic','ALG1123','2018','/img/img_Inicial/Civic.png',' quando abastecido com etanol. Já a topo de linha recebe o 1.5 turbo de 173 cv de potência.',4,3,1);
+INSERT INTO `` (`idProduto`,`Nome`,`Valor`,`Modelo`,`Placa`,`Ano`,`Imagem`,`Descricao`,`Categorias_idCategorias`,`Pedidos_idPedidos`,`Marcas_idMarcas`) VALUES (6,'Carro',95000.00,'Gol ','RJC6900','2020','/img/img_Inicial/Gol.png','specificações técnicas, itens de série, opcionais, acabamento interno, cores e preços estão sujeitos a alterações sem aviso prévio pela Volkswagen do Brasil.',4,2,4);

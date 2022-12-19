@@ -1,7 +1,7 @@
 CREATE SCHEMA IF NOT EXISTS `webVeiculos` DEFAULT CHARACTER SET utf8 ;
 USE `webVeiculos` ;
 -- -----------------------------------------------------
--- Table `mydb`.`Clientes`
+-- Table `webveiculos`.`Clientes`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `webVeiculos`.`Clientes` (
   `idCliente` INT NOT NULL AUTO_INCREMENT,
@@ -27,7 +27,7 @@ ENGINE = InnoDB;
 -- Table `webVeiculos`.`Pagamentos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `webVeiculos`.`Pagamentos` (
-  `idPagamentos` INT NOT NULL,
+  `idPagamentos` INT NOT NULL AUTO_INCREMENT,
   `Nome` VARCHAR(45) NULL,
   PRIMARY KEY (`idPagamentos`))
 ENGINE = InnoDB;
@@ -35,7 +35,7 @@ ENGINE = InnoDB;
 -- Table `webVeiculos`.`Pedidos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `webVeiculos`.`Pedidos` (
-  `idPedidos` INT NOT NULL,
+  `idPedidos` INT NOT NULL AUTO_INCREMENT,
   `Clientes_idCliente` INT NOT NULL,
   `Status` VARCHAR(45) NULL,
   `Pagamentos_idPagamentos` INT NOT NULL,
@@ -57,7 +57,7 @@ ENGINE = InnoDB;
 -- Table `webVeiculos`.`Marcas`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `webVeiculos`.`Marcas` (
-  `idMarcas` INT NOT NULL,
+  `idMarcas` INT NOT NULL AUTO_INCREMENT,
   `Nome` VARCHAR(45) NULL,
   PRIMARY KEY (`idMarcas`))
 ENGINE = InnoDB;
@@ -65,11 +65,14 @@ ENGINE = InnoDB;
 -- Table `webVeiculos`.`Produtos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `webVeiculos`.`Produtos` (
-  `idProduto` INT NOT NULL,
-  `Valor` DECIMAL(6,2) NOT NULL,
+  `idProduto` INT NOT NULL AUTO_INCREMENT,
+  `Nome` VARCHAR(100) NOT NULL,
+  `Valor` DECIMAL(9,2) NOT NULL,
   `Modelo` VARCHAR(45) NOT NULL,
-  `Placa` VARCHAR(45) NOT NULL,
+  `Placa` VARCHAR(45) NOT NULL UNIQUE,
   `Ano` VARCHAR(45) NOT NULL,
+  `Imagem` VARCHAR(100) NOT NULL,
+  `Descricao` VARCHAR(200) NOT NULL,
   `Categorias_idCategorias` INT NOT NULL,
   `Pedidos_idPedidos` INT NOT NULL,
   `Marcas_idMarcas` INT NOT NULL,
@@ -98,7 +101,7 @@ ENGINE = InnoDB;
 -- Table `webVeiculos`.`Combustiveis`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `webVeiculos`.`Combustiveis` (
-  `idCombustiveis` INT NOT NULL,
+  `idCombustiveis` INT NOT NULL AUTO_INCREMENT,
   `Tipo` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idCombustiveis`))
 ENGINE = InnoDB;
@@ -123,9 +126,8 @@ CREATE TABLE IF NOT EXISTS `webVeiculos`.`Produtos_has_Combustiveis` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-select * from produtos;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-drop database webVeiculos;

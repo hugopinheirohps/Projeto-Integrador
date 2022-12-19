@@ -1,7 +1,7 @@
-const {Marcas} = require('../database/models');
+const {Marca} = require('../database/models');
 
 async function teste(){
-    let marca = await Marcas.findAll()
+    let marca = await Marca.findAll()
     console.log(marca.map(p=>p.toJSON())
         )};
 

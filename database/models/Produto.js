@@ -1,5 +1,5 @@
 module.exports = (sequelize,DataTypes)=>{
-    const produto = sequelize.define("produto", {
+    const produto = sequelize.define("Produto", {
         idProduto:{
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -17,6 +17,13 @@ module.exports = (sequelize,DataTypes)=>{
         Ano:{
             type: DataTypes.STRING,
         },
+        Imagem:{
+            type: DataTypes.STRING,
+            allowNull:false,
+        },
+        Descricao:{
+            type: DataTypes.TEXT,
+        }
     },{
         tableName:'produtos',
         timestamps:false,
