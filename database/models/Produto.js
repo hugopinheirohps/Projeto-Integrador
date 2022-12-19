@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-module.exports = (sequelize,DataTypes)=>{
-    const produto = sequelize.define("Produto", {
-=======
 require('dotenv').config()
 module.exports = (sequelize,DataType)=>{
-    const produto = sequelize.define("produto", {
->>>>>>> 13dbb0db8d89406e59aaca767571ba1db13986eb
+    const produto = sequelize.define("Produtos", {
         idProduto:{
             type: DataType.INTEGER,
             primaryKey: true,
@@ -28,11 +23,11 @@ module.exports = (sequelize,DataType)=>{
             type: DataType.STRING,
         },
         Imagem:{
-            type: DataTypes.STRING,
+            type: DataType.STRING,
             allowNull:false,
         },
         Descricao:{
-            type: DataTypes.TEXT,
+            type: DataType.TEXT,
         }
     },{
         tableName:'produtos',

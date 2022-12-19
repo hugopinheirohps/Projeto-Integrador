@@ -1,10 +1,7 @@
 const {produto} = require('../database/models');
 
 async function teste(){
-<<<<<<< HEAD
-=======
     
->>>>>>> 8deab714c10043d8d6fbb0aad366bb6000df4acd
     let produtos = await produto.findAll({include:['pedido','categoria', 'marca']})
     console.log(produtos.map(p=>p.toJSON())
         )};
