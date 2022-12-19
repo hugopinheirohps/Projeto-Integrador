@@ -1,5 +1,6 @@
+require('dotenv').config()
 module.exports = (sequelize,DataType)=>{
-    const marca = sequelize.define( "Marca", {
+    const marca = sequelize.define( "marca", {
         idMarcas:{
             type:DataType.INTEGER,
             primaryKey: true,

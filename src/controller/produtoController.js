@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const { produto } = require("../../database/models");
 
 const produtoController = {
@@ -22,6 +23,69 @@ const produtoController = {
       }
     });
   },
+=======
+const {produto} = require('../../database/models');
+const {marca} = require('../../database/models');
+const {categoria} = require('../../database/models');
+
+
+const produtoController ={
+    produto:async (req,res) =>{
+        
+        let carros = await produto.findAll()
+
+        let marcas = await marca.findAll(
+            {
+                order: [
+                    ['idMarcas', 'ASC'],
+                ]
+            }
+        ); 
+        let categorias = await categoria.findAll(
+            {
+                order: [
+                    ['idCategoria', 'ASC'],
+                ]
+            }
+        );
+
+        res.render('produtos.ejs', {carros, marcas,categorias});
+
+        //console.log(carros.map(p=>p.toJSON()));        
+        //console.log(marcas.map(p=>p.toJSON()));    
+        //console.log(categorias.map(p=>p.toJSON()));  
+    
+    },
+
+    carrinho: async (req,res) => {
+        
+        let carros = await produto.findAll()
+        let marcas = await marca.findAll(
+            {
+                order: [
+                    ['idMarcas', 'ASC'],
+                ]
+            }
+        ); 
+        let categorias = await categoria.findAll(
+            {
+                order: [
+                    ['idCategoria', 'ASC'],
+                ]
+            }
+        );
+
+
+        let valorTotal = 0;        
+        for(let car of carros)
+        {
+            valorTotal = valorTotal + parseFloat(car.Valor);
+        }
+
+        res.render('carrinho.ejs', {carros, marcas,categorias,valorTotal});
+
+    },
+>>>>>>> 8deab714c10043d8d6fbb0aad366bb6000df4acd
 
   finalizacao: (req, res) => {
     res.render("finalizacao.ejs");

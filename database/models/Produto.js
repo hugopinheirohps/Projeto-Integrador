@@ -1,7 +1,8 @@
-module.exports = (sequelize,DataTypes)=>{
+require('dotenv').config()
+module.exports = (sequelize,DataType)=>{
     const produto = sequelize.define("produto", {
         idProduto:{
-            type: DataTypes.INTEGER,
+            type: DataType.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
@@ -10,17 +11,18 @@ module.exports = (sequelize,DataTypes)=>{
 
         },
         Valor:{
-            type: DataTypes.FLOAT,
+            type: DataType.FLOAT,
         },
         Modelo:{
-            type: DataTypes.STRING,
+            type: DataType.STRING,
         },
         Placa:{
-            type: DataTypes.STRING,
+            type: DataType.STRING,
         },
         Ano:{
-            type: DataTypes.STRING,
+            type: DataType.STRING,
         },
+<<<<<<< HEAD
         Imagem:{
             type: DataTypes.STRING,
         },
@@ -42,22 +44,24 @@ module.exports = (sequelize,DataTypes)=>{
         }
 
         
+=======
+>>>>>>> 8deab714c10043d8d6fbb0aad366bb6000df4acd
     },{
         tableName:'produtos',
         timestamps:false,
     })
     produto.associate = (models) =>{
-        produto.belongsTo(models.Categoria,{
+        produto.belongsTo(models.categoria,{
             as: 'categoria',
             foreignKey:'Categorias_idCategorias',
             timestamps:false
         })
-        produto.belongsTo(models.Pedido,{
+        produto.belongsTo(models.pedido,{
             as: 'pedido',
             foreignKey:'Pedidos_idPedidos',
             timestamps:false
         })
-        produto.belongsTo(models.Marca,{
+        produto.belongsTo(models.marca,{
             as: 'marca',
             foreignKey:'Marcas_idMarcas',
             timestamps:false
