@@ -27,76 +27,26 @@
 
     <main>
         <h2 class ="destaques">CARROS EM DESTAQUE</h2>
-        
+        <%veiculos.forEach(veiculo =>{ %>
           <div class="slider owl-carousel">
             <div class="card">
-              <div class="camry"><img src="/img/img_Inicial/Camry.png" alt=""></div>
+              <div class="camry">
+                <img src="<%= veiculo.Imagem %>" alt="">
+              </div>
               <div class="content">
-                <div class="title">Toyota Camry</div>
-                <div class="sub-title">R$ XXX.XXX</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed alias omnis dolorem sint quidem doloremque distinctio tempore? Dolore, eveniet!</p>
+                <div class="title"><%= veiculo.Modelo %></div>
+                <div class="sub-title">R$ <%= veiculo.Valor %></div>
+                <p><%= veiculo.Descricao %></p>
                 <div class="btn">
                   <a href="/usuarios/login"><button>Ver Mais</button></a>
                 </div>
               </div>
-            </div>            
-            <div class="card">
-              <div class="volvo"><img src="/img/img_Inicial/Volvo.png" alt=""></div>
-              <div class="content">
-                <div class="title">Volvo C40</div>
-                <div class="sub-title">R$ XXX.XXX</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed alias omnis dolorem sint quidem doloremque distinctio tempore? Dolore, eveniet!</p>
-                <div class="btn">
-                  <button>Ver Mais</button>
-                </div>
-              </div>
-            </div>            
-            <div class="card">
-              <div class="civic"><img src="/img/img_Inicial/Civic.png" alt=""></div>
-              <div class="content">
-                <div class="title">Honda Civic </div>
-                <div class="sub-title">R$ XXX.XXX</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed alias omnis dolorem sint quidem doloremque distinctio tempore? Dolore, eveniet!</p>
-                <div class="btn">
-                  <button>Ver Mais</button>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="gol"><img src="/img/img_Inicial/Gol.png" alt=""></div>
-              <div class="content">
-                <div class="title">Volkswagen Gol </div>
-                <div class="sub-title">R$ XXX.XXX</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed alias omnis dolorem sint quidem doloremque distinctio tempore? Dolore, eveniet!</p>
-                <div class="btn">
-                  <button>Ver Mais</button>
-                </div>
-              </div>
-            </div>            
-            <div class="card">
-              <div class="sentra"><img src="/img/img_Inicial/Sentra.png" alt=""></div>
-              <div class="content">
-                <div class="title">Nissan Sentra </div>
-                <div class="sub-title">R$ XXX.XXX</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed alias omnis dolorem sint quidem doloremque distinctio tempore? Dolore, eveniet!</p>
-                <div class="btn">
-                  <button>Ver Mais</button>
-                </div>
-              </div>
-            </div>            
-            <div class="card">
-              <div class="pulse"><img src="/img/img_Inicial/Pulse.png" alt=""></div>
-              <div class="content">
-                <div class="title">Fiat Pulse </div>
-                <div class="sub-title">R$ XXX.XXX</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed alias omnis dolorem sint quidem doloremque distinctio tempore? Dolore, eveniet!</p>
-                <div class="btn">
-                  <button>Ver Mais</button>
-                </div>
-              </div>
             </div>
           </div>
-
+           
+                 
+        <% }) %>
+         
         <h2 class ="destaques">MOTOS EM DESTAQUE</h2>
 
           <div class="slider owl-carousel">
@@ -166,7 +116,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div>-->
 
         <script>
           $(".slider").owlCarousel({

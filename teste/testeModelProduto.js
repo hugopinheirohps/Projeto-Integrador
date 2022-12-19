@@ -1,7 +1,7 @@
-const {Produto} = require('../database/models');
+const {produto} = require('../database/models');
 
 async function teste(){
-    let produtos = await Produto.findAll({include:['pedido','categoria', 'marca']})
+    let produtos = await produto.findAll({include:['pedido','categoria', 'marca']})
     console.log(produtos.map(p=>p.toJSON())
         )};
 

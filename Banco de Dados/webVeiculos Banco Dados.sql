@@ -66,10 +66,13 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `webVeiculos`.`Produtos` (
   `idProduto` INT NOT NULL AUTO_INCREMENT,
-  `Valor` DECIMAL(6,2) NOT NULL,
+  `Nome` VARCHAR(100) NOT NULL,
+  `Valor` DECIMAL(9,2) NOT NULL,
   `Modelo` VARCHAR(45) NOT NULL,
-  `Placa` VARCHAR(45) NOT NULL,
+  `Placa` VARCHAR(45) NOT NULL UNIQUE,
   `Ano` VARCHAR(45) NOT NULL,
+  `Imagem` VARCHAR(100) NOT NULL,
+  `Descricao` VARCHAR(200) NOT NULL,
   `Categorias_idCategorias` INT NOT NULL,
   `Pedidos_idPedidos` INT NOT NULL,
   `Marcas_idMarcas` INT NOT NULL,
@@ -123,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `webVeiculos`.`Produtos_has_Combustiveis` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-select * from produtos;
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

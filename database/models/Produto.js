@@ -5,6 +5,10 @@ module.exports = (sequelize,DataTypes)=>{
             primaryKey: true,
             autoIncrement: true,
         },
+        Nome:{
+            type: DataTypes.STRING,
+
+        },
         Valor:{
             type: DataTypes.FLOAT,
         },
@@ -17,10 +21,27 @@ module.exports = (sequelize,DataTypes)=>{
         Ano:{
             type: DataTypes.STRING,
         },
-<<<<<<< HEAD
+        Imagem:{
+            type: DataTypes.STRING,
+        },
+        Descricao:{
+            type: DataTypes.TEXT,
+        },
+        Categorias_idCategorias:{
+            type:DataTypes.INTEGER,
+            foreignKey:true,
+            
+        },
+        Pedidos_idPedidos:{
+            type:DataTypes.INTEGER,
+            foreignKey:true
+        },
+        Marcas_idMarcas:{
+            type:DataTypes.INTEGER,
+            foreignKey:true
+        }
+
         
-=======
->>>>>>> c717a15c172d91e358808d9e6d7fb24781bc095d
     },{
         tableName:'produtos',
         timestamps:false,
@@ -42,5 +63,6 @@ module.exports = (sequelize,DataTypes)=>{
             timestamps:false
         })
     }
+    produto.sync({ alter: true })
     return produto;
 }
