@@ -59,7 +59,7 @@ module.exports = (sequelize, DataType) => {
     });
     produto.belongsTo(models.marca, {
       as: "marca",
-      foreignKey: "Marca_idMarcas",
+      foreignKey: "Marcas_idMarcas",
       timestamps: false,
     });
   }; 
