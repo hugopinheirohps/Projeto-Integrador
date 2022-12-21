@@ -13,10 +13,9 @@ const produtoController = {
 
   produtoInterno: (req, res) => {
     const id = req.params.idProduto;
-   
     produto.findOne({ where: { idProduto: id } }).then((p) => {
       if (p != undefined) {
-        return res.render("produtoInterno",{p:p});
+        return res.render("produtoInterno", { p: p });
       } else {
         res.send("Produto não encontrado!");
       }
@@ -29,6 +28,9 @@ const produtoController = {
 
   sucesso: (req, res) => {
     res.render("sucesso.ejs");
+  },
+  produtoInterno: (req, res) => {
+    res.render("produtoInterno.ejs");
   },
 };
 
