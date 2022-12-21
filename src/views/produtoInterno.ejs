@@ -1,42 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<section>
+    <link rel="stylesheet" href="/css/inicial.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+</section>
 <%- include ('./partiels/header.ejs') %>
- <body>
-       <link rel="stylesheet" href="/css/produto_interno.css">
-    
-    <%- include('./partiels/navbar.ejs') %>
-        <main>
-            <section>
-                <div id="div1">
-                    <img src="/img/suv13.png" alt="">
-                </div>
-    
-                <div id="div2">
-                    <ul style="border: radius 25px; ;">
-                        <li id="ul21"> Ano:  </li>
-                        <li id="ul22"> Marca: </li>
-                        <li id="ul21">Preço: </li>
-                        <li id="ul22">Propulsão</li>
-                        <li id="ul21">Configuração:</li>                        
-                        <li id="ul22">KM:</li>
-                        <li id="ul21">Combustível:</li>
-                        <li id="ul22">Câmbio</li>
-                        <li id="ul21">Porte:</li>
-                        <li id="ul22">Lugares:</li>
-                        <li id="ul21">Porta:</li>
-                        <li id="ul22">Torque:</li>
-                        <li id="ul21">Capacidade de bateria:</li>
-                        <li id="ul22">potência:</li>
-                        <li id="ul21">Consumo elétrico:</li>
-                        <li id="ul22">Autonomia:</li>
-                        <li id="ul21">Freio:</li>
-                        <li id="ul22">Direção:</li>
-                        <li id="ul21">Dimensão:</li>   
-                    </ul>
-                </div>
-            </section>
-           
-                
-        </main>
-        <%- include('./partiels/footer.ejs') %>
-       
-      </body>
+
+    <body>
+        <%- include('./partiels/navbar.ejs') %>
+            <main>
+                <h2 class="destaques">CARRO EM DESTAQUE</h2>
+
+
+                <div class="camry"><img src="<%= p.Imagem %>" alt="">
+
+                    <div class="content">
+                        <div class="title">
+                            <%= p.Nome %>
+                        </div>
+                        <div class="sub-title">R$ <%= p.Valor %>
+                        </div>
+                        <p>
+                            <%= p.Descricao %>
+                        </p>
+                    </div>
+
+
+
+                    <script>
+                        $(".slider").owlCarousel({
+                            loop: true,
+                            autoplay: true,
+                            autoplayTimeout: 5000,
+                            autoplayHoverPause: true,
+                        })
+                    </script>
+
+            </main>
+            <%- include('./partiels/footer.ejs') %>
+
+    </body>
+
 </html>
