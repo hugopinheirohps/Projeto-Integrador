@@ -11,9 +11,10 @@ const produtoController = {
     res.render("carrinho.ejs", { carros });
   },
 
-  produtoInterno: (req, res) => {
+  produtoInterno: async (req, res) => {
     const id = req.params.idProduto;
-    produto.findOne({ where: { idProduto: id } }).then((p) => {
+
+    await produto.findOne({ where: { idProduto: id } }).then((p) => {
       if (p != undefined) {
         return res.render("produtoInterno", { p: p });
       } else {
@@ -28,9 +29,6 @@ const produtoController = {
 
   sucesso: (req, res) => {
     res.render("sucesso.ejs");
-  },
-  produtoInterno: (req, res) => {
-    res.render("produtoInterno.ejs");
   },
 };
 
