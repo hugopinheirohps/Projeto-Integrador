@@ -62,6 +62,7 @@ module.exports = (sequelize, DataType) => {
       foreignKey: "Marcas_idMarcas",
       timestamps: false,
     });
+    
   }; 
 
   return produto;

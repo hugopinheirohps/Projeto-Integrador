@@ -47,7 +47,12 @@ div{
   font-size: 17px;
 
 }
-
+main{
+  display: flex;
+  width: auto;
+  height: auto;
+  background-color: aqua;
+}
 
 
 
@@ -59,6 +64,12 @@ div{
   
     section {
       gap: 20px;
+    }
+    article{
+      display: flex;
+      width: 100vw;
+      height: 50vh;
+      background-color: aqua;
     }
 }
   
