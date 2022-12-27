@@ -7,41 +7,49 @@
 
     <!-- aqui -->
     <main>
-        <ul class="dados">
-            <a href="/usuarios/pedidos">
-                <h3>Pedidos</h3>
-                <li>
-                    Acompanhar pedidos
-                </li>
-            </a>
+        <% for(let user of usuarios) { %>
+            <ul class="dados">
+                <a href="/usuarios/pedidos">
+                    <h3>Pedidos</h3>
+                    <li>
+                        Acompanhar pedidos
+                    </li>
+                </a>
 
-            <a href="/">
-                <h3>Minha Conta</h3>
-                <li>
-                    Editar dados
-                </li>
-            </a>
+                <a href="/">
+                    <h3>Conta do <%= user.Nome %></h3>
+                    <li>
+                        <%= user.Email %>
+                    </li>
+                    <li>
+                        Editar dados
+                    </li>
+                </a>
 
-            <a href="/">
-                <h3>Endereço</h3>
-                <li>
-                    Alterar endereço
-                </li>
-            </a>
+                <a href="/">
+                    <h3>Endereço</h3>
+                    <li>
+                        <%= user.Endereco %>
+                    </li>
+                    <li>
+                        Alterar endereço
+                    </li>
+                </a>
 
-            <a href="/">
-                <h3>Cartões</h3>
-                <li>
-                    Cartões cadastrados
-                </li>
-            </a>
-        </ul>
-        <div class="imagens">
-            <div class="moto1">
-                <img src="/img/cores-harley-davidson-night-rod 1.png" alt="">
+                <a href="/">
+                    <h3>Cartões</h3>
+                    <li>
+                        Cartões cadastrados
+                    </li>
+                </a>
+            </ul>
+            <div class="imagens">
+                <div class="moto1">
+                    <img src="/img/cores-harley-davidson-night-rod 1.png" alt="">
+                </div>
+                <div class="moto2"><img src="/img/vroad white 1.png" alt=""></div>
             </div>
-            <div class="moto2"><img src="/img/vroad white 1.png" alt=""></div>
-        </div>
+        <% } %>
     </main>
 
 

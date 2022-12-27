@@ -16,7 +16,7 @@ module.exports = (sequelize,DataType)=>{
     );
 
     pedido.associate = (models) =>{
-        pedido.belongsTo(models.Cliente,{
+        pedido.belongsTo(models.cliente,{
             as: 'cliente',
             foreignKey:'Clientes_idCliente',
             timestamps:false
