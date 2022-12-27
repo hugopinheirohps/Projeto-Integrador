@@ -6,9 +6,9 @@ const produtoController = require('../src/controller/produtoController');
 
 router.get('/', produtoController.produto);
 
-router.get('/carrinho', produtoController.carrinho);
+router.get('/produto/:idProduto',produtoController.produtoInterno)
 
-router.get('/Interno/:id', produtoController.produtoInterno);
+router.get('/carrinho', produtoController.carrinho);
 
 router.get('/finalizacao', produtoController.finalizacao);
 

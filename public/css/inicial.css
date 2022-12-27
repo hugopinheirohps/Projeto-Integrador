@@ -1,8 +1,7 @@
   
   main {
     display: grid;
-    height: 100%;
-    place-items: center;
+   place-items: center;
     text-align: center;
     background: #f2f2f2;
   }

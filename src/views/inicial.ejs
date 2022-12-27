@@ -1,183 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-  <section>
-    <link rel="stylesheet" href="/css/inicial.css">
-    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-  </section>
+<section>
+  <link rel="stylesheet" href="/css/inicial.css">
+  <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+</section>
 
-  <%- include("./partiels/header.ejs")%>
+<%- include("./partiels/header.ejs")%>
 
-  <body> 
+  <body>
     <%- include('./partiels/navbar.ejs') %>
 
-    <section>
+      <section>
         <div class="box-anuncio">
-            <h1>Compre seu veículo pelo melhor preço</h1>
-            <p class="box-convite">A gente faz de tudo pra descomplicar sua compra e chegar o mais próximo do preço que você deseja para <strong>adquirir seu automóvel dos sonhos</strong>. Conte com a gente!<p>
-            
+          <h1>Compre seu veículo pelo melhor preço</h1>
+          <p class="box-convite">A gente faz de tudo pra descomplicar sua compra e chegar o mais próximo do preço que
+            você deseja para <strong>adquirir seu automóvel dos sonhos</strong>. Conte com a gente!
+          <p>
+
             <button class="botao-comprar">Compre Já!</button>
             <input type="checkbox" id="scales" name="scales">
             <label for="scales" class="label-check">Quero receber descontos, ofertas e informações.</label>
         </div>
-        <img src="https://production.autoforce.com/uploads/version/profile_image/8017/comprar-trekking-1-3_8de196c88f.png" alt="Retrato de um Fiat Argo" class="banner-argo">
-    </section>
+        <img
+          src="https://production.autoforce.com/uploads/version/profile_image/8017/comprar-trekking-1-3_8de196c88f.png"
+          alt="Retrato de um Fiat Argo" class="banner-argo">
+      </section>
 
-    <main>
-        <h2 class ="destaques">CARROS EM DESTAQUE</h2>
+      <main>
+        <h2 class="destaques">VEICULOS EM DESTAQUE</h2>
         
-          <div class="slider owl-carousel">
+        <div class="slider owl-carousel">
+          <% for(veiculo of veiculos){ %>
             <div class="card">
-              <div class="camry"><img src="/img/img_Inicial/Camry.png" alt=""></div>
+              <div class="camry"><img src="<%=veiculo.Imagem %>" alt=""></div>
               <div class="content">
-                <div class="title">Toyota Camry</div>
-                <div class="sub-title">R$ XXX.XXX</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed alias omnis dolorem sint quidem doloremque distinctio tempore? Dolore, eveniet!</p>
-                <div class="btn">
-                  <a href="/usuarios/login"><button>Ver Mais</button></a>
+                <div class="title">
+                  <%= veiculo.Nome %>
                 </div>
-              </div>
-            </div>            
-            <div class="card">
-              <div class="volvo"><img src="/img/img_Inicial/Volvo.png" alt=""></div>
-              <div class="content">
-                <div class="title">Volvo C40</div>
-                <div class="sub-title">R$ XXX.XXX</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed alias omnis dolorem sint quidem doloremque distinctio tempore? Dolore, eveniet!</p>
-                <div class="btn">
-                  <button>Ver Mais</button>
+                <div class="sub-title">R$ <%=veiculo.Valor %>
                 </div>
-              </div>
-            </div>            
-            <div class="card">
-              <div class="civic"><img src="/img/img_Inicial/Civic.png" alt=""></div>
-              <div class="content">
-                <div class="title">Honda Civic </div>
-                <div class="sub-title">R$ XXX.XXX</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed alias omnis dolorem sint quidem doloremque distinctio tempore? Dolore, eveniet!</p>
+                <p>
+                  <%=veiculo.Descricao %>
+                </p>
                 <div class="btn">
-                  <button>Ver Mais</button>
+                  <a href="/produtos/produto/<%=veiculo.idProduto %>"><button>Ver Mais</button></a>
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div class="gol"><img src="/img/img_Inicial/Gol.png" alt=""></div>
-              <div class="content">
-                <div class="title">Volkswagen Gol </div>
-                <div class="sub-title">R$ XXX.XXX</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed alias omnis dolorem sint quidem doloremque distinctio tempore? Dolore, eveniet!</p>
-                <div class="btn">
-                  <button>Ver Mais</button>
-                </div>
-              </div>
-            </div>            
-            <div class="card">
-              <div class="sentra"><img src="/img/img_Inicial/Sentra.png" alt=""></div>
-              <div class="content">
-                <div class="title">Nissan Sentra </div>
-                <div class="sub-title">R$ XXX.XXX</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed alias omnis dolorem sint quidem doloremque distinctio tempore? Dolore, eveniet!</p>
-                <div class="btn">
-                  <button>Ver Mais</button>
-                </div>
-              </div>
-            </div>            
-            <div class="card">
-              <div class="pulse"><img src="/img/img_Inicial/Pulse.png" alt=""></div>
-              <div class="content">
-                <div class="title">Fiat Pulse </div>
-                <div class="sub-title">R$ XXX.XXX</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed alias omnis dolorem sint quidem doloremque distinctio tempore? Dolore, eveniet!</p>
-                <div class="btn">
-                  <button>Ver Mais</button>
-                </div>
-              </div>
-            </div>
-          </div>
+            <%}%>
+        </div>
 
-        <h2 class ="destaques">MOTOS EM DESTAQUE</h2>
-
-          <div class="slider owl-carousel">
-            <div class="card">
-              <div class="tiger"><img src="/img/img_Inicial/Tiger.png" alt=""></div>
-              <div class="content">
-                <div class="title">Triumph Tiger 900</div>
-                <div class="sub-title">R$ XXX.XXX</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed alias omnis dolorem sint quidem doloremque distinctio tempore? Dolore, eveniet!</p>
-                <div class="btn">
-                  <button>Ver Mais</button>
-                </div>
-              </div>
-            </div>            
-            <div class="card">
-              <div class="nc750"><img src="/img/img_Inicial/Nc-750X.png" alt=""></div>
-              <div class="content">
-                <div class="title">Honda NC 750X</div>
-                <div class="sub-title">R$ XXX.XXX</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed alias omnis dolorem sint quidem doloremque distinctio tempore? Dolore, eveniet!</p>
-                <div class="btn">
-                  <button>Ver Mais</button>
-                </div>
-              </div>
-            </div>            
-            <div class="card">
-              <div class="cb500"><img src="/img/img_Inicial/CB500.png" alt=""></div>
-              <div class="content">
-                <div class="title">Honda CB500X</div>
-                <div class="sub-title">R$ XXX.XXX</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed alias omnis dolorem sint quidem doloremque distinctio tempore? Dolore, eveniet!</p>
-                <div class="btn">
-                  <button>Ver Mais</button>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="ninja"><img src="/img/img_Inicial/Ninja.png" alt=""></div>
-              <div class="content">
-                <div class="title">Kawasaki Ninja300</div>
-                <div class="sub-title">R$ XXX.XXX</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed alias omnis dolorem sint quidem doloremque distinctio tempore? Dolore, eveniet!</p>
-                <div class="btn">
-                  <button>Ver Mais</button>
-                </div>
-              </div>
-            </div>            
-            <div class="card">
-              <div class="xmax"><img src="/img/img_Inicial/Xmax.png" alt=""></div>
-              <div class="content">
-                <div class="title">Yamaha XMAX </div>
-                <div class="sub-title">R$ XXX.XXX</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed alias omnis dolorem sint quidem doloremque distinctio tempore? Dolore, eveniet!</p>
-                <div class="btn">
-                  <button>Ver Mais</button>
-                </div>
-              </div>
-            </div>            
-            <div class="card">
-              <div class="mt09"><img src="/img/img_Inicial/MT09.png" alt=""></div>
-              <div class="content">
-                <div class="title">Yamaha MT09 </div>
-                <div class="sub-title">R$ XXX.XXX</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed alias omnis dolorem sint quidem doloremque distinctio tempore? Dolore, eveniet!</p>
-                <div class="btn">
-                  <button>Ver Mais</button>
-                </div>
-              </div>
-            </div>
-          </div>
 
         <script>
           $(".slider").owlCarousel({
-            loop:true,
-            autoplay:true,
+            loop: true,
+            autoplay: true,
             autoplayTimeout: 5000,
             autoplayHoverPause: true,
           })
         </script>
-    </main>
-    <%- include("./partiels/footer.ejs")%>
+      </main>
+      <%- include("./partiels/footer.ejs")%>
 
   </body>
+
 </html>

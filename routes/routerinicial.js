@@ -6,4 +6,6 @@ const inicialController = require('../src/controller/inicialController')
 /* GET home page. */
 router.get('/inicial',inicialController.paginaHome);
 
+
+
 module.exports = router;
