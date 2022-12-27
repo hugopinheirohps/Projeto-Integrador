@@ -15,7 +15,8 @@ router.get("/pedidos",usuarioController.pedidos);
 
 router.get("/login", usuarioController.login);
 
-router.post("/login", middlewareValidator, usuarioController.salvarLogin);
+router.post("/", middlewareValidator, usuarioController.entrarLogin);
+
 router.post(
   "/cadastro",
   uploadFile.single("avatar"),

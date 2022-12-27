@@ -2,7 +2,8 @@
 <html lang="pt-br">
 
 <section>
-    <link rel="stylesheet" href="/css/inicial.css">
+    <link rel="stylesheet" href="/public/css/produto_interno.css">
+    <!-- <link rel="stylesheet" href="/css/inicial.css"> -->
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
@@ -14,20 +15,20 @@
             <main>
                 <h2 class="destaques">VEICULO EM DESTAQUE</h2>
 
-
-                <div class="camry"><img src="<%= p.Imagem %>" alt="">
-
-                    <div class="content">
-                        <div class="title">
-                            <%= p.Nome %>
-                        </div>
-                        <div class="sub-title">R$ <%= p.Valor %>
+                <article>
+                    <div class="camry"><img src="<%=veiculo.Imagem %> " alt="">
+                        <div class="content">
+                            <div class="title">
+                                <%=veiculo.Nome  %> 
+                            </div>
+                        <div class="sub-title">R$ 
                         </div>
                         <p>
-                            <%= p.Descricao %>
+                            <%=veiculo.Descricao %> 
                         </p>
                     </div>
-
+                </article>
+                    
 
 
                     

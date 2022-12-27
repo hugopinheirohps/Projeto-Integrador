@@ -66,11 +66,14 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `webVeiculos`.`Produtos` (
   `idProduto` INT NOT NULL AUTO_INCREMENT,
-  `Nome` VARCHAR(100) NOT NULL,
+  `Modelo` VARCHAR(100) NOT NULL,
   `Valor` DECIMAL(9,2) NOT NULL,
-  `Modelo` VARCHAR(45) NOT NULL,
+  `Tipo` VARCHAR(45) NOT NULL,
   `Placa` VARCHAR(45) NOT NULL UNIQUE,
   `Ano` VARCHAR(45) NOT NULL,
+  `Cidade` VARCHAR(45) NOT NULL,
+  `Estado` VARCHAR(45) NOT NULL,
+  `Quilometragem` VARCHAR(45) NOT NULL,
   `Imagem` VARCHAR(100) NOT NULL,
   `Descricao` VARCHAR(200) NOT NULL,
   `Categorias_idCategorias` INT NOT NULL,
