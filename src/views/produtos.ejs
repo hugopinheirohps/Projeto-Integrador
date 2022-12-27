@@ -72,9 +72,11 @@
             <% for(let car of carros) { %>
                 <a href="/produtoInterno/<%= car.idProduto %>">
                     <veiculo>   
-                        <img src="/img/viewProdutos/Moto.png" alt="Seleção de moto">
+                        <img src="<%= car.Imagem %>" alt="Seleção de moto">
                         <p><%= marcas[car.Marcas_idMarcas-1].Nome  %> <%= car.Modelo %> <%= car.Ano %> </p>
-                        <label><%= categorias[car.Categorias_idCategorias-1].Nome %></label>
+                        <label><%= categorias[car.Categorias_idCategorias-1].Nome %> </label>
+                        <label> <%= car.Cidade %> <space> <%= car.Estado %></label>
+                        <label> Km: <%= car.Quilometragem %></label>
                         <p>R$ <%= car.Valor %></p>                       
                     </veiculo>  
                 </a>   

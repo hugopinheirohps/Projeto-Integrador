@@ -7,19 +7,28 @@ module.exports = (sequelize, DataType) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      Nome: {
+      Modelo: {
         type: DataType.STRING,
       },
       Valor: {
         type: DataType.FLOAT,
       },
-      Modelo: {
+      Tipo: {
         type: DataType.STRING,
       },
       Placa: {
         type: DataType.STRING,
       },
       Ano: {
+        type: DataType.STRING,
+      },
+      Cidade: {
+        type: DataType.STRING,
+      },
+      Estado: {
+        type: DataType.STRING,
+      },
+      Quilometragem: {
         type: DataType.STRING,
       },
       Imagem: {

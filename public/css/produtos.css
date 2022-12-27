@@ -107,7 +107,11 @@ veiculo{
   row-gap: 5px;
 }
 
-
+@media (min-width: 1280px) {
+  produtos{    
+    width: 75vw;
+  }
+}
 @media (max-width: 700px) {
   produtos{    
     display:grid;

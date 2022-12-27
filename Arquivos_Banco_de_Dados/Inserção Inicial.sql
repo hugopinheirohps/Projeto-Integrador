@@ -1,7 +1,0 @@
-INSERT INTO Categorias (nome) values ("SUV"), ("Moto"), ("Caminhão"), ("Sedan"), ("Hatch"), ("Caminhonete");
-INSERT INTO Clientes (nome, endereco,telefone,email,senha,CPF) values ("Fulano", "Rua da Esquina", "011900000000", "teste@gmail.com","DH@2022","01234567891");
-INSERT INTO Combustiveis (Tipo) values ("Gasolina"), ("Etanol"), ("GNV"), ("Diesel");
-INSERT INTO Marcas (Nome) values ("Ford"), ("Volkswagen"), ("Renault"), ("Peugeot"), ("Kia"), ("CAOA Chery"), ("Chevrolet"), ("Volvo"), ("Honda"), ("Yamaha"), ("Harley-Davidson"), ("Suzuki"), ("Dafra"), ("Kawasaki");
-INSERT INTO Pagamentos (nome) values ("Boleto"), ("PIX"), ("Cartão"), ("Cheque");
-INSERT INTO pedidos (Clientes_idCliente, Status,Pagamentos_idPagamentos) values ("1", "Pago", "2");
-INSERT INTO produtos (valor, modelo,placa,ano,Categorias_idCategorias, Pedidos_idPedidos, Marcas_idMarcas, Ativo,Oferta) values ("20000.00", "Megane", "BRA2E19", "2008","4", "1", "3", true, "10%")
