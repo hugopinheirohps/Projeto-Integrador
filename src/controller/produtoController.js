@@ -55,7 +55,7 @@ const produtoController = {
         valorTotal = valorTotal + parseFloat(car.Valor);
     }
 
-    res.render('carrinho.ejs', {carros, marcas,categorias,valorTotal});
+    res.render('carrinho.ejs', {carros, marcas, categorias, valorTotal});
 
   },
 

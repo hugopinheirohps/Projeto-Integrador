@@ -106,6 +106,10 @@
     object-fit: cover;
     margin: 0 auto;
   }
+  .camry{
+    width: 450px;
+    height: 250px;
+  }
   
   .slider .card .volvo{
     width: 85%;
