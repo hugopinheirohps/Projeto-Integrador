@@ -5,7 +5,7 @@ const {categoria} = require('../../database/models');
 const produtoController = {
   produto:async (req,res) =>{
         
-    let carros = await produto.findAll()
+    let veiculos = await produto.findAll()
 
     let marcas = await marca.findAll(
         {
@@ -22,9 +22,9 @@ const produtoController = {
         }
     );
 
-    res.render('produtos.ejs', {carros, marcas,categorias});
+    res.render('produtos.ejs', {veiculos, marcas,categorias});
 
-    //console.log(carros.map(p=>p.toJSON()));        
+    //console.log(veiculos.map(p=>p.toJSON()));        
     //console.log(marcas.map(p=>p.toJSON()));    
     //console.log(categorias.map(p=>p.toJSON()));  
 
@@ -32,7 +32,7 @@ const produtoController = {
 
   carrinho: async (req,res) => {
         
-    let carros = await produto.findAll()
+    let veiculos = await produto.findAll()
     let marcas = await marca.findAll(
         {
             order: [
@@ -50,12 +50,12 @@ const produtoController = {
 
 
     let valorTotal = 0;        
-    for(let car of carros)
+    for(let veic of veiculos)
     {
-        valorTotal = valorTotal + parseFloat(car.Valor);
+        valorTotal = valorTotal + parseFloat(veic.Valor);
     }
 
-    res.render('carrinho.ejs', {carros, marcas, categorias, valorTotal});
+    res.render('carrinho.ejs', {veiculos, marcas, categorias, valorTotal});
 
   },
 

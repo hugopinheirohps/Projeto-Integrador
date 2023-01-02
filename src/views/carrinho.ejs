@@ -1,19 +1,19 @@
 <%- include ('./partiels/header.ejs') %>
 
 <body>
-    <link rel="stylesheet" href="/css/carrinho.css">
+    <link rel="stylesheet" href="/css/veicinho.css">
     <%- include('./partiels/navbar.ejs') %>
       
         <main>
 
             <produtos>
-                <% for(let car of carros) { %>
-                    <a href="/produtoInterno/<%= car.idProduto %>">
+                <% for(let veic of veiculos) { %>
+                    <a href="/produtoInterno/<%= veic.idProduto %>">
                         <veiculo>   
                             <img src="/img/viewProdutos/Moto.png" alt="Seleção de moto">
-                            <p><%= marcas[car.Marcas_idMarcas-1].Nome  %> <%= car.Modelo %> <%= car.Ano %> </p>
-                            <label><%= categorias[car.Categorias_idCategorias-1].Nome %></label>
-                            <p>R$ <%= car.Valor %></p>                       
+                            <p><%= marcas[veic.Marcas_idMarcas-1].Nome  %> <%= veic.Modelo %> <%= veic.Ano %> </p>
+                            <label><%= categorias[veic.Categorias_idCategorias-1].Nome %></label>
+                            <p>R$ <%= veic.Valor %></p>                       
                         </veiculo>  
                     </a>   
                 <% } %>

@@ -1,29 +1,28 @@
 <%- include ('./partiels/header.ejs') %>
 
-<body>
-    
-    <link rel="stylesheet" href="/css/produtos.css">
-    <%- include('./partiels/navbar.ejs') %>
-
+    <body>
+        <link rel="stylesheet" href="/css/produtos.css">
+        <%- include('./partiels/navbar.ejs') %>
         <options>
             <article>   
                 <img src="/img/viewProdutos/imagemBrasil.png" alt="Seleção de estado">
 
-                <form action="">
-                    <label>Estado: </label>
-                    <input list="estados">
-                    <datalist id="estados">
-                        <option value="TO" />
-                        <option value="MA" />
-                    </datalist>
+                <form action="/usuarios/login" >
+                    <label for="estados">Estado: </label>
+                    <select id="estados" onchange="this.form.submit()">
+                        <% for(let veic of veiculos) { %>
+                            <option value="<%= veiculos[veiculos.indexOf(veic)].Estado%>"><%= veiculos[veiculos.indexOf(veic)].Estado%></option>
+                        <% } %>
+                    </select>
                 </form>
 
                 <form action="">
                     <label>Cidade: </label>
                     <input list="cidade">
                     <datalist id="cidade">
-                        <option value="Palmas" />
-                        <option value="Gurupi" />
+                        <% for(let veic of veiculos) { %>
+                            <option value="<%= veiculos[veiculos.indexOf(veic)].Cidade%>" />
+                        <% } %>
                     </datalist>
                 </form>
                 
@@ -39,8 +38,9 @@
                     <label>Marca: </label>
                     <input list="marca">
                     <datalist id="marca">
-                        <option value="Renault" />
-                        <option value="Ford" />
+                        <% for(let marca of marcas) { %>
+                            <option value="<%= marcas[marcas.indexOf(marca)].Nome%>" />
+                        <% } %>
                     </datalist>
                 </form>
 
@@ -48,8 +48,9 @@
                     <label>Modelo: </label>
                     <input list="modelo">
                     <datalist id="modelo">
-                        <option value="Megane" />
-                        <option value="Logan" />
+                        <% for(let veic of veiculos) { %>
+                            <option value="<%= veiculos[veiculos.indexOf(veic)].Modelo%>" />
+                        <% } %>
                     </datalist>
                 </form>
 
@@ -69,15 +70,15 @@
 
         <produtos>
 
-            <% for(let car of carros) { %>
-                <a href="/produtoInterno/<%= car.idProduto %>">
+            <% for(let veic of veiculos) { %>
+                <a href="/produtos/<%= veic.idProduto %>">
                     <veiculo>   
-                        <img src="<%= car.Imagem %>" alt="Seleção de moto">
-                        <p><%= marcas[car.Marcas_idMarcas-1].Nome  %> <%= car.Modelo %> <%= car.Ano %> </p>
-                        <label><%= categorias[car.Categorias_idCategorias-1].Nome %> </label>
-                        <label> <%= car.Cidade %> <space> <%= car.Estado %></label>
-                        <label> Km: <%= car.Quilometragem %></label>
-                        <p>R$ <%= car.Valor %></p>                       
+                        <img src="<%= veic.Imagem %>" alt="Seleção de moto">
+                        <p><%= marcas[veic.Marcas_idMarcas-1].Nome  %> <%= veic.Modelo %> <%= veic.Ano %> </p>
+                        <label><%= categorias[veic.Categorias_idCategorias-1].Nome %> </label>
+                        <label> <%= veic.Cidade %> <space> <%= veic.Estado %></label>
+                        <label> Km: <%= veic.Quilometragem %></label>
+                        <p>R$ <%= veic.Valor %></p>                       
                     </veiculo>  
                 </a>   
             <% } %>

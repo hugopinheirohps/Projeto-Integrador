@@ -70,6 +70,12 @@ options > article > input{
   min-height: 35px;
 }
 
+select{
+  min-width: 175px;
+  min-height: 20px;
+}
+
+
 options > article > button{
   background-color: #F7F7F7;
   border-color: #F7F7F7;
