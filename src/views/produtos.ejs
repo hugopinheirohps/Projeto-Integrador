@@ -7,23 +7,24 @@
             <article>   
                 <img src="/img/viewProdutos/imagemBrasil.png" alt="Seleção de estado">
 
-                <form action="/usuarios/login" >
+                <form action="/produtos" method="post" enctype="multipart/form-data" id="filto">
                     <label for="estados">Estado: </label>
                     <select id="estados" onchange="this.form.submit()">
+                        <option value="">Selecione</option>
                         <% for(let veic of veiculos) { %>
                             <option value="<%= veiculos[veiculos.indexOf(veic)].Estado%>"><%= veiculos[veiculos.indexOf(veic)].Estado%></option>
                         <% } %>
                     </select>
                 </form>
 
-                <form action="">
-                    <label>Cidade: </label>
-                    <input list="cidade">
-                    <datalist id="cidade">
+                <form action="/produtos" method="post" enctype="multipart/form-data" id="filto">
+                    <label for="cidade">Cidade: </label>
+                    <select id="cidade" onchange="this.form.submit()">
+                        <option value="">Selecione</option>
                         <% for(let veic of veiculos) { %>
-                            <option value="<%= veiculos[veiculos.indexOf(veic)].Cidade%>" />
+                            <option value="<%= veiculos[veiculos.indexOf(veic)].Cidade%>"><%= veiculos[veiculos.indexOf(veic)].Cidade%></option>
                         <% } %>
-                    </datalist>
+                    </select>
                 </form>
                 
                 <input type="text" name="pesquisa" placeholder="Digite a marca, modelo, cidade, estado ou escolha abaixo" autocomplete="off" value="">
@@ -33,34 +34,37 @@
                 
                 <img src="/img/viewProdutos/icone_Moto.png" alt="Seleção de moto">
 
-
-                <form action="">
-                    <label>Marca: </label>
-                    <input list="marca">
-                    <datalist id="marca">
+                <form action="/produtos" method="post" enctype="multipart/form-data" id="filto">
+                    <label for="marca">Marca: </label>
+                    <select id="marca" onchange="this.form.submit()">
+                        <option value="">Selecione</option>
                         <% for(let marca of marcas) { %>
-                            <option value="<%= marcas[marcas.indexOf(marca)].Nome%>" />
+                            <option value="<%= marcas[marcas.indexOf(marca)].Nome%>"><%= marcas[marcas.indexOf(marca)].Nome%></option>
                         <% } %>
-                    </datalist>
+                    </select>
                 </form>
 
-                <form action="">
-                    <label>Modelo: </label>
-                    <input list="modelo">
-                    <datalist id="modelo">
+                <form action="/produtos" method="post" enctype="multipart/form-data" id="filto">
+                    <label for="modelo">Modelo: </label>
+                    <select id="modelo" onchange="this.form.submit()">
+                        <option value="">Selecione</option>
                         <% for(let veic of veiculos) { %>
-                            <option value="<%= veiculos[veiculos.indexOf(veic)].Modelo%>" />
+                            <option value="<%= veiculos[veiculos.indexOf(veic)].Modelo%>"><%= veiculos[veiculos.indexOf(veic)].Modelo%></option>
                         <% } %>
-                    </datalist>
+                    </select>
                 </form>
 
-                <form action="">
-                    <label>Ordenar por: </label>
-                    <input list="ordenar">
-                    <datalist id="ordenar">
-                        <option value="Relevância" />
-                        <option value="Menor preço" />
-                    </datalist>
+                <form action="/produtos" method="post" enctype="multipart/form-data" id="filto">
+                    <label for="ordenar">Ordenar por: </label>
+                    <select id="ordenar" onchange="this.form.submit()">
+                        <option value="">Aleatório</option>
+                        <option value="menorpreco">Menor preço</option>
+                        <option value="maiorpreco">Maior preço</option>
+                        <option value="menorkm">Menor KM</option>
+                        <option value="maiorkm">Maior KM</option>
+                        <option value="menorano">Ano cresente</option>
+                        <option value="maiorano">Ano decresente</option>           
+                    </select>
                 </form>
 
                 <button type="submit">Filtros</button>

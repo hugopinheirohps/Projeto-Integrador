@@ -1,8 +1,10 @@
 const {cliente} = require('../../database/models');
 
+let mensagem = "";
+
 const usuarioController = {
-  login: (req, res) => {
-    return res.render("login.ejs");
+  login: (req, res) => {    
+    return res.render("login.ejs", {mensagem});
   },
 
   entrarLogin: async (req, res) => {
@@ -13,8 +15,8 @@ const usuarioController = {
     let usuarios = await cliente.findAll(
       {
         where: {
-            Email: ["teste@gmail.com"],
-            Senha: ["DH@20262"]
+            Email: ["exemplo@gmail.com"],
+            Senha: ["654321"]
 
             //Email: [String(req.body.email)],
             //Senha: [String(req.body.senha)]
@@ -24,26 +26,15 @@ const usuarioController = {
       }
     );
 
-    console.log(usuarios.map(p=>p.toJSON()));  
-
-    
-
-    for(let user of usuarios) {
-      if(user !== undefined){
-        console.log("Cheio"); 
-      }
-      else{
-        console.log("Vazio"); 
-      }
-    }
-
-   
-    if(usuarios[1]){
-      res.send("Usuario não cadastrado.");
+    let usuario = usuarios[0];   
+    if(usuario == null){
+      let mensagem = "Erro no login, verifique email e senha digitados.";
+      //res.redirect('/usuarios/login', {usuarios});
+      res.render('login.ejs', {mensagem});
     }
     else
     {
-      res.render('usuario.ejs', {usuarios});
+      res.render('usuario.ejs', {usuario});
     }   
 
   },

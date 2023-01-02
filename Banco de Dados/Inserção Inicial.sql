@@ -27,22 +27,22 @@ INSERT INTO Categorias (`idCategoria`,`Nome`) VALUES (9,'CB');
 INSERT INTO Categorias (`idCategoria`,`Nome`) VALUES (10,'Ninja');
 
 
-INSERT INTO Clientes (`idCliente`,`Nome`,`Endereco`,`Telefone`,`Email`,`Senha`,`CPF`) VALUES (1,'\"Matheus Carvalho\"','\"Rua São Teodoro 945\"','11976331982','alunoDH@gmail.com','123456','00011122234');
-INSERT INTO Clientes (`idCliente`,`Nome`,`Endereco`,`Telefone`,`Email`,`Senha`,`CPF`) VALUES (2,'\"Maristela Rosa\"','\"Av Brasil\"','1122334455','exemplo@gmail.com','654321','1112223344');
-INSERT INTO Clientes (`idCliente`,`Nome`,`Endereco`,`Telefone`,`Email`,`Senha`,`CPF`) VALUES (3,'\"Ana Clara\"','\"Rua dos Bandeirantes\"','1199887766','ex@exemplo.com','77664422','44433322211');
-INSERT INTO Clientes (`idCliente`,`Nome`,`Endereco`,`Telefone`,`Email`,`Senha`,`CPF`) VALUES (4,'\"Paulo Roberto\"','\"Av de Oliveira Carrasco\"','1599884422','alunoDH@outlook.com','132132','77766699920');
-INSERT INTO Clientes (`idCliente`,`Nome`,`Endereco`,`Telefone`,`Email`,`Senha`,`CPF`) VALUES (5,'\"Ruan Figuereido\"','\"Estrada Pau Brasil\"','21977664420','alunoDH@ex.com.br','77788899','55544433322');
-INSERT INTO Clientes (`idCliente`,`Nome`,`Endereco`,`Telefone`,`Email`,`Senha`,`CPF`) VALUES (6,'\"Hugo Figuereido\"','\"Rua Brasilia\"','14966553322','alunoDHG2@gmail.com','000001324','33344499900');
-INSERT INTO Clientes (`idCliente`,`Nome`,`Endereco`,`Telefone`,`Email`,`Senha`,`CPF`) VALUES (7,'\"Lucas Wesley\"','\"Av Paulista\"','16933448820','alunoDH@g2.com.br','abcdefaaa','00099988810');
-INSERT INTO Clientes (`idCliente`,`Nome`,`Endereco`,`Telefone`,`Email`,`Senha`,`CPF`) VALUES (8,'Sonicy','\"Rua de Alagoas\"','15966693312','alunoDH@g2.com','79879845','00022233312');
-INSERT INTO Clientes (`idCliente`,`Nome`,`Endereco`,`Telefone`,`Email`,`Senha`,`CPF`) VALUES (9,'\"Sergio Moura\"','\"Rua Sebastiao Oliveira 14\"','11976331992','professorDH@g2.com.br','7976737472','22233344455');
-INSERT INTO Clientes (`idCliente`,`Nome`,`Endereco`,`Telefone`,`Email`,`Senha`,`CPF`) VALUES (10,'\"Matheus Felix\"','\"Av Copa Cabana 3456\"','13933445253','profeDH@g2.com.br','4545454545','33233133412');
+INSERT INTO Clientes (`idCliente`,`Nome`,`Endereco`,`Telefone`,`Email`,`Senha`,`CPF`) VALUES (1,'Matheus Carvalho','Rua São Teodoro 945','11976331982','alunoDH@gmail.com','123456','00011122234');
+INSERT INTO Clientes (`idCliente`,`Nome`,`Endereco`,`Telefone`,`Email`,`Senha`,`CPF`) VALUES (2,'Maristela Rosa','Av Brasil','1122334455','exemplo@gmail.com','654321','1112223344');
+INSERT INTO Clientes (`idCliente`,`Nome`,`Endereco`,`Telefone`,`Email`,`Senha`,`CPF`) VALUES (3,'Ana Clara','Rua dos Bandeirantes','1199887766','ex@exemplo.com','77664422','44433322211');
+INSERT INTO Clientes (`idCliente`,`Nome`,`Endereco`,`Telefone`,`Email`,`Senha`,`CPF`) VALUES (4,'Paulo Roberto','Av de Oliveira Carrasco','1599884422','alunoDH@outlook.com','132132','77766699920');
+INSERT INTO Clientes (`idCliente`,`Nome`,`Endereco`,`Telefone`,`Email`,`Senha`,`CPF`) VALUES (5,'Ruan Figuereido','Estrada Pau Brasil','21977664420','alunoDH@ex.com.br','77788899','55544433322');
+INSERT INTO Clientes (`idCliente`,`Nome`,`Endereco`,`Telefone`,`Email`,`Senha`,`CPF`) VALUES (6,'Hugo Figuereido','Rua Brasilia','14966553322','alunoDHG2@gmail.com','000001324','33344499900');
+INSERT INTO Clientes (`idCliente`,`Nome`,`Endereco`,`Telefone`,`Email`,`Senha`,`CPF`) VALUES (7,'Lucas Wesley','Av Paulista','16933448820','alunoDH@g2.com.br','abcdefaaa','00099988810');
+INSERT INTO Clientes (`idCliente`,`Nome`,`Endereco`,`Telefone`,`Email`,`Senha`,`CPF`) VALUES (8,'Sonicy','Rua de Alagoas','15966693312','alunoDH@g2.com','79879845','00022233312');
+INSERT INTO Clientes (`idCliente`,`Nome`,`Endereco`,`Telefone`,`Email`,`Senha`,`CPF`) VALUES (9,'Sergio Moura','Rua Sebastiao Oliveira 14','11976331992','professorDH@g2.com.br','7976737472','22233344455');
+INSERT INTO Clientes (`idCliente`,`Nome`,`Endereco`,`Telefone`,`Email`,`Senha`,`CPF`) VALUES (10,'Matheus Felix','Av Copa Cabana 3456','13933445253','profeDH@g2.com.br','4545454545','33233133412');
 
-INSERT INTO Combustiveis (`idCombustiveis`,`Tipo`) VALUES (1,'\"Gasolina Comum\"');
-INSERT INTO Combustiveis (`idCombustiveis`,`Tipo`) VALUES (2,'\"Gasolina Aditivada\"');
-INSERT INTO Combustiveis (`idCombustiveis`,`Tipo`) VALUES (3,'\"Gasolina Formulada\"');
+INSERT INTO Combustiveis (`idCombustiveis`,`Tipo`) VALUES (1,'Gasolina Comum');
+INSERT INTO Combustiveis (`idCombustiveis`,`Tipo`) VALUES (2,'Gasolina Aditivada');
+INSERT INTO Combustiveis (`idCombustiveis`,`Tipo`) VALUES (3,'Gasolina Formulada');
 INSERT INTO Combustiveis (`idCombustiveis`,`Tipo`) VALUES (4,'Etanol');
-INSERT INTO Combustiveis (`idCombustiveis`,`Tipo`) VALUES (5,'\"Etanol Aditivado\"');
+INSERT INTO Combustiveis (`idCombustiveis`,`Tipo`) VALUES (5,'Etanol Aditivado');
 INSERT INTO Combustiveis (`idCombustiveis`,`Tipo`) VALUES (6,'GNV');
 INSERT INTO Combustiveis (`idCombustiveis`,`Tipo`) VALUES (7,'Diesel');
 INSERT INTO Combustiveis (`idCombustiveis`,`Tipo`) VALUES (8,'Alcool');
@@ -66,10 +66,10 @@ INSERT INTO Pagamentos (`idPagamentos`,`Nome`) VALUES (4,'Debito');
 INSERT INTO Pagamentos (`idPagamentos`,`Nome`) VALUES (5,'Credito');
 
 INSERT INTO Pedidos (`idPedidos`,`Clientes_idCliente`,`Status`,`Pagamentos_idPagamentos`) VALUES (1,1,'Concluido',1);
-INSERT INTO Pedidos (`idPedidos`,`Clientes_idCliente`,`Status`,`Pagamentos_idPagamentos`) VALUES (2,2,'\"Em andamento\"',2);
+INSERT INTO Pedidos (`idPedidos`,`Clientes_idCliente`,`Status`,`Pagamentos_idPagamentos`) VALUES (2,2,'Em andamento',2);
 INSERT INTO Pedidos (`idPedidos`,`Clientes_idCliente`,`Status`,`Pagamentos_idPagamentos`) VALUES (3,3,'Cancelado',3);
-INSERT INTO Pedidos (`idPedidos`,`Clientes_idCliente`,`Status`,`Pagamentos_idPagamentos`) VALUES (4,4,'\"Processo Inicial\"',4);
-INSERT INTO Pedidos (`idPedidos`,`Clientes_idCliente`,`Status`,`Pagamentos_idPagamentos`) VALUES (5,5,'\"Processo Final\"',3);
+INSERT INTO Pedidos (`idPedidos`,`Clientes_idCliente`,`Status`,`Pagamentos_idPagamentos`) VALUES (4,4,'Processo Inicial',4);
+INSERT INTO Pedidos (`idPedidos`,`Clientes_idCliente`,`Status`,`Pagamentos_idPagamentos`) VALUES (5,5,'Processo Final',3);
 INSERT INTO Pedidos (`idPedidos`,`Clientes_idCliente`,`Status`,`Pagamentos_idPagamentos`) VALUES (6,6,'Devolução',4);
 
 INSERT INTO Produtos (`idProduto`,`Modelo`,`Valor`,`Tipo`,`Placa`,`Ano`,`Cidade`,`Estado`,`Quilometragem`,`Imagem`,`Descricao`,`Categorias_idCategorias`,`Pedidos_idPedidos`,`Marcas_idMarcas`) VALUES (1,'Camry',30000.00,'Carro','BRA2E19','2008', 'São Luis', 'MA', '150000', '/img/img_Inicial/Camry.png','Base de preços: Brasília. O Preço público sugerido pode variar de acordo com a tributação e alíquotas específicas de cada Estado. Preço do veículo sugerido ao público em reais (R$) para pintura sólida',1,1,1);

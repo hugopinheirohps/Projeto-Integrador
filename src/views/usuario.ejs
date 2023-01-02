@@ -7,7 +7,7 @@
 
     <!-- aqui -->
     <main>
-        <% for(let user of usuarios) { %>
+
             <ul class="dados">
                 <a href="/usuarios/pedidos">
                     <h3>Pedidos</h3>
@@ -17,9 +17,9 @@
                 </a>
 
                 <a href="/">
-                    <h3>Conta do <%= user.Nome %></h3>
+                    <h3>Conta do (a) <%= usuario.Nome %></h3>
                     <li>
-                        <%= user.Email %>
+                        <%= usuario.Email %>
                     </li>
                     <li>
                         Editar dados
@@ -29,7 +29,7 @@
                 <a href="/">
                     <h3>Endereço</h3>
                     <li>
-                        <%= user.Endereco %>
+                        <%= usuario.Endereco %>
                     </li>
                     <li>
                         Alterar endereço
@@ -49,7 +49,7 @@
                 </div>
                 <div class="moto2"><img src="/img/vroad white 1.png" alt=""></div>
             </div>
-        <% } %>
+
     </main>
 
 

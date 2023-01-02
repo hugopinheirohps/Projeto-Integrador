@@ -2,6 +2,9 @@ const { produto } = require("../../database/models");
 const {marca} = require('../../database/models');
 const {categoria} = require('../../database/models');
 
+//somente para poder usar o carrinho
+const {cliente} = require('../../database/models');
+
 const produtoController = {
   produto:async (req,res) =>{
         
@@ -30,6 +33,12 @@ const produtoController = {
 
   },
 
+  produtofiltro:async (req,res) =>{
+    
+    res.send("Falta pegar os dados do Post");
+
+  },
+
   carrinho: async (req,res) => {
         
     let veiculos = await produto.findAll()
@@ -48,6 +57,16 @@ const produtoController = {
         }
     );
 
+    let usuarios = await cliente.findAll(
+      {
+        where: {
+            Email: ["exemplo@gmail.com"],
+
+        },
+        attributes: ['idCliente', 'Nome', 'Endereco', 'Telefone', 'Email', 'Senha', 'CPF']
+      }
+    );
+
 
     let valorTotal = 0;        
     for(let veic of veiculos)
@@ -55,7 +74,8 @@ const produtoController = {
         valorTotal = valorTotal + parseFloat(veic.Valor);
     }
 
-    res.render('carrinho.ejs', {veiculos, marcas, categorias, valorTotal});
+    let usuario = usuarios[0];
+    res.render('carrinho.ejs', {veiculos, marcas, categorias, valorTotal, usuario});
 
   },
 

@@ -5,7 +5,7 @@
     list-style: none;
     text-decoration: none;
 }
-li{
+main > li{
     color: #3b3737;
 }
 
