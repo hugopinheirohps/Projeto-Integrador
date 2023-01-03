@@ -2,21 +2,22 @@ require('dotenv').config();
 
 // importando o express
 const express = require("express");
-
 //chamando a biblioteca express
 const app = express();
-
-
+//Fazer upload de arquivo
+const multer = require("multer");
+//session do usuario
+const session = require("express-session");
 // impportando o express-validator
 var expressValidator = require('express-validator');
 
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+
+
+
+
 const path = require("path");
-
-//Fazer upload de arquivo
-const multer = require("multer");
-
-//session do usuario
-const session = require("express-session");
 
 app.use(
   session({
@@ -28,9 +29,7 @@ app.use(
 
 //importando o roteador
 const routerUsuario = require("./routes/routerUsuario");
-
 const routerProdutos = require("./routes/routerProdutos");
-
 const routerInicial = require("./routes/routerinicial");
 
 // qual view engine vamos usar
