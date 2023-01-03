@@ -33,20 +33,20 @@
         <h2 class="destaques">VEICULOS EM DESTAQUE</h2>
         
         <div class="slider owl-carousel">
-          <% for(veiculo of veiculos){ %>
+          <% for(veic of veiculos){ %>
             <div class="card">
-              <div class="camry"><img src="<%=veiculo.Imagem %>" alt=""></div>
+              <div class="camry"><img src="<%=veic.Imagem %>" alt=""></div>
               <div class="content">
                 <div class="title">
-                  <%=veiculo.Modelo %>
+                  <%=veic.Modelo %>
                 </div>
-                <div class="sub-title">R$ <%=veiculo.Valor %>
+                <div class="sub-title">R$ <%=veic.Valor %>
                 </div>
                 <p>
-                  <%=veiculo.Descricao %>
+                  <%=veic.Descricao %>
                 </p>
                 <div class="btn">
-                  <a href="/produtos/produto/<%=veiculo.idProduto %>"><button>Ver Mais</button></a>
+                  <a href="/produtos/<%=veic.idProduto %>"><button>Ver Mais</button></a>
                 </div>
               </div>
             </div>

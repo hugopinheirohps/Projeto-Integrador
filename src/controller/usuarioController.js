@@ -9,8 +9,7 @@ const usuarioController = {
 
   entrarLogin: async (req, res) => {
 
-    console.log(req.body.email);  
-    console.log(req.body.senha);  
+    
 
     let usuarios = await cliente.findAll(
       {
