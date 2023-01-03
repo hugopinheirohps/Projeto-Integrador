@@ -1,9 +1,14 @@
 const {cliente} = require('../../database/models');
 
 let mensagem = "";
+let logado = "";
 
 const usuarioController = {
   login: (req, res) => {    
+    if(logado != "")
+    {
+      res.redirect("/usuarios");
+    }
     return res.render("login.ejs", {mensagem});
   },
 
@@ -14,12 +19,8 @@ const usuarioController = {
     let usuarios = await cliente.findAll(
       {
         where: {
-            Email: ["exemplo@gmail.com"],
-            Senha: ["654321"]
-
-            //Email: [String(req.body.email)],
-            //Senha: [String(req.body.senha)]
-
+            Email: [req.body.email],
+            Senha: [req.body.senha]
         },
         attributes: ['idCliente', 'Nome', 'Endereco', 'Telefone', 'Email', 'Senha', 'CPF']
       }
@@ -28,39 +29,60 @@ const usuarioController = {
     let usuario = usuarios[0];   
     if(usuario == null){
       let mensagem = "Erro no login, verifique email e senha digitados.";
-      //res.redirect('/usuarios/login', {usuarios});
       res.render('login.ejs', {mensagem});
     }
-    else
-    {
+    else{
+      logado = req.body.email;
       res.render('usuario.ejs', {usuario});
     }   
 
   },
+ 
+  painel: async (req, res) => {
+    //console.log(logado);
+    if(logado == "")
+    {
+      res.redirect("/usuarios/login");
+    }
+    
+    let usuarios = await cliente.findAll(
+      {
+        where: {
+            Email: [String(logado)],
+        },
+        attributes: ['idCliente', 'Nome', 'Endereco', 'Telefone', 'Email', 'Senha', 'CPF']
+      }
+    );
 
-  painel: (req, res) => {res.render("usuario.ejs")},
+    let usuario = usuarios[0]; 
+    res.render('usuario.ejs', {usuario});
+    
+  },
 
   pedidos:(req,res)=>{res.render("pedidos.ejs")},
 
   cadastrar: async (req, res) => {
-    const cliente = await Cliente.create(
-      
-    {
-     Nome:req.body.nome,
-     Email:req.body.email,
-      Telefone:req.body.telefone,
-      Senha:req.body.senha
-      
+    const usuario = await cliente.create
+    (
+      {
+        Nome:req.body.nome,
+        Email:req.body.email,
+        Telefone:req.body.telefone,
+        Senha:req.body.senha
+      }
+    )
+    console.log(usuario)
+        
+      /*if (!req.file) {
+        res.send("Você não enviou nenhuma imagem!");
+      } else {
+        res.send("Usuario cadastrado com sucesso!");
+      }
+    }*/
   }
-)
-console.log(cliente)
-    
-    /*if (!req.file) {
-      res.send("Você não enviou nenhuma imagem!");
-    } else {
-      res.send("Usuario cadastrado com sucesso!");
-    }
-  }*/
-}}
+
+
+///final do usuariocontroller
+}
 
 module.exports = usuarioController;
