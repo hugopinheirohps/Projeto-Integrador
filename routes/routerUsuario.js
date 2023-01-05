@@ -15,6 +15,6 @@ router.get("/pedidos",usuarioController.pedidos);
 router.get("/login", usuarioController.login);
 
 router.post("/", middlewareValidator, usuarioController.entrarLogin);
-router.post("/cadastro",uploadFile.single("avatar"),usuarioController.cadastrar);
+router.post("/cadastro",middlewareValidator,uploadFile.single("avatar"),usuarioController.cadastrar);
 
 module.exports = router;

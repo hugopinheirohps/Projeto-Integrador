@@ -19,6 +19,10 @@ section {
   display: none;
   
 }
+.erros{
+  color:red;
+  
+}
 label{
   background-color: #3b3737;
   color:#fff;
