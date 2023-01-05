@@ -42,10 +42,10 @@ app.set("views", path.resolve("./src/views"));
 app.use(express.static("public"));
 
 // receber requisição do corpo do formulario
-app.use(express.urlencoded({ extended: false }));
+//app.use(express.urlencoded({ extended: false }));
 
 // receber requisição do tipo json
-app.use(express.json());
+//app.use(express.json());
 
 // usando o roteador
 app.use("/usuarios", routerUsuario);
