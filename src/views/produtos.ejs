@@ -72,23 +72,22 @@
             </article>
         </options>
 
-        <produtos>
+        <div class="produtos">
 
             <% for(let veic of veiculos) { %>
                 <a href="/produtos/<%= veic.idProduto %>">
-                    <veiculo>   
+                    <div class="veiculo">
                         <img src="<%= veic.Imagem %>" alt="Seleção de moto">
                         <p><%= marcas[veic.Marcas_idMarcas-1].Nome  %> <%= veic.Modelo %> <%= veic.Ano %> </p>
                         <label><%= categorias[veic.Categorias_idCategorias-1].Nome %> </label>
                         <label> <%= veic.Cidade %> <space> <%= veic.Estado %></label>
-                        <label> Km: <%= veic.Quilometragem %></label>
-                        <p>R$ <%= veic.Valor %></p>                       
-                    </veiculo>  
-                </a>   
-            <% } %>
-
-
-        </produtos>
+                            <label> Km: <%= veic.Quilometragem %></label>
+                            <p>R$ <%= veic.Valor %></p>                       
+                        </div>   
+                    </a>   
+                    <% } %>
+                </div>
+                
 
         <%- include('./partiels/footer.ejs') %>
             

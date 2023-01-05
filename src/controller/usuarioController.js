@@ -82,6 +82,8 @@ const usuarioController = {
     const novoUsuario = await cliente.create({
       Nome:req.body.nome,
       Email:req.body.email,
+      Endereco:req.body.endereco,
+      CPF:req.body.cpf,
       Telefone:req.body.telefone,
       Senha:req.body.senha
     })

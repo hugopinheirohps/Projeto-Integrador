@@ -32,5 +32,6 @@ module.exports = (sequelize, DataType) => {
       timestamps: false,
     }
   );
+  
   return cliente;
 };
