@@ -180,9 +180,9 @@ const produtoController = {
   produtoInterno: async (req, res) => {
     const id = req.params.idProduto;
 
-    await produto.findOne({ where: { idProduto: id } }).then((p) => {
-      if (p != undefined) {
-        return res.render("produtoInterno", { p: p });
+    await produto.findOne({ where: { idProduto: id } }).then((veic) => {
+      if (veic != undefined) {
+        return res.render("produtoInterno", {veic:veic});
       } else {
         res.send("Produto não encontrado!");
       }

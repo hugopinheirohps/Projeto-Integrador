@@ -1,34 +1,37 @@
-require('dotenv').config()
-module.exports = (sequelize,DataType)=>{
-    const cliente = sequelize.define(
-        "cliente", 
+require("dotenv").config();
+module.exports = (sequelize, DataType) => {
+  const cliente = sequelize.define(
+    "cliente",
     {
-        idCliente:{
-            type:DataType.INTEGER,
-            primaryKey: true,
-            autoIncrement: true,
-            allowNull: false,
-        },
-        Nome:DataType.STRING,
-        Endereco:DataType.STRING,
-        Telefone:DataType.STRING,
-        CPF: {
-            type: DataType.STRING,
-            allowNull: false,
-          },
-        Email: {
-            type: DataType.STRING,
-            allowNull: false,
-          },
-        Senha: {
-            type: DataType.STRING,
-            allowNull: false,
-          }
+      idCliente: {
+        type: DataType.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false,
+      },
+      Nome: DataType.STRING,
+      Endereco: DataType.STRING,
+      Telefone: DataType.STRING,
+      CPF: {
+        type: DataType.STRING,
+      },
+      Email: {
+        type: DataType.STRING,
+        allowNull: false,
+      },
+
+      Senha: {
+        type: DataType.STRING,
+        allowNull: false,
+
         //Completar os dados de acordo com coluna da tabela
-    },{
-        tableName:'clientes',
-        timestamps:false,
-    })
-    return cliente;
-    
-}
+      },
+    },
+    {
+      tableName: "clientes",
+      timestamps: false,
+    }
+  );
+  
+  return cliente;
+};

@@ -53,7 +53,8 @@ module.exports = (sequelize, DataType) => {
     {
       tableName: "produtos",
       timestamps: false,
-    }
+    },
+  
   );
   produto.associate = (models) => {
     produto.belongsTo(models.categoria, {
