@@ -15,6 +15,11 @@
     <main>
         <h2 class="destaques">VEICULO EM DESTAQUE</h2>
 
+        <form action="/produtos/carrinho" method="post" enctype="application/json" id="carrinho">
+            <input type="idProduto" name="idProduto" value=" <%=veic.idProduto %>" hidden>
+            <button type="submit">Adicionar ao Carrinho</button>
+        </form>
+
         <article>
             <div class="camry"><img class="veiculo" src="<%=veic.Imagem %> " alt="">
                 <div class="content">

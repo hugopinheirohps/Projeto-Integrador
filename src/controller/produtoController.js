@@ -5,8 +5,13 @@ const {categoria} = require('../../database/models');
 //somente para poder usar o carrinho
 const {cliente} = require('../../database/models');
 
+let carrinho = [];
+let mensagem = "";
+
 const produtoController = {
   produto:async (req,res) =>{
+
+    mensagem = "";
         
     let veiculos = await produto.findAll()
 
@@ -33,29 +38,156 @@ const produtoController = {
 
   },
 
-  produtofiltro:async (req,res) =>{
-    const filtrar = req.body.
-    res.send("Falta pegar os dados do Post");
+  produtofiltro: async (req,res) =>{
 
+    mensagem = "";
+        
+    //console.log("---------");  
+    //console.log(req.body.estados);
+    //console.log(req.body.cidade);  
+    //console.log(req.body.marca);  
+    //console.log(req.body.modelo);  
+    //console.log(req.body.ordenar);  
+    //console.log("---------");   
+
+
+    if(req.body.estados != undefined)
+    {
+      let veiculos = await produto.findAll({where: { Estado: [req.body.estados],}})
+      let marcas = await marca.findAll({order: [['idMarcas', 'ASC'],]}); 
+      let categorias = await categoria.findAll({order: [['idCategoria', 'ASC'],]});
+      res.render('produtos.ejs', {veiculos, marcas,categorias});
+
+    }
+
+    if(req.body.cidade != undefined)
+    {
+      let veiculos = await produto.findAll({where: { Cidade: [req.body.cidade],}})
+      let marcas = await marca.findAll({order: [['idMarcas', 'ASC'],]}); 
+      let categorias = await categoria.findAll({order: [['idCategoria', 'ASC'],]});
+      res.render('produtos.ejs', {veiculos, marcas,categorias});
+    }
+
+    if(req.body.marca != undefined)
+    {
+      let categorias = await categoria.findAll({order: [['idCategoria', 'ASC'],]});
+      
+      let marcas = await marca.findAll(
+        {
+          where:{ 
+            Nome: [req.body.marca],
+          },
+          attributes: ['idMarcas', 'Nome']
+        }
+      ); 
+      
+      //console.log(marcas[0].Nome);  
+      //console.log(marcas[0].idMarcas);  
+
+      let veiculos = await produto.findAll(
+        {
+          where: {
+            Marcas_idMarcas: [marcas[0].idMarcas],
+          },
+          attributes: ['Modelo', 'Valor',  'Ano', 'Cidade', 'Estado', 'Quilometragem', 'Marcas_idMarcas']
+        }
+      ); 
+
+      let marc = marcas[0].Nome;
+      console.log(marc);  
+      console.log(marc);  
+
+      res.render('produtos.ejs', {veiculos, marcas,categorias});
+    }
+
+    if(req.body.modelo != undefined)
+    {
+      let veiculos = await produto.findAll({where: { Modelo: [req.body.modelo],}})
+      let marcas = await marca.findAll({order: [['idMarcas', 'ASC'],]}); 
+      let categorias = await categoria.findAll({order: [['idCategoria', 'ASC'],]});
+      res.render('produtos.ejs', {veiculos, marcas,categorias});
+    }
+
+    if(req.body.ordenar != undefined)
+    {
+      //console.log(req.body.ordenar);
+      let veiculos;
+
+      switch (req.body.ordenar) {
+        case 'menorpreco':
+          veiculos = await produto.findAll({order: [['Valor', 'ASC'],]});
+          break;
+        case 'maiorpreco':
+          veiculos = await produto.findAll({order: [['Valor', 'DESC'],]}); 
+          break;
+        case 'menorkm':
+          veiculos = await produto.findAll({order: [['Quilometragem', 'ASC'],]});  
+          break;
+        case 'maiorkm':
+          veiculos = await produto.findAll({order: [['Quilometragem', 'DESC'],]});    
+          break;
+        case 'menorano':
+          veiculos = await produto.findAll({order: [['Ano', 'ASC'],]});  
+          break;
+        case 'maiorano':
+          veiculos = await produto.findAll({order: [['Ano', 'DESC'],]}); 
+          break;
+        default:
+          veiculos = await produto.findAll()
+      }
+               
+      let marcas = await marca.findAll({order: [['idMarcas', 'ASC'],]}); 
+      let categorias = await categoria.findAll({order: [['idCategoria', 'ASC'],]});
+      res.render('produtos.ejs', {veiculos, marcas,categorias});
+      
+    }
+    //fim filtro produtos    
   },
 
   carrinho: async (req,res) => {
-        
-    let veiculos = await produto.findAll()
-    let marcas = await marca.findAll(
+
+    mensagem = "";
+
+    let adicionar = req.body.idProduto;
+    let veiculos;
+   
+
+    if(adicionar > 0)
+    {
+      veiculos = await produto.findAll({where: {idProduto: [adicionar],},attributes: ['Modelo', 'Valor',  'Ano', 'Cidade', 'Estado', 'Quilometragem', 'Imagem', 'Marcas_idMarcas']});
+      carrinho.push(veiculos[0]);
+      veiculos = carrinho;
+
+      let marcas = await marca.findAll({order: [['idMarcas', 'ASC'],]}); 
+      let categorias = await categoria.findAll({order: [['idCategoria', 'ASC'],]});
+
+      let usuarios = await cliente.findAll(
         {
-            order: [
-                ['idMarcas', 'ASC'],
-            ]
+          where: {
+              Email: ["exemplo@gmail.com"],
+
+          },
+          attributes: ['idCliente', 'Nome', 'Endereco', 'Telefone', 'Email', 'Senha', 'CPF']
         }
-    ); 
-    let categorias = await categoria.findAll(
-        {
-            order: [
-                ['idCategoria', 'ASC'],
-            ]
-        }
-    );
+      );
+
+
+      let valorTotal = 0;        
+      for(let veic of veiculos)
+      {
+          valorTotal = valorTotal + parseFloat(veic.Valor);
+      }
+
+      let usuario = usuarios[0];
+      
+      res.render('carrinho.ejs', {veiculos, marcas, categorias, valorTotal, usuario,mensagem});
+    } 
+    
+    
+
+    veiculos = carrinho;
+    let marcas = await marca.findAll({order: [['idMarcas', 'ASC'],]}); 
+    let categorias = await categoria.findAll({order: [['idCategoria', 'ASC'],]});
 
     let usuarios = await cliente.findAll(
       {
@@ -67,19 +199,33 @@ const produtoController = {
       }
     );
 
-
     let valorTotal = 0;        
     for(let veic of veiculos)
     {
         valorTotal = valorTotal + parseFloat(veic.Valor);
-    }
+    };
+    
+
 
     let usuario = usuarios[0];
-    res.render('carrinho.ejs', {veiculos, marcas, categorias, valorTotal, usuario});
 
+    if(carrinho[0] == null)
+    {
+      mensagem = "Carrinho vazio. Que tal adicionar alguns produtos?";
+    } 
+    else
+    {
+      mensagem = "";
+    }
+    
+    res.render('carrinho.ejs', {veiculos, marcas, categorias, valorTotal, usuario,mensagem});
+    
   },
 
   produtoInterno: async (req, res) => {
+
+    mensagem = "";
+    
     const id = req.params.idProduto;
 
     await produto.findOne({ where: { idProduto: id } }).then((veic) => {
