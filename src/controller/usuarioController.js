@@ -1,7 +1,9 @@
 const bcrypt = require("bcrypt");
 const { body, validationResult } = require("express-validator");
 
-const { cliente } = require("../../database/models");
+const {
+  cliente
+} = require("../../database/models");
 
 let mensagem = "";
 let logado = "";
@@ -11,7 +13,9 @@ const usuarioController = {
     if (logado != "") {
       res.redirect("/usuarios");
     }
-    return res.render("login.ejs", { mensagem });
+    return res.render("login.ejs", {
+      mensagem
+    });
   },
 
   entrarLogin: async (req, res) => {
@@ -34,10 +38,14 @@ const usuarioController = {
     let usuario = usuarios[0];
     if (usuario == null) {
       let mensagem = "Erro no login, verifique email e senha digitados.";
-      res.render("login.ejs", { mensagem });
+      res.render("login.ejs", {
+        mensagem
+      });
     } else {
       logado = req.body.email;
-      res.render("usuario.ejs", { usuario });
+      res.render("usuario.ejs", {
+        usuario
+      });
     }
   },
 
@@ -63,12 +71,20 @@ const usuarioController = {
     });
 
     let usuario = usuarios[0];
-    res.render("usuario.ejs", { usuario });
+    res.render("usuario.ejs", { usuario});
   },
 
   pedidos: (req, res) => {
     res.render("pedidos.ejs");
   },
+
+  //Validar o logout
+  // logout() {
+  //   return function (req, res) {
+  //     req.logout()
+  //     res.redirect('/inicial')
+  //   }
+  // },
 
   cadastrar: async (req, res) => {
     const email = req.body.email

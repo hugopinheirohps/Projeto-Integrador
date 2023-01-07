@@ -10,13 +10,16 @@
                 <% for(let veic of veiculos) { %>
                     <a href="/produtos/<%= veic.idProduto %>">
                         <veiculo>   
-                            <img src="<%= veic.Imagem %>" alt="Seleção de moto">
+                            <img src="<%= veic.Imagem %>" alt="Veiculo selecionado">
                             <p><%= marcas[veic.Marcas_idMarcas-1].Nome  %> <%= veic.Modelo %> <%= veic.Ano %> </p>
                             <p>R$ <%= veic.Valor %></p>                       
                         </veiculo>  
                     </a>   
                 <% } %>
+                
             </produtos>
+
+            <ms><%= mensagem %></ms>   
     
             <options>
                 <article>   
@@ -29,8 +32,21 @@
                     <p>Total</p>    
                     <p>R$ <%= valorTotal %></p>   
                     
+<<<<<<< HEAD
                     <a href="/produtos ">Adicionar mais produtos</a>
                     <a href="/produtos/finalizacao ">Continuar</a>
+=======
+                    <a href="/produtos">Adicionar mais produtos</a>
+
+                    <form action="/produtos/carrinho" method="post" enctype="application/json" id="carrinho">
+                        <input type="idProduto" name="idProduto" value="0" hidden>
+                        <button type="submit">Limpar Carrinho</button>
+                    </form>
+                    
+                    <a href="/produtos/finalizacao ">Continuar</a>
+
+                    
+>>>>>>> ac5904d29cd411ec7a465f7ae1096503efba3051
 
     
                 </article>

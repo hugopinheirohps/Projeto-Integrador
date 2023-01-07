@@ -1,4 +1,12 @@
 
+ms {
+  color: #3b3737;
+  font-weight: bolder;
+  text-align: center;
+  margin: 20vh auto auto auto;
+  margin-left: -8%;
+
+}
 
 options {
   width: 40vw;
@@ -6,7 +14,7 @@ options {
   display: flex;
   flex-direction: column;
   margin: auto;
-  margin-top: 50px;
+  margin-bottom: 100px;
   background-color: #F7F7F7;
   border-color: #F7F7F7;
 }
@@ -17,6 +25,7 @@ article{
     text-align: left;
     gap: 8%;
     margin-top: 20px;
+
   }
 
 article > input,button{
@@ -66,14 +75,18 @@ produtos {
 }  
 
 veiculo{  
+  margin: 10px;
   text-align: left;
-  background-color: #F7F7F7;
-  border-color: #F7F7F7;
-
-  display: grid;
+  background-color: #7c7b7b;
+  border: 5px solid rgba(8, 8, 8,0.3);
+  border-radius: 15px 15px 15px 15px;
+  width: 270px;
+  display:flex;
   flex-direction: column;
   column-gap: 5px;
   row-gap: 5px;
+  padding: 10px;
+  color: white;
 }
 
 veiculo p{
