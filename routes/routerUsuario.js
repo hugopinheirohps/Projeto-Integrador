@@ -13,8 +13,12 @@ const uploadFile = require("../middleware/middlewareMulter");
 router.get("/",usuarioController.painel);
 router.get("/pedidos",usuarioController.pedidos);
 router.get("/login", usuarioController.login);
+//Validar a rota logout
+// router.get("/logout", usuarioController.logout);
+
 
 router.post("/", middlewareValidator, usuarioController.entrarLogin);
 router.post("/cadastro",middlewareValidator,uploadFile.single("avatar"),usuarioController.cadastrar);
+
 
 module.exports = router;

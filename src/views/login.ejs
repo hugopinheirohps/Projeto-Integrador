@@ -1,65 +1,98 @@
 <%- include ('./partiels/header.ejs') %>
 
-    <body>
-        <link rel="stylesheet" href="/css/login.css">
-        <%- include('./partiels/navbar.ejs') %>
-            <main>
-                <section>
-                    <form action="/usuarios" method="post" enctype="application/json" id="form-login">
-                        <h2>Faça Login</h2>
-                        <input type="email" name="email" value="" placeholder="Digite seu email" required>
-                        <input type="password" name="senha" value="" placeholder="Digite sua senha" required>
-                        <button type="submit">ENTRAR</button>
-                        <a href="#">
-                            <p>esqueci minha senha</p>
-                        </a>
-                        
-                        <p><%= mensagem %></p>   
+<body>
+    <link rel="stylesheet" href="/css/login.css">
+    <%- include('./partiels/navbar.ejs') %>
+    <main>
+        <section>
+            <form action="/usuarios" method="post" enctype="application/json" id="form-login">
+                <h2>Faça Login</h2>
+                <input type="email" name="email" value="" placeholder="Digite seu email" id="email" required>
+                <input type="password" name="senha" value="" placeholder="Digite sua senha" id="passowrd" required>
+                <button type="submit">ENTRAR</button>
+                <a href="">
+                    <p>esqueci minha senha</p>
+                </a>
 
-                    </form>
+                <p><%=mensagem %></p>
 
-                    <form action="/usuarios/cadastro" method="post" enctype="multipart/form-data" id="form-cadastro">
-                        <h2>Criar Conta</h2>
-                        <input type="text" name="nome" placeholder="Digite seu nome completo" required>
-                        <input type="email" name="email" placeholder="Digite seu email" required>
-                        <input type="text" name="endereco" placeholder="Digite o endereco" required>
-                        <input type="text" name="cpf" placeholder="Digite o CPF" required>
-                        <input type="text" name="telefone" placeholder="Digite seu telefone" required>
-                        <input type="password" name="senha" placeholder="Criar senha" required>
-                        <!-- if(errors && errors.senha){ %>
-                            <div class="erros"> errors.senha.msg %></div>
-                         } -->
-                        <label for="perfil" class="picture"><span class="picture-image"></span></label>
-                        <input type="file" name="avatar" id="perfil" placeholder="imagem usuario">
+            </form>
 
-                        <button type="submit">CADASTRAR</button>
-                    </form>
-                </section>
-            </main>
-            <%- include('./partiels/footer.ejs') %>
-                <Script>
-                    const inputFile = document.querySelector('#perfil');
+            <form action="/usuarios/cadastro" method="post" enctype="multipart/form-data" id="form-cadastro">
+                <h2>Criar Conta</h2>
+                <input type="text" name="nome"  placeholder="Digite seu nome completo" required>
+                <input type="email" name="email"  placeholder="Digite seu email" required>
+                <input type="text" name="endereco"  placeholder="Digite o endereco" required>
+                <input type="text" name="cpf"  placeholder="Digite o CPF" required>
+                <input type="text" name="telefone"  placeholder="Digite seu telefone" required>
+                <input type="password" name="senha"  placeholder="Criar senha" required>
+                
+                             
+                <label for="perfil" class="picture"><span class="picture-image"></span></label>
+                <input type="file" name="avatar" id="perfil" placeholder="imagem usuario">
 
-                    const pictureImg = document.querySelector('.picture-image')
+                <button type="submit" id="cadastro">CADASTRAR</button>
+            </form>
+        </section>
+    </main>
+    <%- include('./partiels/footer.ejs') %>
+    <Script>
+        const inputFile = document.querySelector('#perfil');
 
-                    const pictureImgText = "imagem do perfil"
+        const pictureImg = document.querySelector('.picture-image')
 
-                    pictureImg.innerHTML = pictureImgText
+        const pictureImgText = "imagem do perfil"
 
-                    inputFile.addEventListener('change',(event) =>{
-                        const inputTarget = event.target
-                        
-                        const file = inputTarget.file[0]
-                        
-                        if(file){
-                            pictureImg.innerHTML = "imagem selecionada"
-                        }else{
-                            pictureImg.innerHTML = pictureImgText
-                        }
-                    })
+        pictureImg.innerHTML = pictureImgText
 
+        inputFile.addEventListener('change', (event) => {
+            const inputTarget = event.target
 
-                </Script>
-    </body>
+            const file = inputTarget.file[0]
 
-    </html>
+            if (file) {
+                pictureImg.innerHTML = "imagem selecionada"
+            } else {
+                pictureImg.innerHTML = pictureImgText
+            }
+        })
+
+        //Validando o login SCRIPT - Matheus
+        const button = document.getElementById('logar');
+
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+
+            if (email.value == '') {
+                email.classList.add('errorInput');
+                alert('Campo e-mail está vazio ou invalido!');
+            } else {
+                email.classList.remove('errorInput');
+            }
+
+            if (password.value == '') {
+                password.classList.add('errorInput');
+                alert('Campo senha está vazio ou invalido!');
+            } else {
+                email.classList.remove("errorInput")
+            }
+
+            if (email.value.indexOf("@") == -1 || email.value.indexOf(".") == -1 || (email.value.indexOf(".") -
+                    email.value.indexOf("@") == 1)) {
+                email.classList.add('errorInput');
+            } else {
+                email.classList.remove('errorInput');
+            }
+
+            if (password.value.legnth >= 6) {
+                password.classList.add('errorInput');
+            }
+        });
+
+    </Script>
+</body>
+
+</html>

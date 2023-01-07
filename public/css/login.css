@@ -33,7 +33,6 @@ label{
   margin-top: 10px;
   border:2px solid dashed;
   
- 
 }
 label:hover{
   background-color: black;
@@ -65,6 +64,11 @@ form p {
 img{
   width:25px;
   height: 25px;
+}
+
+
+.errorInput{
+  border: 2px solid rgb(189, 37, 37) !important;
 }
 
 @media (max-width: 700px) {
