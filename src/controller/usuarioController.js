@@ -80,12 +80,12 @@ const usuarioController = {
     res.render("pedidos.ejs");
   },
 
-  //Validar o logout
-  // logout() {
-  //   return function (req, res) {
+  
+  // logout:(req, res,next) => {
   //     req.logout()
+  //     req.session = null;
   //     res.redirect('/inicial')
-  //   }
+    
   // },
 
   cadastrar: async (req, res) => {

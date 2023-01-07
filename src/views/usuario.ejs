@@ -1,8 +1,8 @@
-<%- include("./partiels/header.ejs") %>
+<%- include("./partials/header.ejs") %>
 
 <body>
     <link rel="stylesheet" href="/css/usuario.css">
-    <%- include("./partiels/navbar.ejs") %>
+    <%- include("./partials/navbar.ejs") %>
 
 
     <!-- aqui -->
@@ -50,21 +50,21 @@
             <div class="moto2"><img src="/img/vroad white 1.png" alt=""></div>
         </div>
 
-        <button onclick="sair()">Sair</button>
-
+        <button className="button" onclick='sair()'>Sair</button>
 
     </main>
 
     <!-- aqui -->
     <script>
-        function sair(){
-            window.confirm("Deseja mesmo sair ?");
-            window.location.replace ('/inicial');
-        }
-        </script>
-    
+        const sair = () => {
+            window.localStorage.clear();
+            window.location.reload(true);
+            window.location.replace('/logout');
+        };
+    </script>
 
-    <%- include("./partiels/footer.ejs") %>
+
+    <%- include("./partials/footer.ejs") %>
 </body>
 
 </html>
