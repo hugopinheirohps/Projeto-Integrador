@@ -1,12 +1,8 @@
-const express = require("express");
+const path = require("path");
+const { check: checar, validationResult } = require("express-validator");
 
-// check ou body são equivalentes, posso usar um ou outro
-const { check: checar } = require("express-validator");
-
-const validar = [
+module.exports = [
   checar("senha")
     .isLength({ min: 6 })
     .withMessage("A senha tem que ter no minimo 6 caracteres."),
 ];
-
-module.exports = validar;

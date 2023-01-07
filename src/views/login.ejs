@@ -22,13 +22,13 @@
                         <h2>Criar Conta</h2>
                         <input type="text" name="nome" placeholder="Digite seu nome completo" required>
                         <input type="email" name="email" placeholder="Digite seu email" required>
-                        <input type="text" name="endereco" placeholder="Digite o endereco" required>
-                        <input type="text" name="cpf" placeholder="Digite o CPF" required>
+                        <input type="text" name="endereco" placeholder="Digite o endereco" obrigatório>
+                        <input type="text" name="cpf" placeholder="Digite o CPF" obrigatório>
                         <input type="text" name="telefone" placeholder="Digite seu telefone" required>
                         <input type="password" name="senha" placeholder="Criar senha" required>
-                        <!-- if(errors && errors.senha){ %>
-                            <div class="erros"> errors.senha.msg %></div>
-                         } -->
+                        <% if(locals.errors && errors.senha){ %>
+                            <div class="erros"><%= errors.senha.msg</div>
+                       <% } %>
                             
                         
                         <label for="perfil" class="picture"><span class="picture-image"></span></label>
