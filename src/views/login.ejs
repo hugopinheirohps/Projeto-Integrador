@@ -1,3 +1,4 @@
+<%- include ('./partials/header.ejs') %>
 
 <%- include ('./partials/header.ejs') %>
 <body>
@@ -17,12 +18,12 @@
             </form>
             <form action="/usuarios/cadastro" method="post" enctype="multipart/form-data" id="form-cadastro">
                 <h2>Criar Conta</h2>
-                <input type="text" name="nome"  placeholder="Digite seu nome completo" required>
-                <input type="email" name="email"  placeholder="Digite seu email" required>
-                <input type="text" name="endereco"  placeholder="Digite o endereco" required>
-                <input type="text" name="cpf"  placeholder="Digite o CPF" required>
-                <input type="text" name="telefone"  placeholder="Digite seu telefone" required>
-                <input type="password" name="senha"  placeholder="Criar senha" required>
+                <input type="text" name="nome"  id = "nome"value= "" placeholder="Digite seu nome completo" required>
+                <input type="email" name="email" id = "email" value="" placeholder="Digite seu email" required>
+                <input type="text" name="endereco" id="endereco" value=""  placeholder="Digite o endereco" required>
+                <input type="text" name="cpf" id="cpf" value=""  placeholder="Digite o CPF" required>
+                <input type="text" name="telefone" id="telefone" value="" placeholder="Digite seu telefone" required>
+                <input type="password" name="senha" id="senha" value=""  placeholder="Criar senha" required>
                 <label for="perfil" class="picture"><span class="picture-image"></span></label>
                 <input type="file" name="avatar" id="perfil" placeholder="imagem usuario">
                 <button type="submit" id="cadastro">CADASTRAR</button>
@@ -30,51 +31,8 @@
         </section>
     </main>
     <%- include('./partials/footer.ejs') %>
-    <Script>
-        const inputFile = document.querySelector('#perfil');
-        const pictureImg = document.querySelector('.picture-image')
-        const pictureImgText = "imagem do perfil"
-        pictureImg.innerHTML = pictureImgText
-        inputFile.addEventListener('change', (event) => {
-            const inputTarget = event.target
-            const file = inputTarget.file[0]
-            if (file) {
-                pictureImg.innerHTML = "imagem selecionada"
-            } else {
-                pictureImg.innerHTML = pictureImgText
-            }
-        })
-        //Validando o login SCRIPT - Matheus
-        const button = document.getElementById('logar');
-        button.addEventListener('click', (event) => {
-            event.preventDefault();
-            const email = document.getElementById('email');
-            const password = document.getElementById('password');
-            if (email.value == '') {
-                email.classList.add('errorInput');
-                alert('Campo e-mail está vazio ou invalido!');
-            } else {
-                email.classList.remove('errorInput');
-            }
-            if (email.value.indexOf("@") == -1 || email.value.indexOf(".") == -1 || (email.value.indexOf(".") -
-                    email.value.indexOf("@") == 1)) {
-                email.classList.add('errorInput');
-            } else {
-                email.classList.remove('errorInput');
-            }
-            if (password.value == '' ) {
-                password.classList.add('errorInput');
-                alert('Campo senha está vazio ou invalido!');
-            } else {
-                email.classList.remove("errorInput")
-            }
-            if (password.value.length < 6) {
-                password.classList.add('errorInput');
-                alert("A senha tem que ter no minimo 6 caracteres!")
-            }
-           
-           
-        });
+    <Script src="/js/scriptsValidações.js">
+        
     </Script>
 </body>
 </html>

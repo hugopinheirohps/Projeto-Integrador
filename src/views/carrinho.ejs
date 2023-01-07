@@ -1,36 +1,38 @@
-<%- include ('./partiels/header.ejs') %>
+<%- include ('./partials/header.ejs') %>
 
 <body>
     <link rel="stylesheet" href="/css/carrinho.css">
-    <%- include('./partiels/navbar.ejs') %>
+    <%- include('./partials/navbar.ejs') %>
       
         <main>
 
             <produtos>
                 <% for(let veic of veiculos) { %>
-                    <a href="/produtos/<%= veic.idProduto %>">
+                    <a href="/produtos/<%=veic.idProduto %>">
                         <veiculo>   
                             <img src="<%= veic.Imagem %>" alt="Veiculo selecionado">
-                            <p><%= marcas[veic.Marcas_idMarcas-1].Nome  %> <%= veic.Modelo %> <%= veic.Ano %> </p>
-                            <p>R$ <%= veic.Valor %></p>                       
+                            <p><%=marcas[veic.Marcas_idMarcas-1].Nome  %> <%=veic.Modelo %> <%=veic.Ano %> </p>
+                            <p>R$ <%=veic.Valor %></p>                       
                         </veiculo>  
                     </a>   
                 <% } %>
                 
             </produtos>
 
-            <ms><%= mensagem %></ms>   
+            <ms><%=mensagem %></ms>   
     
             <options>
                 <article>   
                     <p>Resumo do pedido </p>
                     <br><br>
                     <label>Endereço de faturamento</label>
-                    <input type="text" name="endereco" value="<%= usuario.Endereco %>" autocomplete="off" readonly>
-                    <a href="/usuarios/cadastro/">Alterar endereço</a>
+                    <input type="text" name="endereco" value="<%=usuario.Endereco %>" autocomplete="off" readonly>
+                    <button type="submit">
+                        <a href="/usuarios/cadastro/">Alterar endereço</a>
+                    </button>
                     <br><br>
                     <p>Total</p>    
-                    <p>R$ <%= valorTotal %></p>   
+                    <p>R$ <%=valorTotal %></p>   
                     
 <<<<<<< HEAD
                     <a href="/produtos ">Adicionar mais produtos</a>
@@ -40,7 +42,9 @@
 
                     <form action="/produtos/carrinho" method="post" enctype="application/json" id="carrinho">
                         <input type="idProduto" name="idProduto" value="0" hidden>
-                        <button type="submit">Limpar Carrinho</button>
+                        <button type="submit">
+                           <a href=""> Limpar Carrinho </a> 
+                        </button>
                     </form>
                     
                     <a href="/produtos/finalizacao ">Continuar</a>
@@ -54,7 +58,7 @@
 
         </main>
 
-    <%- include('./partiels/footer.ejs') %>
+    <%- include('./partials/footer.ejs') %>
             
 </body>
 </html>
