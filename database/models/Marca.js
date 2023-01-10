@@ -9,7 +9,7 @@ module.exports = (sequelize,DataType)=>{
         Nome:DataType.STRING,
         
     },{
-        tableName: 'marcas',
+        tableName: 'Marcas',
         timestamps:false,
     });
     

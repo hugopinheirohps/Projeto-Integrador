@@ -4,51 +4,49 @@
     <link rel="stylesheet" href="/css/usuario.css">
     <%- include("./partials/navbar.ejs") %>
 
+        <!-- aqui -->
+        
+        <main>
 
-            <!-- aqui -->
-            <main>
+            <ul class="dados">
+                <a href="/usuarios/pedidos">
+                    <h3>Pedidos</h3>
+                    <li>
+                        Acompanhar pedidos
+                    </li>
+                </a>
 
-                <ul class="dados">
-                    <a href="/usuarios/pedidos">
-                        <h3>Pedidos</h3>
-                        <li>
-                            Acompanhar pedidos
-                        </li>
-                    </a>
+                <a href="/">
+                    <h3>Conta do (a) <%=usuario.Nome %>
+                    </h3>
+                    <li>
+                        <%= usuario.Email %>
+                    </li>
+                    <li>
+                        Editar dados
+                    </li>
+                </a>
 
-                    <a href="/">
-                        <h3>Conta do (a) <%=usuario.Nome %>
-                        </h3>
-                        <li>
-                            <%= usuario.Email %>
-                        </li>
-                        <li>
-                            Editar dados
-                        </li>
-                    </a>
+                <a href="/">
+                    <h3>Endereço</h3>
+                    <li>
+                        <%= usuario.Endereco %>
+                    </li>
+                    <li>
+                        Alterar endereço
+                    </li>
+                </a>
 
-                    <a href="/">
-                        <h3>Endereço</h3>
-                        <li>
-                            <%= usuario.Endereco %>
-                        </li>
-                        <li>
-                            Alterar endereço
-                        </li>
-                    </a>
-
-                    <a href="/">
-                        <h3>Cartões</h3>
-                        <li>
-                            Cartões cadastrados
-                        </li>
-                    </a>
-                </ul>
-                <div class="imagens">
-                    <div class="moto1">
-                        <img src="/img/cores-harley-davidson-night-rod 1.png" alt="">
-                    </div>
-                    <div class="moto2"><img src="/img/vroad white 1.png" alt=""></div>
+                <a href="/">
+                    <h3>Cartões</h3>
+                    <li>
+                        Cartões cadastrados
+                    </li>
+                </a>
+            </ul>
+            <div class="imagens">
+                <div class="moto1">
+                    <img src="/img/cores-harley-davidson-night-rod 1.png" alt="">
                 </div>
 
         <button className="button" onclick='sair()'>Sair</button>

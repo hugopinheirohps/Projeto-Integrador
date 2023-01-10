@@ -109,9 +109,9 @@ const usuarioController = {
         res.send("Usuario cadastrado com sucesso!");
       }
     }*/
-  },
-
   
+
+  }
 };
 
 module.exports = usuarioController;

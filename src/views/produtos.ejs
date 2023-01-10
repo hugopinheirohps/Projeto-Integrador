@@ -26,8 +26,14 @@
                         <% } %>
                     </select>
                 </form>
+                               
                 
-                <input type="text" name="pesquisa" placeholder="Digite a marca, modelo, cidade, estado ou escolha abaixo" autocomplete="off" value="">
+                <form action="/produtos" method="post" enctype="application/json" id="pesquisar">
+                    <input type="text" name="pesquisa" id="pesquisa" placeholder="Digite e clique em pesquisar" autocomplete="off" value="">
+                </form>
+                
+            
+            
             </article>
             
             <article>   
@@ -55,7 +61,7 @@
                 </form>
 
                 <form action="/produtos" method="post" enctype="application/json" id="filto">
-                    <label for="ordenar">Ordenar todos por: </label>
+                    <label for="ordenar">Ordenar: </label>
                     <select id="ordenar" name="ordenar" onchange="this.form.submit()">
                         <option value="" disabled selected hidden>Selecione</option>
                         <option value="menorpreco">Menor preço</option>
@@ -66,12 +72,15 @@
                         <option value="maiorano">Ano decresente</option>           
                     </select>
                 </form>
-
-                <button type="submit">Filtros</button>
+                
+                
+                <button onclick="document.createElement('form').submit.call(document.getElementById('pesquisar'))">Pesquisar</button>
 
             </article>
         </options>
 
+        
+        
         <produtos>
 
             <% for(let veic of veiculos) { %>
@@ -83,11 +92,14 @@
                         <label> <%= veic.Cidade %> <space> <%= veic.Estado %></label>
                             <label> Km: <%= veic.Quilometragem %></label>
                             <p>R$ <%= veic.Valor %></p>                       
-                        </div>   
-                    </a>   
-                    <% } %>
-                </div>
-                
+                    </veiculo>  
+                </a>   
+            <% } %>
+    
+    
+        </produtos>    
+
+        <p><%=mensagem %></p>
 
         <%- include('./partials/footer.ejs') %>
             

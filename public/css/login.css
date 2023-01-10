@@ -37,6 +37,9 @@ label:hover{
 h2 {
   font-weight: bolder;
 }
+ul > li{
+  color:red;
+}
 form > input {
   padding: 10px;
   margin: 8px;

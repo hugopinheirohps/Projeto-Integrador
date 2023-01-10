@@ -22,8 +22,9 @@ const path = require("path");
 app.use(
   session({
     secret: "não revele o seu segredo",
-    resave: true,
+    resave: false,
     saveUninitialized: true,
+    cookie: { secure: true }
   })
 );
 
