@@ -34,24 +34,20 @@
                     <p>Total</p>    
                     <p>R$ <%=valorTotal %></p>   
                     
-<<<<<<< HEAD
-                    <a href="/produtos ">Adicionar mais produtos</a>
-                    <a href="/produtos/finalizacao ">Continuar</a>
-=======
-                    <a href="/produtos">Adicionar mais produtos</a>
+                    <br><br>
+                    <button>
+                        <a href="/produtos/finalizacao">Finalizar Compra</a>
+                    </button>
+
+                    <button>
+                        <a href="/produtos">Adicionar mais produtos</a>
+                    </button>
+                    
 
                     <form action="/produtos/carrinho" method="post" enctype="application/json" id="carrinho">
                         <input type="idProduto" name="idProduto" value="0" hidden>
-                        <button type="submit">
-                           <a href=""> Limpar Carrinho </a> 
-                        </button>
-                    </form>
-                    
-                    <a href="/produtos/finalizacao ">Continuar</a>
-
-                    
->>>>>>> ac5904d29cd411ec7a465f7ae1096503efba3051
-
+                        <button type="submit"><a href=""> Limpar Carrinho </a></button>
+                    </form>         
     
                 </article>
             </options>

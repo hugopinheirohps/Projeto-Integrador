@@ -62,16 +62,21 @@ article{
   }
 }
 
-options > article > input{
+options > article > form > input{
   background-color: #F7F7F7;
   border-color: #F7F7F7;
   min-width: 220px;
   min-height: 35px;
+  border-radius: 5px;
+  width: 28vw;
 }
+
 
 select{
   min-width: 175px;
   min-height: 20px;
+  border-radius: 10px;
+
 }
 
 
@@ -80,13 +85,12 @@ options > article > button{
   border-color: #F7F7F7;
   min-width: 80px;
   min-height: 25px;
+  border-radius: 5px;
+  width: 35vw;
+  margin-left: -10px;
   
 }
 
-article > input,button{
-  border-radius: 5px;
-  width: 35vw;
-}
 
 produtos {
     display: flex;

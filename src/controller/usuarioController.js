@@ -108,9 +108,7 @@ const usuarioController = {
       Telefone: req.body.telefone,
       Senha: req.body.senha,
     });
-
     console.log(novoUsuario);
-
     /*if (!req.file) {
         res.send("Você não enviou nenhuma imagem!");
       } else {

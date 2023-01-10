@@ -7,6 +7,7 @@ const {cliente} = require('../../database/models');
 
 let carrinho = [];
 let mensagem = "";
+let logado = "exemplo@gmail.com";
 
 const produtoController = {
   produto:async (req,res) =>{
@@ -30,7 +31,7 @@ const produtoController = {
         }
     );
 
-    res.render('produtos.ejs', {veiculos, marcas,categorias});
+    res.render('produtos.ejs', {veiculos, marcas,categorias,mensagem});
 
     //console.log(veiculos.map(p=>p.toJSON()));        
     //console.log(marcas.map(p=>p.toJSON()));    
@@ -50,22 +51,65 @@ const produtoController = {
     //console.log(req.body.ordenar);  
     //console.log("---------");   
 
+    if(req.body.pesquisa != undefined){
+
+      let veiculos = await produto.findAll()
+      let marcas = await marca.findAll({order: [['idMarcas', 'ASC'],]}); 
+      let categorias = await categoria.findAll({order: [['idCategoria', 'ASC'],]});
+
+      if((await produto.findAll({where: { Estado: [req.body.pesquisa],}}))[0] != undefined)
+      {
+        veiculos = await produto.findAll({where: { Estado: [req.body.pesquisa],}})
+        res.render('produtos.ejs', {veiculos, marcas,categorias,mensagem});
+      }
+      else if((await produto.findAll({where: { Cidade: [req.body.pesquisa],}}))[0] != undefined)
+      {
+        veiculos = await produto.findAll({where: { Cidade: [req.body.pesquisa],}})
+        res.render('produtos.ejs', {veiculos, marcas,categorias,mensagem});
+      }
+      else if((await marca.findAll({where: { Nome: [req.body.pesquisa],}}))[0] != undefined)
+      {
+        marcas = await marca.findAll(
+          {
+            where:{ 
+              Nome: [req.body.pesquisa],
+            },
+            attributes: ['idMarcas', 'Nome']
+          }
+        ); 
+        res.render('produtos.ejs', {veiculos, marcas,categorias,mensagem});
+      }
+      else if((await produto.findAll({where: { Modelo: [req.body.pesquisa],}}))[0] != undefined)
+      {
+        veiculos = await produto.findAll({where: { Modelo: [req.body.pesquisa],}})
+        res.render('produtos.ejs', {veiculos, marcas,categorias,mensagem});
+      }      
+      else
+      {
+        veiculos = [];
+        marcas = [];
+        categorias = [];
+        mensagem = "Não existem produtos com os critérios digitados.";
+        res.render('produtos.ejs', {veiculos, marcas,categorias,mensagem});
+      }
+
+    }
 
     if(req.body.estados != undefined)
     {
       let veiculos = await produto.findAll({where: { Estado: [req.body.estados],}})
       let marcas = await marca.findAll({order: [['idMarcas', 'ASC'],]}); 
       let categorias = await categoria.findAll({order: [['idCategoria', 'ASC'],]});
-      res.render('produtos.ejs', {veiculos, marcas,categorias});
+      res.render('produtos.ejs', {veiculos, marcas,categorias,mensagem});
 
-    }
+    }   
 
     if(req.body.cidade != undefined)
     {
       let veiculos = await produto.findAll({where: { Cidade: [req.body.cidade],}})
       let marcas = await marca.findAll({order: [['idMarcas', 'ASC'],]}); 
       let categorias = await categoria.findAll({order: [['idCategoria', 'ASC'],]});
-      res.render('produtos.ejs', {veiculos, marcas,categorias});
+      res.render('produtos.ejs', {veiculos, marcas,categorias,mensagem});
     }
 
     if(req.body.marca != undefined)
@@ -97,7 +141,7 @@ const produtoController = {
       console.log(marc);  
       console.log(marc);  
 
-      res.render('produtos.ejs', {veiculos, marcas,categorias});
+      res.render('produtos.ejs', {veiculos, marcas,categorias, mensagem});
     }
 
     if(req.body.modelo != undefined)
@@ -105,7 +149,7 @@ const produtoController = {
       let veiculos = await produto.findAll({where: { Modelo: [req.body.modelo],}})
       let marcas = await marca.findAll({order: [['idMarcas', 'ASC'],]}); 
       let categorias = await categoria.findAll({order: [['idCategoria', 'ASC'],]});
-      res.render('produtos.ejs', {veiculos, marcas,categorias});
+      res.render('produtos.ejs', {veiculos, marcas,categorias,mensagem});
     }
 
     if(req.body.ordenar != undefined)
@@ -138,7 +182,7 @@ const produtoController = {
                
       let marcas = await marca.findAll({order: [['idMarcas', 'ASC'],]}); 
       let categorias = await categoria.findAll({order: [['idCategoria', 'ASC'],]});
-      res.render('produtos.ejs', {veiculos, marcas,categorias});
+      res.render('produtos.ejs', {veiculos, marcas,categorias, mensagem});
       
     }
     //fim filtro produtos    
@@ -150,9 +194,30 @@ const produtoController = {
 
     let adicionar = req.body.idProduto;
     let veiculos;
-   
+    let valorTotal = 0;   
 
-    if(adicionar > 0)
+    if(carrinho[0] == null)
+    {
+      mensagem = "Carrinho vazio. Que tal adicionar alguns produtos?";
+    } 
+    else
+    {
+      mensagem = "";
+    }
+   
+    
+    if(adicionar == 0)
+    {
+      carrinho = [];
+      veiculos = [];
+      let marcas = [];
+      let categorias = [];
+      let usuario = [];
+
+      res.render('carrinho.ejs', {veiculos, marcas, categorias, valorTotal, usuario,mensagem});
+    
+    }
+    else if(adicionar > 0)
     {
       veiculos = await produto.findAll({where: {idProduto: [adicionar],},attributes: ['Modelo', 'Valor',  'Ano', 'Cidade', 'Estado', 'Quilometragem', 'Imagem', 'Marcas_idMarcas']});
       carrinho.push(veiculos[0]);
@@ -164,61 +229,50 @@ const produtoController = {
       let usuarios = await cliente.findAll(
         {
           where: {
-              Email: ["exemplo@gmail.com"],
+              Email: [logado],
 
           },
           attributes: ['idCliente', 'Nome', 'Endereco', 'Telefone', 'Email', 'Senha', 'CPF']
         }
       );
 
-
-      let valorTotal = 0;        
+      let usuario = usuarios[0];
+           
       for(let veic of veiculos)
       {
           valorTotal = valorTotal + parseFloat(veic.Valor);
-      }
-
-      let usuario = usuarios[0];
+      }     
       
       res.render('carrinho.ejs', {veiculos, marcas, categorias, valorTotal, usuario,mensagem});
-    } 
-    
-    
-
-    veiculos = carrinho;
-    let marcas = await marca.findAll({order: [['idMarcas', 'ASC'],]}); 
-    let categorias = await categoria.findAll({order: [['idCategoria', 'ASC'],]});
-
-    let usuarios = await cliente.findAll(
-      {
-        where: {
-            Email: ["exemplo@gmail.com"],
-
-        },
-        attributes: ['idCliente', 'Nome', 'Endereco', 'Telefone', 'Email', 'Senha', 'CPF']
-      }
-    );
-
-    let valorTotal = 0;        
-    for(let veic of veiculos)
-    {
-        valorTotal = valorTotal + parseFloat(veic.Valor);
-    };
-    
-
-
-    let usuario = usuarios[0];
-
-    if(carrinho[0] == null)
-    {
-      mensagem = "Carrinho vazio. Que tal adicionar alguns produtos?";
-    } 
+    }
     else
     {
-      mensagem = "";
+      veiculos = carrinho;
+      let marcas = await marca.findAll({order: [['idMarcas', 'ASC'],]}); 
+      let categorias = await categoria.findAll({order: [['idCategoria', 'ASC'],]});
+
+      let usuario;
+      if (logado != "") {
+        usuario = {Nome: "Fulano ",Endereco: "",}
+      }
+      else
+      {
+        let usuarios = await cliente.findAll(
+          {
+            where: {
+                Email: [logado],
+  
+            },
+            attributes: ['idCliente', 'Nome', 'Endereco', 'Telefone', 'Email', 'Senha', 'CPF']
+          }
+        );  
+        usuario = usuarios[0];
+      }    
+          
+      res.render('carrinho.ejs', {veiculos, marcas, categorias, valorTotal, usuario,mensagem});
+      
     }
-    
-    res.render('carrinho.ejs', {veiculos, marcas, categorias, valorTotal, usuario,mensagem});
+
     
   },
 
@@ -238,7 +292,16 @@ const produtoController = {
   },
 
   finalizacao: (req, res) => {
-    res.render("finalizacao.ejs");
+
+    if (logado != "") {
+      res.render("finalizacao.ejs");
+    }
+
+    let mensagem = "Faça login ou cadastro.";
+    return res.render("login.ejs", {
+      mensagem
+    });
+
   },
 
   sucesso: (req, res) => {
