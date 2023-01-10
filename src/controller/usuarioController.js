@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const { body, validationResult } = require("express-validator");
+const {validationResult } = require("express-validator");
 
 const {
   cliente
@@ -87,29 +87,38 @@ const usuarioController = {
   // },
 
   cadastrar: async (req, res) => {
-    const email = req.body.email
-    const buscarCliente = await cliente.findAll({where:{Email:email}})
+   
+    const errors = validationResult(req)
+    console.log(errors.mapped())
     
-    if(buscarCliente){
-      console.log("Já é cadastrado")
-    }else{
-      console.log("pode se cadastra")
+    if(!errors.isEmpty()){
+      return res.render('login',{errors:errors.mapped()})
+      }
+
+  
+    else{
+      const novoUsuario = await cliente.create({
+        Nome: req.body.nome,
+        Email: req.body.email,
+        Endereco: req.body.endereco,
+        CPF: req.body.cpf,
+        Telefone: req.body.telefone,
+        Senha: req.body.senha,
+      }
+      )
+      console.log(novoUsuario)
     }
     
-    
-    console.log(buscarCliente)
-    
-    
-    /*const novoUsuario = await cliente.create({
-      Nome: req.body.nome,
-      Email: req.body.email,
-      Endereco: req.body.endereco,
-      CPF: req.body.cpf,
-      Telefone: req.body.telefone,
-      Senha: req.body.senha,
-    });
+    }}
 
-    console.log(novoUsuario);
+    
+
+   
+    
+    
+    
+   
+   
 
     /*if (!req.file) {
         res.send("Você não enviou nenhuma imagem!");
@@ -117,9 +126,9 @@ const usuarioController = {
         res.send("Usuario cadastrado com sucesso!");
       }
     }*/
-  },
+  
 
   ///final do usuariocontroller
-};
+
 
 module.exports = usuarioController;
