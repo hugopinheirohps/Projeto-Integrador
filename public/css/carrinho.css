@@ -1,10 +1,10 @@
-
 ms {
   color: #3b3737;
   font-weight: bolder;
   text-align: center;
   margin: 20vh auto auto auto;
-  margin-left: -8%;
+  margin-left: -5%;
+  margin-right: 5%;
 
 }
 
@@ -14,24 +14,40 @@ options {
   display: flex;
   flex-direction: column;
   margin: auto;
-  margin-bottom: 100px;
+  margin-top: -10px;
+}
+
+
+
+article{
+  display: grid;
+  text-align: left;
+  margin-top: 20px;
+
+  background-color: #7c7b7b;
+  border: 5px solid rgba(8, 8, 8,0.3);
+  border-radius: 15px 15px 15px 15px;
+  color: white;
+  column-gap: 5px;
+  row-gap: 10px;
+  padding: 10px;
+}
+
+
+article > input{
+  border-radius: 5px;
+  width: 35vw;
+  height: 40px;
   background-color: #F7F7F7;
   border-color: #F7F7F7;
 }
 
-
-article{
-    display: grid;
-    text-align: left;
-    gap: 8%;
-    margin-top: 20px;
-
-  }
-
-article > input,button{
+button{
   border-radius: 5px;
-  width: 40vw;
-  height: 40px;
+  width: 150px;
+  height: 25px;
+  min-width: 150px;
+  min-height: 25px;
   background-color: #F7F7F7;
   border-color: #F7F7F7;
 }
@@ -47,16 +63,12 @@ body {
 
 main {
   display: flex;
-  max-width: 70%;
-
+  max-width: 60%;
   margin: auto;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 40px;
   text-align: center;
-  gap: 15px;
-
-
-
+  column-gap: 1vw;
 }
 
 main options article p {
@@ -70,7 +82,6 @@ produtos {
   flex-direction: row;
   margin: auto;
   justify-content: center;
-  margin-top: 50px;
   text-align: center;
 }  
 
@@ -83,8 +94,6 @@ veiculo{
   width: 270px;
   display:flex;
   flex-direction: column;
-  column-gap: 5px;
-  row-gap: 5px;
   padding: 10px;
   color: white;
 }
