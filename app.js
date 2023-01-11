@@ -8,25 +8,33 @@ const app = express();
 const multer = require("multer");
 //session do usuario
 const session = require("express-session");
-// impportando o express-validator
+// cookie parser
+const cookieParser = require("cookie-parser");
+// importando o express-validator
 var expressValidator = require('express-validator');
 
+// parsing the incoming data
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
+
+//serving public file
+app.use(express.static(__dirname));
+
+// cookie parser middleware
+app.use(cookieParser());
 
 
-
-
-const path = require("path");
-
-app.use(
-  session({
+//const oneDay = 1000 * 60 * 60 * 24;
+const oneHour = 1000 * 60 * 60;
+app.use(session({
     secret: "não revele o seu segredo",
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
-  })
-);
+    saveUninitialized:true,
+    cookie: { maxAge: oneHour },
+    resave: false 
+}));
+
+// Pegando o caminho dos arquivos
+const path = require("path");
 
 //importando o roteador
 const routerUsuario = require("./routes/routerUsuario");
