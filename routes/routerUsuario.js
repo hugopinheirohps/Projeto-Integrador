@@ -13,8 +13,7 @@ const validarCadastro = require("../middleware/middlewareValidator");
 router.get("/",usuarioController.painel);
 router.get("/pedidos",usuarioController.pedidos);
 router.get("/login", usuarioController.login);
-//Validar a rota logout
-// router.get("/logout", usuarioController.logout);
+router.get("/logout", usuarioController.logout);
 
 
 router.post("/",validarCadastro,usuarioController.entrarLogin);

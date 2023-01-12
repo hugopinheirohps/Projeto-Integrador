@@ -7,7 +7,8 @@ const {cliente} = require('../../database/models');
 
 let carrinho = [];
 let mensagem = "";
-let logado = "exemplo@gmail.com";
+
+var session;
 
 const produtoController = {
   produto:async (req,res) =>{
@@ -196,26 +197,12 @@ const produtoController = {
     let veiculos;
     let valorTotal = 0;   
 
-    if(carrinho[0] == null)
-    {
-      mensagem = "Carrinho vazio. Que tal adicionar alguns produtos?";
-    } 
-    else
-    {
-      mensagem = "";
-    }
-   
+    if(carrinho[0] == null){mensagem = "Carrinho vazio. Que tal adicionar alguns produtos?";}   
     
     if(adicionar == 0)
     {
       carrinho = [];
-      veiculos = [];
-      let marcas = [];
-      let categorias = [];
-      let usuario = [];
-
-      res.render('carrinho.ejs', {veiculos, marcas, categorias, valorTotal, usuario,mensagem});
-    
+      res.redirect("/produtos/carrinho");
     }
     else if(adicionar > 0)
     {
@@ -225,23 +212,32 @@ const produtoController = {
 
       let marcas = await marca.findAll({order: [['idMarcas', 'ASC'],]}); 
       let categorias = await categoria.findAll({order: [['idCategoria', 'ASC'],]});
-
-      let usuarios = await cliente.findAll(
-        {
-          where: {
-              Email: [logado],
-
-          },
-          attributes: ['idCliente', 'Nome', 'Endereco', 'Telefone', 'Email', 'Senha', 'CPF']
-        }
-      );
-
-      let usuario = usuarios[0];
+     
+      let usuario;
+      session = req.session;
+      if (!session.userid) {
+        usuario = {Nome: "Fulano ",Endereco: "",}
+      }
+      else
+      {
+        usuarios = await cliente.findAll(
+          {
+            where: {
+                Email: [session.userid],
+  
+            },
+            attributes: ['idCliente', 'Nome', 'Endereco', 'Telefone', 'Email', 'Senha', 'CPF']
+          }
+        );  
+        usuario = usuarios[0];
+      } 
            
       for(let veic of veiculos)
       {
           valorTotal = valorTotal + parseFloat(veic.Valor);
       }     
+
+      mensagem = "";
       
       res.render('carrinho.ejs', {veiculos, marcas, categorias, valorTotal, usuario,mensagem});
     }
@@ -251,16 +247,22 @@ const produtoController = {
       let marcas = await marca.findAll({order: [['idMarcas', 'ASC'],]}); 
       let categorias = await categoria.findAll({order: [['idCategoria', 'ASC'],]});
 
+      for(let veic of veiculos)
+      {
+          valorTotal = valorTotal + parseFloat(veic.Valor);
+      }  
+
       let usuario;
-      if (logado != "") {
+      session = req.session;
+      if (!session.userid) {
         usuario = {Nome: "Fulano ",Endereco: "",}
       }
       else
       {
-        let usuarios = await cliente.findAll(
+        usuarios = await cliente.findAll(
           {
             where: {
-                Email: [logado],
+                Email: [session.userid],
   
             },
             attributes: ['idCliente', 'Nome', 'Endereco', 'Telefone', 'Email', 'Senha', 'CPF']
@@ -293,15 +295,20 @@ const produtoController = {
 
   finalizacao: (req, res) => {
 
-    if (logado != "") {
+    if(carrinho[0] == null){res.redirect("/produtos/carrinho");}  
+     
+    session = req.session;
+    if (session.userid) {
+      
       res.render("finalizacao.ejs");
     }
-
-    let mensagem = "Faça login ou cadastro.";
-    return res.render("login.ejs", {
-      mensagem
-    });
-
+    else
+    {
+      let mensagem = "Faça login ou cadastro.";
+      return res.render("login.ejs", {
+        mensagem
+      });
+    } 
   },
 
   sucesso: (req, res) => {

@@ -6,16 +6,23 @@ const {
 } = require("../../database/models");
 
 let mensagem = "";
-let logado = "";
+var session;
 
 const usuarioController = {
+  logout: (req, res) => {
+    req.session.destroy();
+    res.redirect("/inicial");
+  },
+
   login: (req, res) => {
-    if (logado != "") {
+    session = req.session;
+    if (session.userid) {
       res.redirect("/usuarios");
     }
-    return res.render("login.ejs", {
-      mensagem
-    });
+    else
+    {
+      return res.render("login.ejs", {mensagem});
+    }    
   },
 
   entrarLogin: async (req, res) => {
@@ -37,12 +44,14 @@ const usuarioController = {
 
     let usuario = usuarios[0];
     if (usuario == null) {
-      let mensagem = "Erro no login, verifique email e senha digitados.";
+      mensagem = "Erro no login, verifique email e senha digitados.";
       res.render("login.ejs", {
         mensagem
       });
     } else {
-      logado = req.body.email;
+      session = req.session;
+      session.userid=req.body.email; 
+
       res.render("usuario.ejs", {
         usuario
       });
@@ -50,76 +59,54 @@ const usuarioController = {
   },
 
   painel: async (req, res) => {
-    //console.log(logado);
-    if (logado == "") {
+    if (!session.userid) {
       res.redirect("/usuarios/login");
     }
-
-    let usuarios = await cliente.findAll({
-      where: {
-        Email: [String(logado)],
-      },
-      attributes: [
-        "idCliente",
-        "Nome",
-        "Endereco",
-        "Telefone",
-        "Email",
-        "Senha",
-        "CPF",
-      ],
-    });
-
-    let usuario = usuarios[0];
-    res.render("usuario.ejs", { usuario});
+    else
+    {
+      let usuarios = await cliente.findAll({
+        where: {
+          Email: [session.userid],
+        },
+        attributes: [
+          "idCliente",
+          "Nome",
+          "Endereco",
+          "Telefone",
+          "Email",
+          "Senha",
+          "CPF",
+        ],
+      });
+  
+      let usuario = usuarios[0];
+      res.render("usuario.ejs", { usuario});
+    }    
   },
 
   pedidos: (req, res) => {
     res.render("pedidos.ejs");
   },
-
   
-  // logout:(req, res,next) => {
-  //     req.logout()
-  //     req.session = null;
-  //     res.redirect('/inicial')
-    
-  // },
-
   cadastrar: async (req, res) => {
-   
-    const errors = validationResult(req)
-    console.log(errors.mapped())
-    
-    if(!errors.isEmpty()){
-      return res.render('login',{errors:errors.mapped()})
-      }
+    const errors = validationResult (req);
 
-  
-    else{
-      const novoUsuario = await cliente.create({
-        Nome: req.body.nome,
-        Email: req.body.email,
-        Endereco: req.body.endereco,
-        CPF: req.body.cpf,
-        Telefone: req.body.telefone,
-        Senha: req.body.senha,
-      }
-      )
-      console.log(novoUsuario)
-    }
-    
-    }}
+    if(!errors.isEmpty()) {
+      return res.render('login',{errors:errors.mapped()}, mensagem);
+    }else{
 
-    
-
-   
-    
-    
-    
-   
-   
-
+    const novoUsuario = await cliente.create({
+      Nome: req.body.nome,
+      Email: req.body.email,
+      Endereco: req.body.endereco,
+      CPF: req.body.cpf,
+      Telefone: req.body.telefone,
+      Senha: req.body.senha,
+    });
+    //console.log(novoUsuario);
+    mensagem = "Usuário cadastrado com sucesso.";
+    res.redirect("/usuarios/login");
+  }
     /*if (!req.file) {
         res.send("Você não enviou nenhuma imagem!");
       } else {
@@ -128,7 +115,7 @@ const usuarioController = {
     }*/
   
 
-  ///final do usuariocontroller
-
+  }
+};
 
 module.exports = usuarioController;

@@ -1,4 +1,4 @@
-const { check: checar} = require("express-validator");
+const {check: checar}  =  require('express-validator');
 
 module.exports = [
   checar("nome")
@@ -20,3 +20,5 @@ module.exports = [
   checar("cpf").isString().isLength({min:11,max:11}).withMessage("digite um cpf válido,sem pontos e traços")
 
 ];
+
+
