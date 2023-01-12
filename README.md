@@ -18,3 +18,8 @@ erro ao cadastrar usuario duplicado
 produto interno não está responsivo
 inicial não está responsivo
 na página usuário, header não está responsivo
+
+
+Fazer pagina de logout resetar todo carrinho e colocar botões com funções de alterar dados diretamente na tabela
+
+Finalização do responsivo.

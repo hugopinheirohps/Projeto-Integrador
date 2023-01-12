@@ -188,7 +188,7 @@ const produtoController = {
     }
     //fim filtro produtos    
   },
-
+  //Usar a função também no logout
   carrinho: async (req,res) => {
 
     mensagem = "";
