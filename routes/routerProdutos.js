@@ -11,6 +11,8 @@ router.post('/carrinho', produtoController.carrinho);
 
 router.get('/finalizacao', produtoController.finalizacao);
 
+router.post('/finalizacao', produtoController.gravarVenda);
+
 router.get('/sucesso', produtoController.sucesso);
 
 router.get('/:idProduto',produtoController.produtoInterno)

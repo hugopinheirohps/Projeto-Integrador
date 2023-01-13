@@ -1,9 +1,13 @@
 const { produto } = require("../../database/models");
 const {marca} = require('../../database/models');
 const {categoria} = require('../../database/models');
+const { pedido } = require("../../database/models");
 
-//somente para poder usar o carrinho
+//somente para poder usar o carrinho e vendas
 const {cliente} = require('../../database/models');
+
+const {validationResult } = require("express-validator");
+
 
 let carrinho = [];
 let mensagem = "";
@@ -284,9 +288,12 @@ const produtoController = {
     
     const id = req.params.idProduto;
 
+    let marcas = await marca.findAll({order: [['idMarcas', 'ASC'],]}); 
+    let categorias = await categoria.findAll({order: [['idCategoria', 'ASC'],]});
+
     await produto.findOne({ where: { idProduto: id } }).then((veic) => {
       if (veic != undefined) {
-        return res.render("produtoInterno", {veic:veic});
+        return res.render("produtoInterno", {veic:veic,marcas, categorias});
       } else {
         res.send("Produto não encontrado!");
       }
@@ -304,11 +311,60 @@ const produtoController = {
     }
     else
     {
-      let mensagem = "Faça login ou cadastro.";
+      mensagem = "Faça login ou cadastro.";
       return res.render("login.ejs", {
         mensagem
       });
     } 
+  },
+
+
+  gravarVenda: async (req, res) => {
+    
+    const errors = validationResult (req);
+    session = req.session;
+
+    if(!errors.isEmpty()) {
+      return res.render('login',{errors:errors.mapped()}, mensagem);
+    }else
+    {
+
+      let usuarios = await cliente.findAll(
+        {
+          where: {
+              Email: [session.userid],
+          },
+          attributes: ['idCliente', 'Nome']
+        }
+      );  
+      usuario = usuarios[0];
+
+      let pagamento;
+      if(req.body.debito="on"){
+        pagamento = 4;
+      }
+      else if(req.body.credito="on"){
+        pagamento = 5;
+      }
+      else if(req.body.pix="on"){
+        pagamento = 1;
+      }
+
+      const novaVenda = await pedido.create({ 
+        Clientes_idCliente: usuario.idCliente,
+        Status: "Em andamento",
+        Pagamentos_idPagamentos: pagamento,
+      });
+    }
+  
+    veiculos = [];
+    marcas = [];
+    categorias = [];
+    valorTotal = 0;
+    usuario = {Nome: "Fulano ",Endereco: "",}
+    mensagem = "Compra efetuada com sucesso, obrigado!";
+    res.render('carrinho.ejs', {veiculos, marcas, categorias, valorTotal, usuario,mensagem});
+    
   },
 
   sucesso: (req, res) => {
