@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt");
 const {validationResult } = require("express-validator");
+const { pedido } = require("../../database/models");
 
 const {
   cliente
@@ -51,14 +52,15 @@ const usuarioController = {
     } else {
       session = req.session;
       session.userid=req.body.email; 
+      session.idCliente=usuario.idCliente;
+      //console.log(session.idCliente);
 
-      res.render("usuario.ejs", {
-        usuario
-      });
+      res.redirect("/inicial");
     }
   },
 
   painel: async (req, res) => {
+    session = req.session;
     if (!session.userid) {
       res.redirect("/usuarios/login");
     }
@@ -84,8 +86,30 @@ const usuarioController = {
     }    
   },
 
-  pedidos: (req, res) => {
-    res.render("pedidos.ejs");
+  pedidos: async (req, res) => {
+
+    session = req.session;
+    let pedidos;
+    
+    let consulta = await pedido.findAll(
+      {
+        where: {
+          Clientes_idCliente: [session.idCliente],
+        },
+        attributes: ['idPedidos', 'Clientes_idCliente', 'Status', 'Pagamentos_idPagamentos']
+      }
+    );  
+
+    if(consulta[0] == undefined){
+      pedidos = [];
+    }
+    else{
+      pedidos = consulta[0];
+    }
+
+    console.log(pedidos);
+
+    res.render("pedidos.ejs", pedidos);
   },
   
   cadastrar: async (req, res) => {
