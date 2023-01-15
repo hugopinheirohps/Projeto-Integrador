@@ -220,7 +220,7 @@ const produtoController = {
       }
       else
       {
-        usuarios = await cliente.findAll(
+        usuario = await cliente.findAll(
           {
             where: {
                 Email: [session.userid],
@@ -229,7 +229,7 @@ const produtoController = {
             attributes: ['idCliente', 'Nome', 'Endereco', 'Telefone', 'Email', 'Senha', 'CPF']
           }
         );  
-        usuario = usuarios[0];
+        usuario = usuario[0];
       } 
            
       for(let veic of veiculos)
@@ -259,7 +259,7 @@ const produtoController = {
       }
       else
       {
-        usuarios = await cliente.findAll(
+        usuario = await cliente.findAll(
           {
             where: {
                 Email: [session.userid],
@@ -268,7 +268,7 @@ const produtoController = {
             attributes: ['idCliente', 'Nome', 'Endereco', 'Telefone', 'Email', 'Senha', 'CPF']
           }
         );  
-        usuario = usuarios[0];
+        usuario = usuario[0];
       }    
           
       res.render('carrinho.ejs', {veiculos, marcas, categorias, valorTotal, usuario,mensagem});

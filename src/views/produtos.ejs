@@ -87,7 +87,7 @@
                 <a href="/produtos/<%= veic.idProduto %>">
                     <veiculo>   
                         <img src="<%= veic.Imagem %>" alt="Seleção de veículo">
-                        <p><%= marcas[veic.Marcas_idMarcas-1].Nome  %> <%= veic.Modelo %> <%= veic.Ano %> </p>
+                        <p><%= marcas[veic.Marcas_idMarcas-1].Nome %> <%= veic.Modelo %> <%= veic.Ano %> </p>
                         <label><%= categorias[veic.Categorias_idCategorias-1].Nome %> </label>
                         <label> <%= veic.Cidade %> <space> <%= veic.Estado %></label>
                             <label> Km: <%= veic.Quilometragem %></label>
