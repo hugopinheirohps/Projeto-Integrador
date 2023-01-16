@@ -1,104 +1,110 @@
 <%- include ('./partials/header.ejs') %>
 
-    <body>
-        <link rel="stylesheet" href="/css/produtos.css">
-        <%- include('./partials/navbar.ejs') %>
-        <options>
-            <article>   
-                <img src="/img/viewProdutos/imagemBrasil.png" alt="Seleção de estado">
+<body>
+    <link rel="stylesheet" href="/css/produtos.css">
+    <%- include('./partials/navbar.ejs') %>
+    <options>
+        <article>
+            <img src="/img/viewProdutos/imagemBrasil.png" alt="Seleção de estado">
 
-                <form action="/produtos" method="post" enctype="application/json" id="filto">
-                    <label for="estados">Estado: </label>
-                    <select id="estados" name="estados" onchange="this.form.submit()">
-                        <option value="" disabled selected hidden>Selecione</option>
-                        <% for(let veic of veiculos) { %>
-                            <option value="<%= veiculos[veiculos.indexOf(veic)].Estado%>"><%= veiculos[veiculos.indexOf(veic)].Estado%></option>
-                        <% } %>
-                    </select>
-                </form>
+            <form action="/produtos" method="post" enctype="application/json" id="filto">
+                <label for="estados">Estado: </label>
+                <select id="estados" name="estados" onchange="this.form.submit()">
+                    <option value="" disabled selected hidden>Selecione</option>
+                    <% for(let veic of veiculos) { %>
+                    <option value="<%= veiculos[veiculos.indexOf(veic)].Estado%>">
+                        <%= veiculos[veiculos.indexOf(veic)].Estado%></option>
+                    <% } %>
+                </select>
+            </form>
 
-                <form action="/produtos" method="post" enctype="application/json" id="filto">
-                    <label for="cidade">Cidade: </label>
-                    <select id="cidade" name="cidade" onchange="this.form.submit()">
-                        <option value="" disabled selected hidden>Selecione</option>
-                        <% for(let veic of veiculos) { %>
-                            <option value="<%= veiculos[veiculos.indexOf(veic)].Cidade%>"><%= veiculos[veiculos.indexOf(veic)].Cidade%></option>
-                        <% } %>
-                    </select>
-                </form>
-                               
-                
-                <form action="/produtos" method="post" enctype="application/json" id="pesquisar">
+            <form action="/produtos" method="post" enctype="application/json" id="filto">
+                <label for="cidade">Cidade: </label>
+                <select id="cidade" name="cidade" onchange="this.form.submit()">
+                    <option value="" disabled selected hidden>Selecione</option>
+                    <% for(let veic of veiculos) { %>
+                    <option value="<%= veiculos[veiculos.indexOf(veic)].Cidade%>">
+                        <%= veiculos[veiculos.indexOf(veic)].Cidade%></option>
+                    <% } %>
+                </select>
+            </form>
+
+
+            <form action="/produtos" method="post" enctype="application/json" id="pesquisar">
                     <input type="text" name="pesquisa" id="pesquisa" placeholder="Digite e clique em pesquisar" autocomplete="off" value="">
                 </form>
-                
-            
-            
-            </article>
-            
-            <article>   
-                
-                <img src="/img/viewProdutos/icone_Moto.png" alt="Seleção de veículo">
 
-                <form action="/produtos" method="post" enctype="application/json" id="filto">
-                    <label for="marca">Marca: </label>
-                    <select id="marca" name="marca" onchange="this.form.submit()">
-                        <option value="" disabled selected hidden>Selecione</option>
-                        <% for(let marca of marcas) { %>
-                            <option value="<%= marcas[marcas.indexOf(marca)].Nome%>"><%= marcas[marcas.indexOf(marca)].Nome%></option>
-                        <% } %>
-                    </select>
-                </form>
 
-                <form action="/produtos" method="post" enctype="application/json" id="filto">
-                    <label for="modelo">Modelo: </label>
-                    <select id="modelo" name="modelo" onchange="this.form.submit()">
-                        <option value="" disabled selected hidden>Selecione</option>
-                        <% for(let veic of veiculos) { %>
-                            <option value="<%= veiculos[veiculos.indexOf(veic)].Modelo%>"><%= veiculos[veiculos.indexOf(veic)].Modelo%></option>
-                        <% } %>
-                    </select>
-                </form>
 
-                <form action="/produtos" method="post" enctype="application/json" id="filto">
-                    <label for="ordenar">Ordenar: </label>
-                    <select id="ordenar" name="ordenar" onchange="this.form.submit()">
-                        <option value="" disabled selected hidden>Selecione</option>
-                        <option value="menorpreco">Menor preço</option>
-                        <option value="maiorpreco">Maior preço</option>
-                        <option value="menorkm">Menor KM</option>
-                        <option value="maiorkm">Maior KM</option>
-                        <option value="menorano">Ano cresente</option>
-                        <option value="maiorano">Ano decresente</option>           
-                    </select>
-                </form>
-                
-                <button onclick="document.createElement('form').submit.call(document.getElementById('pesquisar'))">Pesquisar</button>
+        </article>
 
-            </article>
-        </options>
+        <article>
 
-        <produtos>
+            <img src="/img/viewProdutos/icone_Moto.png" alt="Seleção de veículo">
 
-            <% for(let veic of veiculos) { %>
-                <a href="/produtos/<%= veic.idProduto %>">
-                    <veiculo>   
-                        <img src="<%= veic.Imagem %>" alt="Seleção de veículo">
-                        <p><%= marcas[veic.Marcas_idMarcas-1].Nome  %> <%= veic.Modelo %> <%= veic.Ano %> </p>
-                        <label><%= categorias[veic.Categorias_idCategorias-1].Nome %> </label>
-                        <label> <%= veic.Cidade %> <space> <%= veic.Estado %></label>
-                            <label> Km: <%= veic.Quilometragem %></label>
-                            <p>R$ <%= veic.Valor %></p>                       
-                    </veiculo>  
-                </a>   
-            <% } %>
-    
-    
-        </produtos>    
+            <form action="/produtos" method="post" enctype="application/json" id="filto">
+                <label for="marca">Marca: </label>
+                <select id="marca" name="marca" onchange="this.form.submit()">
+                    <option value="" disabled selected hidden>Selecione</option>
+                    <% for(let marca of marcas) { %>
+                    <option value="<%= marcas[marcas.indexOf(marca)].Nome%>"><%= marcas[marcas.indexOf(marca)].Nome%>
+                    </option>
+                    <% } %>
+                </select>
+            </form>
 
-        <p><%=mensagem %></p>
+            <form action="/produtos" method="post" enctype="application/json" id="filto">
+                <label for="modelo">Modelo: </label>
+                <select id="modelo" name="modelo" onchange="this.form.submit()">
+                    <option value="" disabled selected hidden>Selecione</option>
+                    <% for(let veic of veiculos) { %>
+                    <option value="<%= veiculos[veiculos.indexOf(veic)].Modelo%>">
+                        <%= veiculos[veiculos.indexOf(veic)].Modelo%></option>
+                    <% } %>
+                </select>
+            </form>
 
-        <%- include('./partials/footer.ejs') %>
-            
+            <form action="/produtos" method="post" enctype="application/json" id="filto">
+                <label for="ordenar">Ordenar: </label>
+                <select id="ordenar" name="ordenar" onchange="this.form.submit()">
+                    <option value="" disabled selected hidden>Selecione</option>
+                    <option value="menorpreco">Menor preço</option>
+                    <option value="maiorpreco">Maior preço</option>
+                    <option value="menorkm">Menor KM</option>
+                    <option value="maiorkm">Maior KM</option>
+                    <option value="menorano">Ano cresente</option>
+                    <option value="maiorano">Ano decresente</option>
+                </select>
+            </form>
+
+            <button
+                onclick="document.createElement('form').submit.call(document.getElementById('pesquisar'))">Pesquisar</button>
+
+        </article>
+    </options>
+
+    <produtos>
+
+        <% for(let veic of veiculos) { %>
+        <a href="/produtos/<%= veic.idProduto %>">
+            <veiculo>
+                <img src="<%=veic.Imagem %>" alt="Seleção de veículo">
+                <p><%=marcas[veic.Marcas_idMarcas-1].Nome  %> <%=veic.Modelo %> <%=veic.Ano %> </p>
+                <label><%=categorias[veic.Categorias_idCategorias-1].Nome %> </label>
+                <label> <%=veic.Cidade %> <space> <%= veic.Estado %></label>
+                <label> Km: <%= veic.Quilometragem %></label>
+                <p>R$ <%=veic.Valor %></p>
+            </veiculo>
+        </a>
+        <% } %>
+
+
+    </produtos>
+
+    <p><%=mensagem %></p>
+
+    <%- include('./partials/footer.ejs') %>
+
 </body>
+
 </html>
