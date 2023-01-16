@@ -18,8 +18,10 @@
             <br>
 
             <form action="/usuarios/alterarCadastro" method="post" id="update">
-                <h3>Conta do (a) <%=usuario.Nome %>
+                <h3>
+                    Conta do (a) <%=usuario.Nome %>
                 </h3>
+                Editar:<input type="text" name="nome" placeholder="<%=usuario.Nome %> ">
                 <br>
                 <h3>CPF: <%=usuario.CPF %> </h3>
                 <br>
@@ -29,15 +31,13 @@
                     </h3>
                     <%=usuario.Email %>
                     <br>
-                    Editar:<input type="text" name="Email"  placeholder="">
-
                 </li>
                 <br>
                 <li>
                     <h3>Endereço</h3>
                     <%=usuario.Endereco %>
                     <br>
-                    Editar:<input type="text" name="endereco" placeholder="">
+                    Editar:<input type="text" name="endereco" placeholder="<%=usuario.Endereco %> ">
 
                 </li>
                 <br>
@@ -47,14 +47,14 @@
                     </h3>
                     <%=usuario.Telefone %>
                     <br>
-                    Editar:<input type="text" placeholder="">
+                    Editar:<input type="text" name="telefone" placeholder="<%=usuario.Telefone %>">
 
                 </li>
                 <br>
 
                 <button type="submit" id="sair">SALVAR</button>
             </form>
-            
+
             <br>
             </a>
             <h3>Cartões</h3>

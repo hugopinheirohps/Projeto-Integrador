@@ -129,6 +129,8 @@ const usuarioController = {
     let email = req.session.userid;
     let clienteAlt = await cliente.findOne({where: {email: email}});
     clienteAlt.Endereco = req.body.endereco;
+    clienteAlt.Telefone = req.body.telefone;
+    clienteAlt.Nome = req.body.nome;  
     clienteAlt.save();
   }
 };
