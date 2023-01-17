@@ -29,6 +29,17 @@ header h2 {
   text-size-adjust: 100%;
   font-size: 2.5vh;
 }
+.logoWeb{
+  display: flex;
+  width: 200px;
+  height: 150px;
+  position: relative;
+  top: 20px;
+}
+.logoWeb img{
+  width: 130px;
+  height: 100px;
+}
 nav > ul {
   display: flex;
 }
