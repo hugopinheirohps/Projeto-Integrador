@@ -1,5 +1,11 @@
 const bcrypt = require("bcrypt");
+<<<<<<< HEAD
 const { validationResult } = require("express-validator");
+=======
+const {
+  validationResult
+} = require("express-validator");
+>>>>>>> 0efadefb442a21ee0d7d4b72b7c8c8c09296d1e4
 
 const { cliente } = require("../../database/models");
 
@@ -17,7 +23,13 @@ const usuarioController = {
     if (session.userid) {
       res.redirect("/usuarios");
     } else {
+<<<<<<< HEAD
       return res.render("login.ejs", { mensagem });
+=======
+      return res.render("login.ejs", {
+        mensagem
+      });
+>>>>>>> 0efadefb442a21ee0d7d4b72b7c8c8c09296d1e4
     }
   },
 
@@ -46,7 +58,7 @@ const usuarioController = {
       });
     } else {
       session = req.session;
-      session.userid=req.body.email; 
+      session.userid = req.body.email;
 
       res.render("usuario.ejs", {
         usuario
@@ -108,8 +120,22 @@ const usuarioController = {
         res.send("Usuario cadastrado com sucesso!");
       }
     }*/
+
+
   },
-  // fim do controller cadastro
+  //Alatera o cadastro do Usuário
+  alterarCadastro:async (req, res) => {
+    console.log("alterarCadastro");
+    res.send(req.session);
+
+    let email = req.session.userid;
+    let clienteAlt = await cliente.findOne({where: {Email: email}});
+    clienteAlt.Endereco = req.body.endereco;
+    clienteAlt.Telefone = req.body.telefone;
+    clienteAlt.Nome = req.body.nome;  
+    clienteAlt.save();
+
+  }
 };
 
 module.exports = usuarioController;

@@ -62,7 +62,11 @@ main {
     justify-content: space-around;
     align-items: center;
     width: 100%;
-
+    height: 100vh;
+    margin-bottom: 400px;
+}
+input{
+    margin: 10px;
 }
 
 .pedidos h3 {
@@ -156,6 +160,27 @@ h4 {
     background-color: rgb(24, 20, 20, 0.5);
   }
   #sair p {
+    margin-top: 20px;
+    color: #3B3737;
+  }
+  #salvar {
+    width: 75px;
+    margin: 0 auto;
+    padding: 10px;
+    color: #fff;
+    background-color: #3B3737;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+
+  #salvar a{
+    color: #fff;
+    margin: 0 20px 0 20px;
+  }
+  #salvar:hover {
+    background-color: rgb(24, 20, 20, 0.5);
+  }
+  #salvar p {
     margin-top: 20px;
     color: #3B3737;
   }

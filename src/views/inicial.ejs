@@ -20,9 +20,9 @@
         você deseja para <strong>adquirir seu automóvel dos sonhos</strong>. Conte com a gente!
         <p>
 
-          <!--<button class="botao-comprar">Compre Já!</button>
-          <input type="checkbox" id="scales" name="scales">
-          <label for="scales" class="label-check">Quero receber descontos, ofertas e informações.</label>-->
+          <!-- <button class="botao-comprar">Compre Já!</button> -->
+          <!-- <input type="checkbox" id="scales" name="scales">
+          <label for="scales" class="label-check">Quero receber descontos, ofertas e informações.</label> -->
     </div>
     <img src="https://production.autoforce.com/uploads/version/profile_image/8017/comprar-trekking-1-3_8de196c88f.png"
       alt="Retrato de um Fiat Argo" class="banner-argo">
@@ -31,11 +31,11 @@
   <main>
     <h2 class="destaques">VEICULOS EM DESTAQUE</h2>
 
-    <div class="slider owl-carousel">
+    <div class="slider slider-mobile owl-carousel owl-carousel-mobile">
       <% for(veic of veiculos){ %>
-      <div class="card">
-        <div class="camry"><img src="<%=veic.Imagem %>" alt=""></div>
-        <div class="content">
+      <div class="card card-mobile">
+        <div class="carrosEmotos carrosEmotos-mobile"><img src="<%=veic.Imagem %>" alt=""></div>
+        <div class="content .content-mobile">
           <div class="title">
             <%=veic.Modelo %>
           </div>

@@ -19,6 +19,7 @@ router.get("/logout", usuarioController.logout);
 
 router.post("/",validarCadastro,usuarioController.entrarLogin);
 router.post("/cadastro",uploadFile.single("avatar"),validarCadastro,usuarioController.cadastrar);
+router.post("/alterarCadastro",usuarioController.alterarCadastro);
 
 
 module.exports = router;
