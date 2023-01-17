@@ -15,37 +15,37 @@
     <main>
         <h2 class="destaques">VEICULO EM DESTAQUE</h2>
 
-        <form action="/produtos/carrinho" method="post" enctype="application/json" id="carrinho">
-            <input type="idProduto" name="idProduto" value=" <%=veic.idProduto %>" hidden>
-            <button type="submit">Adicionar ao Carrinho</button>
-        </form>
-
+        
         <article>
-            <div class="camry"><img class="veiculo" src="<%=veic.Imagem %> " alt="">
+                <img class="veiculo" src="<%=veic.Imagem %> " alt="">
+                <form action="/produtos/carrinho" method="post" enctype="application/json" id="carrinho">
+                    <input type="idProduto" name="idProduto" value=" <%=veic.idProduto %>" hidden>
+                    <button type="submit">Adicionar ao Carrinho</button>
+                </form>
+                <br>
                 <div class="content">
-                    <div class="title">
-                        <%=veic.Nome  %>
-                    </div>
-                    <div class="sub-title">R$
+                    <br>
+                    <p class="title">
+                        Tipo de veículo: <%= categorias[veic.Categorias_idCategorias-1].Nome %>
+                    </p>
+                    <br>
+                    <p class="sub-title">Valor R$
                         <%=veic.Valor %>
-                    </div>
+                    </p>
+                    <br>
+                    <p class="sub-title"> Localidade:
+                        <%= veic.Cidade %> <space> <%= veic.Estado %>
+                    </p>
+                    <br>
+                    
+                    <p>
+                        Km (Quilometragem): <%=veic.Quilometragem %> 
+                    </p>
+                    <br>
                     <p>
                         <%=veic.Descricao %>
                     </p>
-                    <br>
-                    <p>
-                       Km/h <%=veic.Quilometragem %> 
-                    </p>
-                    <br>
-                    <p>
-                        O pacote de segurança Toyota Safety Sense⁴ contem assistente de pré-colisão, controle adaptativo
-                        de velocidade de cruzeiro, sistema de assistência de permanência de faixa, com função de alerta
-                        de mudança de faixa e farol alto automático. Os 9 airbags e itens como: controle de assistência
-                        de arranque em subida, conjunto optico frontal em LED, sensores de estacionamento dianteiros e
-                        traseiros ajudam a manobrar o carro e trazem mais segurança.
-                    </p>
-                    <br>
-
+                </div>
                     <!-- for(interno of Internos)   -->
                     <h2 class="destacar">IMAGEM INTERNA </h2>
                     <div class="gallery-container">
@@ -53,7 +53,7 @@
                             <img src="/img/Internos/interno_camry.jpeg" alt="Chick Hicks">
                         </a>
                         <a href="/img/Internos/interno_camry2.jpeg" target="_blank" class="gallery-items">
-                            <img src="/img/Internos/interno_camry2.jpeg" alt="Chick Hicks">
+                            <img src="/img/Internos/interno_camry2.jpeg" target="_blank" alt="Chick Hicks">
                         </a>
                         <a href="/img/Internos/interno_camry3.jpeg" target="_blank" class="gallery-items">
                             <img src="/img/Internos/interno_camry3.jpeg" alt="Chick Hicks">

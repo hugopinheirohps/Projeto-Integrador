@@ -4,7 +4,7 @@
     <%- include('./partials/navbar.ejs') %>
         <main>
             <section>
-                <form id="form-finalize">
+                <form action="/produtos/finalizacao" method="post" enctype="application/json" id="finalizacao">
                     <h1>Finalize sua compra</h1><br><br>
                     <label for="">Número do cartão:</label>
                     <input type="text" placeholder="Digite o número" required>
@@ -30,8 +30,9 @@
                     <h1>Pagamento em pix</h1>
                     <img src="/img/google.png">
                    
-                   
-                    <button type="submit">COPIA E COLA QR CODE</button>    
+                   <br>
+                    <label for="">Pagar com PIX?</label>
+                        <input type="radio" name="pix" id="pix"><br><br>
                 </form>
             </section>
            

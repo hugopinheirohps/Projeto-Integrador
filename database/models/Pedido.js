@@ -7,7 +7,12 @@ module.exports = (sequelize,DataType)=>{
             primaryKey: true,
             autoIncrement: true,
         },
-        Status:{type:DataType.STRING}
+        Clientes_idCliente:{type: DataType.INTEGER,},
+        Status:{type:DataType.STRING},
+        Pagamentos_idPagamentos:{
+            type: DataType.INTEGER,
+            foreignKey: true,
+          },
         //Completar os dados de acordo com coluna da tabela
     },{
         tableName:'pedidos',
@@ -23,7 +28,7 @@ module.exports = (sequelize,DataType)=>{
         });
     
     pedido.associate = (models) =>{
-        pedido.belongsTo(models.Pagamento,{
+        pedido.belongsTo(models.pagamento,{
             as:'pagamento',
             foreignKey:'Pagamentos_idPagamento',
             timestamps:false
