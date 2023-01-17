@@ -42,23 +42,6 @@
 
             <img src="/img/viewProdutos/icone_Moto.png" alt="Seleção de veículo">
 
-<<<<<<< HEAD
-            <% for(let veic of veiculos) { %>
-                <a href="/produtos/<%= veic.idProduto %>">
-                    <veiculo>   
-                        <img src="<%= veic.Imagem %>" alt="Seleção de veículo">
-                        <p><%= marcas[veic.Marcas_idMarcas-1].Nome %> <%= veic.Modelo %> <%= veic.Ano %> </p>
-                        <label><%= categorias[veic.Categorias_idCategorias-1].Nome %> </label>
-                        <label> <%= veic.Cidade %> <space> <%= veic.Estado %></label>
-                            <label> Km: <%= veic.Quilometragem %></label>
-                            <p>R$ <%= veic.Valor %></p>                       
-                    </veiculo>  
-                </a>   
-            <% } %>
-    
-    
-        </produtos>    
-=======
             <form action="/produtos" method="post" enctype="application/json" id="filto">
                 <label for="marca">Marca: </label>
                 <select id="marca" name="marca" onchange="this.form.submit()">
@@ -69,7 +52,6 @@
                     <% } %>
                 </select>
             </form>
->>>>>>> 0efadefb442a21ee0d7d4b72b7c8c8c09296d1e4
 
             <form action="/produtos" method="post" enctype="application/json" id="filto">
                 <label for="modelo">Modelo: </label>
