@@ -17,9 +17,11 @@
             </a>
             <br>
 
+            <h3>Caso deseja Alterar os dados, preencher todo o formulario!</h3>
+            <br>
             <form action="/usuarios/alterarCadastro" method="post" id="update">
                 <h3>
-                    Conta do (a) <%=usuario.Nome %>
+                    Conta do (a) :<%=usuario.Nome %>
                 </h3>
                 Editar:<input type="text" name="nome" placeholder="<%=usuario.Nome %> ">
                 <br>
@@ -47,19 +49,23 @@
                     </h3>
                     <%=usuario.Telefone %>
                     <br>
-                    Editar:<input type="text" name="telefone" placeholder="<%=usuario.Telefone %>">
+                    Editar:<input type="text" name="telefone"  placeholder="<%=usuario.Telefone %>">
 
                 </li>
                 <br>
 
-                <button type="submit" id="sair">SALVAR</button>
+                <button type="submit" id="salvar">SALVAR</button>
             </form>
 
             <br>
             </a>
-            <h3>Cartões</h3>
+            <h3>Cartões:</h3>
+            <p>Débito e Crédito</p>
             <li>
-                Cartões cadastrados
+                <div>
+                    <img src="/public/img/img_usuario/cartoes1.png" alt="">
+                </div>
+                <br>
             </li>
             </a>
             <!-- Usar a função limpar carrinho quando usar logout -->
@@ -81,8 +87,7 @@
 
     <!-- aqui -->
     <script>
-
-
+        
     </script>
 
     <%- include("./partials/footer.ejs") %>

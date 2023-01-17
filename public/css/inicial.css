@@ -1,13 +1,12 @@
-  
   main {
     display: grid;
-   place-items: center;
+    place-items: center;
     text-align: center;
     background: #f2f2f2;
   }
-  
-  
-  section{
+
+
+  section {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,26 +14,26 @@
     width: 1000px;
     margin: 0 auto;
   }
-  
-  .box-anuncio{
+
+  .box-anuncio {
     display: inline;
     width: 494px;
   }
-  
-  h1{
+
+  h1 {
     font-size: 40px;
     font-weight: 700;
     color: rgb(23, 23, 23);
   }
-  
-  .box-convite{
+
+  .box-convite {
     margin-top: 23px;
     margin-bottom: 34px;
     font-size: 16px;
     color: rgb(36, 36, 36);
   }
-  
-  .botao-comprar{
+
+  .botao-comprar {
     display: block;
     border-radius: 4px;
     text-decoration: none;
@@ -50,12 +49,12 @@
     border: transparent;
     transition: all 0.3s ease;
   }
-  
-  .botao-comprar:hover{
+
+  .botao-comprar:hover {
     background: rgb(78, 192, 151);
   }
-  
-  #scales{
+
+  #scales {
     width: 1rem;
     height: 1rem;
     content: "";
@@ -65,8 +64,8 @@
     cursor: pointer;
     margin: 20px 0;
   }
-  
-  .label-check{
+
+  .label-check {
     font-size: 1.2rem;
     color: rgb(36, 36, 36);
     margin: -38.5px 0 0 0;
@@ -76,141 +75,73 @@
     cursor: pointer;
     font-weight: 700;
   }
-  
-  .banner-argo{
+
+  .banner-argo {
     width: 50%;
     margin: 0 -60px 0 0;
   }
-  
-  .destaques{
+
+  .destaques {
     text-align: center;
   }
-  
-  
-  .slider{
+
+
+  .slider {
     max-width: 1150px;
     overflow: hidden;
     display: flex;
     padding: 40px 0;
   }
-  
-  .slider .card{
+
+  .slider .card {
     border-radius: 25px;
     background: radial-gradient(circle at 18.7% 37.8%, #6c757d 0%, #343a40 90%);
     flex: 1;
     margin: 0 10px;
   }
-  
-  .slider .card .camry{
+
+  .slider .card .carrosEmotos {
     width: 89%;
     object-fit: cover;
     margin: 0 auto;
   }
-  .camry{
+
+  .carrosEmotos {
     width: 450px;
     height: 250px;
   }
-  
-  .slider .card .volvo{
-    width: 85%;
-    object-fit: cover;
-    margin: 0 auto;
-  }
-  
-  .slider .card .civic{
-    width: 97%;
-    object-fit: cover;
-    margin: 0 auto;
-  }
-  
-  .slider .card .gol{
-    width:82%;
-    padding:20px;
-    object-fit: cover;
-    margin: 0 auto;
-  }
-  
-  .slider .card .sentra{
-    width: 88%;
-    padding: 11px;
-    object-fit: cover;
-    margin: 0 auto;
-  }
-  
-  .slider .card .pulse{
-    width: 87%;
-    object-fit: cover;
-    margin: 0 auto;
-  }
-  
-  .slider .card .tiger{
-    width: 107%;
-    object-fit: cover;
-    margin: 0 auto;
-  }
-  
-  .slider .card .nc750{
-    width: 75%;
-    object-fit: cover;
-    margin: 0 auto;
-  }
-  
-  .slider .card .cb500{
-    width: 107%;
-    object-fit: cover;
-    margin: 0 auto 0 -29px;
-  }
-  
-  .slider .card .ninja{
-    width: 79%;
-    padding: 10px;
-    object-fit: cover;
-    margin: 0 auto;
-  }
-  
-  .slider .card .xmax{
-    width: 88%;
-    padding: 11px;
-    object-fit: cover;
-    margin: 0 auto;
-  }
-  
-  .slider .card .mt09{
-    width: 107%;
-    object-fit: cover;
-    margin: 0 auto 0 -10px;
-  }
-  
-  .slider .card .content{
+
+  /* . */
+  .slider .card .content {
     padding: 10px 20px;
   }
-  
-  .card .content .title{
+
+  .card .content .title {
     font-size: 25px;
     font-weight: 600;
     color: #F8F9FA;
   }
-  
-  .card .content .sub-title{
+
+  .card .content .sub-title {
     font-size: 20px;
     font-weight: 400;
     line-height: 20px;
     color: #F8F9FA;
   }
-  
-  .card .content p{
+
+  .card .content p {
     text-align: justify;
     margin: 10px 0;
     color: #e9ecef;
   }
-  
-  .card .content.btn{
+
+  .card .content.btn {
     display: block;
     text-align: center;
     margin: 10px 0;
   }
-  
-  .card .content .btn button{
+
+  .card .content .btn button {
     background: #ADB5BD;
     color: #22333b;
     border: none;
@@ -221,14 +152,127 @@
     cursor: pointer;
     transition: 0.2s ease;
   }
-  
-  .card .content .btn button:hover{
+
+  .card .content .btn button:hover {
     background: #CED4DA;
   }
-  
+
   .owl-carousel .owl-item img {
     height: 100%;
     width: 100%;
     object-fit: cover;
   }
+
+  @media (max-width:420px) {
+    main {
+      display: block;
+      place-items: center;
+      text-align: center;
+      background: #f2f2f2;
+    }
+
+    section {
+      display: block;
+      justify-content: center;
+      align-items: center;
+      text-align: start;
+      width: 350px;
+      margin: 15px;;
+    }
+    .slider-mobile {
+      max-width: 550px;
+      overflow: hidden;
+      display: flex;
+      padding: 40px 0;
+    }
   
+    .slider-mobile .card-mobile {
+      border-radius: 25px;
+      background: radial-gradient(circle at 18.7% 37.8%, #6c757d 0%, #343a40 90%);
+      flex: 1;
+      margin: 30px;
+      width: 80%;
+    }
+  
+    .slider-mobile .card-mobile .carrosEmotos-mobile {
+      width: 100%;
+      object-fit: cover;
+      margin: 0 auto;
+    }
+  
+    .carrosEmotos-mobile  {
+      width: 400px;
+      height: 250px;
+    }
+  
+    /* . */
+    .slider-mobile .card-mobile .content-mobile {
+      padding: 5px 10px;
+    }
+  
+    .card-mobile .content-mobile .title {
+      font-size: 25px;
+      font-weight: 300px;
+      color: #F8F9FA;
+    }
+  
+    .card-mobile .content-mobile .sub-title {
+      font-size: 20px;
+      font-weight: 200px;
+      line-height: 20px;
+      color: #F8F9FA;
+    }
+  
+    .card-mobile .content-mobile p {
+      text-align: justify;
+      margin: 5px 0;
+      color: #e9ecef;
+    }
+  
+    .card-mobile .content-mobile .btn {
+      display: block;
+      text-align: center;
+      margin: 5px 0;
+    }
+  
+    .card-mobile .content-mobile .btn button {
+      background: #ADB5BD;
+      color: #22333b;
+      border: none;
+      outline: none;
+      font-size: 17px;
+      padding: 5px 8px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+  
+    .card-mobile .content-mobile .btn button:hover {
+      background: #CED4DA;
+    }
+  
+    .owl-carousel-mobile .owl-item img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  @media(max-width:850px){
+    main {
+      display: block;
+      place-items: center;
+      text-align: center;
+      background: #f2f2f2;
+    }
+  
+  
+    section {
+      display: block;
+      justify-content: center;
+      align-items: center;
+      text-align: start;
+      width: 900px;
+      margin: 0 auto;
+    }
+  
+  }

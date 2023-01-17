@@ -84,6 +84,7 @@ const usuarioController = {
         usuario
       });
     }
+    
   },
 
   pedidos: (req, res) => {
@@ -92,7 +93,8 @@ const usuarioController = {
 
   cadastrar: async (req, res) => {
     const errors = validationResult(req);
-
+    // Criptografia de senha
+    // const hash = bcrypt.hashSync(req.body.senha, 12);
     if (!errors.isEmpty()) {
       return res.render('login', {
         errors: errors.mapped()
@@ -105,9 +107,9 @@ const usuarioController = {
         Endereco: req.body.endereco,
         CPF: req.body.cpf,
         Telefone: req.body.telefone,
-        Senha: req.body.senha,
+        Senha: req.body.senha
       });
-      //console.log(novoUsuario);
+      // console.log(novoUsuario);
       mensagem = "Usuário cadastrado com sucesso.";
       res.redirect("/usuarios/login");
     }
@@ -127,11 +129,12 @@ const usuarioController = {
     res.send(req.session);
 
     let email = req.session.userid;
-    let clienteAlt = await cliente.findOne({where: {email: email}});
+    let clienteAlt = await cliente.findOne({where: {Email: email}});
     clienteAlt.Endereco = req.body.endereco;
     clienteAlt.Telefone = req.body.telefone;
     clienteAlt.Nome = req.body.nome;  
     clienteAlt.save();
+
   }
 };
 
