@@ -9,51 +9,35 @@
     <main>
         <ul class="dados">
             <a href="/usuarios/">
-                <h3>Pedidos</h3>
                 <li>
-                    Acompanhar pedidos
+                    Voltar para
                 </li>
-            </a>
-
-            <a href="/">
-                <h3>Minha Conta</h3>
-                <li>
-                    Editar dados
-                </li>
-            </a>
-
-            <a href="/">
-                <h3>Endereço</h3>
-                <li>
-                    Alterar endereço
-                </li>
-            </a>
-
-            <a href="/">
-                <h3>Cartões</h3>
-                <li>
-                    Cartões cadastrados
-                </li>
+                <h3>Minha Conta</h3>                
             </a>
         </ul>
         <br>
         <div class="pedidos">
             <h3>Meus pedidos</h3>
             <br>
-            <div class="info">
-                <h4>N° pedido</h4>
-                <h4>Status</h4>
-                <h4>Pagamento</h4>
-            </div>
-            <div>
-                <div class="dadosPedidos">
-                    <% for(let ped of pedidos) { %>
-                        <p class="p"><%= ped.idPedidos %></p>
-                        <p class="p"><%= ped.Status %></p>
-                        <p class="p">1</p> 
-                    <% } %>
-                </div>                 
-            </div>
+
+
+            <% for(let ped of pedidos) { %>
+                <div class="info">
+                    <h4>N° pedido</h4>
+                    <h4>Status</h4>
+                    <h4>Pagamento</h4>
+                </div>
+                <div>
+                    <div class="dadosPedidos">
+                            
+                            <h4><%= ped.idPedidos %></h4>
+                            <h4><%= ped.Status %></h4>
+                            <h4>1</h4>
+                    </div>                 
+                </div>
+                <br><br>
+            <% } %>
+
 
         </div>
     </main>

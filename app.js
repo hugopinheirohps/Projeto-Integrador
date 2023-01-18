@@ -13,6 +13,8 @@ const cookieParser = require("cookie-parser");
 // importando o express-validator
 var expressValidator = require('express-validator');
 
+const methodOverride = require('method-override')
+
 // parsing the incoming data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -43,6 +45,9 @@ const routerInicial = require("./routes/routerinicial");
 
 // qual view engine vamos usar
 app.set("view engine", "ejs");
+ 
+//usando methodOverride para rota PUT
+app.use(methodOverride("_method"))
 
 //onde está localizado a engine
 app.set("views", path.resolve("./src/views"));

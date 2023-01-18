@@ -12,11 +12,11 @@ html {
 }
 header {
   width: 100%;
-  max-width: 1100px;
-  height: 108px;
+ height: 130px;
   margin: 0 auto;
   margin-top: 20px;
   background-image: url(/img/carro.webp);
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   align-items: center;
@@ -28,6 +28,17 @@ header h2 {
   color: #fff;
   text-size-adjust: 100%;
   font-size: 2.5vh;
+}
+.logoWeb{
+  display: flex;
+  width: 200px;
+  height: 150px;
+  position: relative;
+  top: 20px;
+}
+.logoWeb img{
+  width: 130px;
+  height: 100px;
 }
 nav > ul {
   display: flex;
@@ -56,8 +67,7 @@ footer {
   background-position: center center;
   background-repeat: no-repeat;
   width: 100%;
-  max-width: 1100px;
-  height: 270px;
+height: 270px;
   margin: 0 auto;
   margin-top: 40px;
 }

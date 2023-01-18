@@ -20,10 +20,9 @@ options {
 
 
 article{
-  display: grid;
+  display: block;
   text-align: left;
-  margin-top: 20px;
-
+  margin: 20px 0 200px 0px;
   background-color: #7c7b7b;
   border: 5px solid rgba(8, 8, 8,0.3);
   border-radius: 15px 15px 15px 15px;
@@ -40,8 +39,11 @@ article > input{
   height: 40px;
   background-color: #F7F7F7;
   border-color: #F7F7F7;
+  margin: 5px;
 }
-
+p{
+  margin: 15px;
+}
 button{
   border-radius: 5px;
   width: 150px;
@@ -50,6 +52,7 @@ button{
   min-height: 25px;
   background-color: #F7F7F7;
   border-color: #F7F7F7;
+  margin: 5px;
 }
 
 body {
@@ -69,6 +72,7 @@ main {
   margin-top: 40px;
   text-align: center;
   column-gap: 1vw;
+  
 }
 
 main options article p {

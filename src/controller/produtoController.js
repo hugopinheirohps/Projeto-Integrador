@@ -138,7 +138,7 @@ const produtoController = {
           where: {
             Marcas_idMarcas: [marcas[0].idMarcas],
           },
-          attributes: ['Modelo', 'Valor',  'Ano', 'Cidade', 'Estado', 'Quilometragem', 'Marcas_idMarcas']
+          attributes: ['Modelo', 'Valor',  'Ano', 'Cidade', 'Estado', 'Quilometragem', 'Marcas_idMarcas','Imagem']
         }
       ); 
 
@@ -224,7 +224,7 @@ const produtoController = {
       }
       else
       {
-        usuarios = await cliente.findAll(
+        usuario = await cliente.findAll(
           {
             where: {
                 Email: [session.userid],
@@ -233,7 +233,7 @@ const produtoController = {
             attributes: ['idCliente', 'Nome', 'Endereco', 'Telefone', 'Email', 'Senha', 'CPF']
           }
         );  
-        usuario = usuarios[0];
+        usuario = usuario[0];
       } 
            
       for(let veic of veiculos)
@@ -263,7 +263,7 @@ const produtoController = {
       }
       else
       {
-        usuarios = await cliente.findAll(
+        usuario = await cliente.findAll(
           {
             where: {
                 Email: [session.userid],
@@ -272,7 +272,7 @@ const produtoController = {
             attributes: ['idCliente', 'Nome', 'Endereco', 'Telefone', 'Email', 'Senha', 'CPF']
           }
         );  
-        usuario = usuarios[0];
+        usuario = usuario[0];
       }    
           
       res.render('carrinho.ejs', {veiculos, marcas, categorias, valorTotal, usuario,mensagem});
@@ -340,14 +340,16 @@ const produtoController = {
       usuario = usuarios[0];
 
       let pagamento;
-      if(req.body.debito="on"){
+
+      
+      if(req.body.pix="on"){
+        pagamento = 1;
+      }
+      else if(req.body.debito="on"){
         pagamento = 4;
       }
       else if(req.body.credito="on"){
         pagamento = 5;
-      }
-      else if(req.body.pix="on"){
-        pagamento = 1;
       }
 
       const novaVenda = await pedido.create({ 
@@ -361,8 +363,8 @@ const produtoController = {
     marcas = [];
     categorias = [];
     valorTotal = 0;
-    usuario = {Nome: "Fulano ",Endereco: "",}
     mensagem = "Compra efetuada com sucesso, obrigado!";
+    carrinho = [];
     res.render('carrinho.ejs', {veiculos, marcas, categorias, valorTotal, usuario,mensagem});
     
   },

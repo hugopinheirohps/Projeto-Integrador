@@ -22,18 +22,35 @@ html {
 }
 
 header {
-    display: flex;
-    width: 100vw;
-    background-size: cover;
-    height: 100px;
+    width: 100%;
+   height: 130px;
     margin: 0 auto;
-    margin-top: 5px;
+    margin-top: 20px;
     background-image: url(/img/carro.webp);
-    background-position: center;
+    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
     align-items: center;
-    justify-content: space-between;
-}
+    display: flex;
+    justify-content: space-evenly;
+    box-shadow: 10px 5px 5px black;
+  }
+  header h2 {
+    color: #fff;
+    text-size-adjust: 100%;
+    font-size: 2.5vh;
+  }
+.logoWeb{
+    display: flex;
+    width: 200px;
+    height: 150px;
+    position: relative;
+    top: 20px;
+  }
+  .logoWeb img{
+    width: 130px;
+    height: 100px;
+  }
 
 header h2 {
     color: #fff;
@@ -62,11 +79,16 @@ main {
     justify-content: space-around;
     align-items: center;
     width: 100%;
-
+    height: 100vh;
+    margin-bottom: 400px;
+}
+input{
+    margin: 10px;
 }
 
 .pedidos h3 {
     padding-left: 33%;
+    margin-top: 0;
 }
 
 .dados {
@@ -115,6 +137,7 @@ h4 {
     height: 100%;
     width: 20%;
     border: 1px black solid;
+    font-size:medium;
 }
 
 .dadosPedidos {
@@ -159,6 +182,27 @@ h4 {
     margin-top: 20px;
     color: #3B3737;
   }
+  #salvar {
+    width: 75px;
+    margin: 0 auto;
+    padding: 10px;
+    color: #fff;
+    background-color: #3B3737;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+
+  #salvar a{
+    color: #fff;
+    margin: 0 20px 0 20px;
+  }
+  #salvar:hover {
+    background-color: rgb(24, 20, 20, 0.5);
+  }
+  #salvar p {
+    margin-top: 20px;
+    color: #3B3737;
+  }
 
 /* Main responsivo*/
 @media(max-width:1130px) {
@@ -168,7 +212,7 @@ h4 {
     }
 
     .dados {
-        height: 500px;
+        height: 80px;
     }
 
     .moto1,

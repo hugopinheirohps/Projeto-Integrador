@@ -14,10 +14,12 @@ router.get("/",usuarioController.painel);
 router.get("/pedidos",usuarioController.pedidos);
 router.get("/login", usuarioController.login);
 router.get("/logout", usuarioController.logout);
+//router.get("/:id/editar",usuarioController.update)
 
 
 router.post("/",validarCadastro,usuarioController.entrarLogin);
 router.post("/cadastro",uploadFile.single("avatar"),validarCadastro,usuarioController.cadastrar);
+router.post("/alterarCadastro",usuarioController.alterarCadastro);
 
 
 module.exports = router;
