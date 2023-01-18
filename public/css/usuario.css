@@ -22,18 +22,35 @@ html {
 }
 
 header {
-    display: flex;
-    width: 100vw;
-    background-size: cover;
-    height: 100px;
+    width: 100%;
+   height: 130px;
     margin: 0 auto;
-    margin-top: 5px;
+    margin-top: 20px;
     background-image: url(/img/carro.webp);
-    background-position: center;
+    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
     align-items: center;
-    justify-content: space-between;
-}
+    display: flex;
+    justify-content: space-evenly;
+    box-shadow: 10px 5px 5px black;
+  }
+  header h2 {
+    color: #fff;
+    text-size-adjust: 100%;
+    font-size: 2.5vh;
+  }
+.logoWeb{
+    display: flex;
+    width: 200px;
+    height: 150px;
+    position: relative;
+    top: 20px;
+  }
+  .logoWeb img{
+    width: 130px;
+    height: 100px;
+  }
 
 header h2 {
     color: #fff;

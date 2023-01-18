@@ -97,7 +97,7 @@ const usuarioController = {
         Telefone: req.body.telefone,
         Senha: req.body.senha,
       });
-      console.log(novoUsuario);
+      
       mensagem = "Usuário cadastrado com sucesso.";
       res.redirect("/usuarios/login");
     }
@@ -110,16 +110,18 @@ const usuarioController = {
   },
   //Alatera o cadastro do Usuário
   alterarCadastro: async (req, res) => {
-    console.log("alterarCadastro");
-    res.send(req.session);
-
+    // console.log("alterarCadastro");
+    // res.send(req.session);
+    
     let email = req.session.userid;
     let clienteAlt = await cliente.findOne({ where: { Email: email } });
     clienteAlt.Endereco = req.body.endereco;
     clienteAlt.Telefone = req.body.telefone;
     clienteAlt.Nome = req.body.nome;
     clienteAlt.save();
-  },
+
+    res.render('alterarCadastro.ejs')
+  }
 };
 
 module.exports = usuarioController;

@@ -21,7 +21,6 @@
                         <form action="/usuarios/cadastro" method="post" enctype="multipart/form-data"
                             id="form-cadastro">
                             <h2>Criar Conta</h2>
-                            <input type="text" name="nome" value="" placeholder="Digite seu nome completo">
                             <div>
                                 <% if( typeof errors !=='undefined' ){ %>
                                     <ul>
@@ -33,12 +32,13 @@
                                                 <%= errors[erro].msg %>
                                             </li>
                                             <% } %>
-
-                                    </ul>
-
-                                    <% } %>
-
-                            </div>
+                                            
+                                        </ul>
+                                        
+                                        <% } %>
+                                        
+                                    </div>
+                            <input type="text" name="nome" value="" cl placeholder="Digite seu nome completo">
                             <input type="email" name="email" id="email" value="" placeholder="Digite seu email"
                                 required>
                             <input type="text" name="endereco" id="endereco" value="" placeholder="Digite o endereco"
