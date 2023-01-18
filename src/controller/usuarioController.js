@@ -11,8 +11,7 @@ var session;
 
 const usuarioController = {
   logout: (req, res) => {
-    req.session.destroy();
-    res.redirect("/inicial");
+    res.redirect("/produtos/logout");
   },
 
   login: (req, res) => {
@@ -118,16 +117,28 @@ const usuarioController = {
     if (!errors.isEmpty()) {
       return res.render("login", { errors: errors.mapped() }, mensagem);
     } else {
-      const novoUsuario = await cliente.create({
-        Nome: req.body.nome,
-        Email: req.body.email,
-        Endereco: req.body.endereco,
-        CPF: req.body.cpf,
-        Telefone: req.body.telefone,
-        Senha: req.body.senha,
-      });
+
+      try {
+
+        const novoUsuario = await cliente.create({
+          Nome: req.body.nome,
+          Email: req.body.email,
+          Endereco: req.body.endereco,
+          CPF: req.body.cpf,
+          Telefone: req.body.telefone,
+          Senha: req.body.senha,
+        });   
+
+        mensagem = "Usuário cadastrado com sucesso.";
+
+      }
+      catch (e) {
+          // declarações para manipular quaisquer exceções
+          console.log(e); // passa o objeto de exceção para o manipulador de erro
+
+          mensagem = "Usuário já existe.";
+      }      
       
-      mensagem = "Usuário cadastrado com sucesso.";
       res.redirect("/usuarios/login");
     }
     /*if (!req.file) {

@@ -143,8 +143,8 @@ const produtoController = {
       ); 
 
       let marc = marcas[0].Nome;
-      console.log(marc);  
-      console.log(marc);  
+      //console.log(marc);  
+      //console.log(marc);  
 
       res.render('produtos.ejs', {veiculos, marcas,categorias, mensagem});
     }
@@ -193,6 +193,13 @@ const produtoController = {
     //fim filtro produtos    
   },
   //Usar a função também no logout
+
+  logout: (req,res) => {
+    req.session.destroy();
+    carrinho = [];
+    res.redirect("/inicial");
+  },
+
   carrinho: async (req,res) => {
 
     mensagem = "";
@@ -295,7 +302,7 @@ const produtoController = {
       if (veic != undefined) {
         return res.render("produtoInterno", {veic:veic,marcas, categorias});
       } else {
-        res.send("Produto não encontrado!");
+        res.status(404).render("404-page");
       }
     });
   },
