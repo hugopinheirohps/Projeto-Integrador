@@ -1,7 +1,6 @@
 # Grupo-h2
 Trabalho em grupo
 
-
 # Projeto rodando com :
 npm start
 
@@ -9,22 +8,24 @@ npm start
 4000
 
 # corrigir:
-http://localhost:3000/produtos/20
+Criptografia na senha
 
-Pesquisa Marcas em produtos
+# CORRIGIDO:
 
 erro ao cadastrar usuario duplicado
-
 produto interno não está responsivo
 inicial não está responsivo
 na página usuário, header não está responsivo
-
-
-Fazer pagina de logout resetar todo carrinho e colocar botões com funções de alterar dados diretamente na tabela
-
+http://localhost:3000/produtos/20
 Finalização do responsivo.
+colocar botões com funções de alterar dados diretamente na tabela
+Fazer pagina de logout resetar todo carrinho 
+Pesquisa Marcas em produtos
 
-Nao a necessidade de todos falarem...
+
+# Apresentação:
+
+Nao vejo a necessidade de todos falarem...
 
 Planejar quem vai falar e falar um pouco.
 

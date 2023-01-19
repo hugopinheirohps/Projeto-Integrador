@@ -89,8 +89,18 @@
         <a href="/produtos/<%= veic.idProduto %>">
             <veiculo>
                 <img src="<%=veic.Imagem %>" alt="Seleção de veículo">
-                <p><%=marcas[veic.Marcas_idMarcas-1].Nome  %> <%=veic.Modelo %> <%=veic.Ano %> </p>
-                <label><%=categorias[veic.Categorias_idCategorias-1].Nome %> </label>
+
+                <% if(marcas[veic.Marcas_idMarcas-1] == undefined){ %>
+                    <p><%=marcas[0].Nome  %> <%=veic.Modelo %> <%=veic.Ano %> </p>
+                  <% } else{ %>  
+                    <p><%=marcas[veic.Marcas_idMarcas-1].Nome  %> <%=veic.Modelo %> <%=veic.Ano %> </p>
+                <% } %>
+
+                <% if(veic.Categorias_idCategorias == undefined){ %>
+                  <% } else{ %>  
+                    <label><%=categorias[veic.Categorias_idCategorias-1].Nome %> </label>
+                <% } %>
+
                 <label> <%=veic.Cidade %> <space> <%= veic.Estado %></label>
                 <label> Km: <%= veic.Quilometragem %></label>
                 <p>R$ <%=veic.Valor %></p>

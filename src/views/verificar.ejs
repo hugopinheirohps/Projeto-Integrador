@@ -1,0 +1,64 @@
+<%- include("./partials/header.ejs") %>
+
+<body>
+    <link rel="stylesheet" href="/css/usuario.css">
+    <%- include("./partials/navbar.ejs") %>
+
+
+    <!-- aqui -->
+    <main>
+        <ul class="dados">
+            <a href="/usuarios/">
+                <h3>Pedidos</h3>
+                <li>
+                    Acompanhar pedidos
+                </li>
+            </a>
+
+            <a href="/">
+                <h3>Minha Conta</h3>
+                <li>
+                    Editar dados
+                </li>
+            </a>
+
+            <a href="/">
+                <h3>Endereço</h3>
+                <li>
+                    Alterar endereço
+                </li>
+            </a>
+
+            <a href="/usuarios/cartao">
+                <h3>Cartões</h3>
+                <li>
+                    Cartões cadastrados
+                </li>
+            </a>
+        </ul>
+        <br>
+        <div class="pedidos">
+            <h3>Meus pedidos</h3>
+            <br>
+            <div class="info">
+                <h4>N° pedido</h4>
+                <h4>Status</h4>
+                <h4>Pagamento</h4>
+            </div>
+            <div>
+                <div class="dadosPedidos">
+                </div>                 
+            </div>
+
+        </div>
+    </main>
+
+
+
+    <!-- aqui -->
+
+
+    <%- include("./partials/footer.ejs") %>
+</body>
+
+</html>

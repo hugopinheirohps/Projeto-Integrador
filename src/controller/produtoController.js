@@ -138,13 +138,13 @@ const produtoController = {
           where: {
             Marcas_idMarcas: [marcas[0].idMarcas],
           },
-          attributes: ['Modelo', 'Valor',  'Ano', 'Cidade', 'Estado', 'Quilometragem', 'Marcas_idMarcas']
+          attributes: ['Modelo', 'Valor',  'Ano', 'Cidade', 'Estado', 'Quilometragem', 'Marcas_idMarcas','Imagem']
         }
       ); 
 
       let marc = marcas[0].Nome;
-      console.log(marc);  
-      console.log(marc);  
+      //console.log(marc);  
+      //console.log(marc);  
 
       res.render('produtos.ejs', {veiculos, marcas,categorias, mensagem});
     }
@@ -193,6 +193,13 @@ const produtoController = {
     //fim filtro produtos    
   },
   //Usar a função também no logout
+
+  logout: (req,res) => {
+    req.session.destroy();
+    carrinho = [];
+    res.redirect("/inicial");
+  },
+
   carrinho: async (req,res) => {
 
     mensagem = "";
@@ -295,7 +302,7 @@ const produtoController = {
       if (veic != undefined) {
         return res.render("produtoInterno", {veic:veic,marcas, categorias});
       } else {
-        res.send("Produto não encontrado!");
+        res.status(404).render("404-page");
       }
     });
   },
@@ -340,14 +347,16 @@ const produtoController = {
       usuario = usuarios[0];
 
       let pagamento;
-      if(req.body.debito="on"){
+
+      
+      if(req.body.pix="on"){
+        pagamento = 1;
+      }
+      else if(req.body.debito="on"){
         pagamento = 4;
       }
       else if(req.body.credito="on"){
         pagamento = 5;
-      }
-      else if(req.body.pix="on"){
-        pagamento = 1;
       }
 
       const novaVenda = await pedido.create({ 
@@ -361,8 +370,8 @@ const produtoController = {
     marcas = [];
     categorias = [];
     valorTotal = 0;
-    usuario = {Nome: "Fulano ",Endereco: "",}
     mensagem = "Compra efetuada com sucesso, obrigado!";
+    carrinho = [];
     res.render('carrinho.ejs', {veiculos, marcas, categorias, valorTotal, usuario,mensagem});
     
   },

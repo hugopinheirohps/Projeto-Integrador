@@ -15,7 +15,36 @@ html {
     height: 100%;
 }
 
-h
+header {
+    width: 100%;
+   height: 130px;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-image: url(/img/carro.webp);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    box-shadow: 10px 5px 5px black;
+  }
+  header h2 {
+    color: #fff;
+    text-size-adjust: 100%;
+    font-size: 2.5vh;
+  }
+.logoWeb{
+    display: flex;
+    width: 200px;
+    height: 150px;
+    position: relative;
+    top: 20px;
+  }
+  .logoWeb img{
+    width: 130px;
+    height: 100px;
+  }
 
 header h2 {
     color: #fff;
@@ -53,6 +82,7 @@ input{
 
 .pedidos h3 {
     padding-left: 33%;
+    margin-top: 0;
 }
 
 .dados {
@@ -101,6 +131,7 @@ h4 {
     height: 100%;
     width: 20%;
     border: 1px black solid;
+    font-size:medium;
 }
 
 .dadosPedidos {
@@ -175,7 +206,7 @@ h4 {
     }
 
     .dados {
-        height: 500px;
+        height: 80px;
     }
 
     .moto1,

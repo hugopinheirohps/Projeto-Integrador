@@ -17,7 +17,11 @@
             </a>
             <br>
 
+            <!-- 
+            Não precisa mais disso                
             <h3>Caso deseja Alterar os dados, preencher todo o formulario!</h3>
+             -->
+            
             <br>
             <form action="/usuarios/alterarCadastro" method="post" id="update">
                 <h3>
@@ -28,11 +32,10 @@
                 <h3>CPF: <%=usuario.CPF %> </h3>
                 <br>
                 <li>
-                    <h3>
-                        E-mail@:
-                    </h3>
+                    <h3>E-mail@:</h3>
                     <%=usuario.Email %>
                     <br>
+                    Editar:<input type="text" name="email" placeholder="<%=usuario.Email %> ">
                 </li>
                 <br>
                 <li>

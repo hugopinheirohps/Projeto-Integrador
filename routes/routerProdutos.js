@@ -9,6 +9,8 @@ router.get('/carrinho', produtoController.carrinho);
 
 router.post('/carrinho', produtoController.carrinho);
 
+router.get('/logout', produtoController.logout);
+
 router.get('/finalizacao', produtoController.finalizacao);
 
 router.post('/finalizacao', produtoController.gravarVenda);
