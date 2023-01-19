@@ -370,10 +370,10 @@ const produtoController = {
     marcas = [];
     categorias = [];
     valorTotal = 0;
-    mensagem = "Compra efetuada com sucesso, obrigado!";
+    // mensagem = "Compra efetuada com sucesso, obrigado!";
     carrinho = [];
-    res.render('carrinho.ejs', {veiculos, marcas, categorias, valorTotal, usuario,mensagem});
-    
+    // res.render('carrinho.ejs', {veiculos, marcas, categorias, valorTotal, usuario,mensagem});
+    res.render("sucesso.ejs");
   },
 
   sucesso: (req, res) => {

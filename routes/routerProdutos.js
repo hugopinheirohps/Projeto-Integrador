@@ -21,4 +21,6 @@ router.get('/:idProduto',produtoController.produtoInterno)
 
 router.post('/', produtoController.produtofiltro);
 
+router.get("/sucesso", produtoController.sucesso);
+
 module.exports = router;

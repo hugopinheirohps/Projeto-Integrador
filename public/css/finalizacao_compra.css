@@ -10,7 +10,7 @@ section {
   }
 
   h1{
-    background-color: #9DD3DF;
+    background-color: #76de9b;
     border-radius: 20px;
   }
   button{
@@ -22,6 +22,7 @@ section {
     flex-direction: column;
     font-weight: bold;
     width: 320px;
+    background-color: #76de9b;
   }
   div input{
     background-color: #C9D1D3;
@@ -62,6 +63,27 @@ section {
     width: 200px;
     margin-left: 50px;
     margin-top: 20px;
+  }
+  #salvar {
+    width: 175px;
+    margin: 0 auto;
+    padding: 10px;
+    color: #fff;
+    background-color: #3B3737;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+
+  #salvar a{
+    color: #fff;
+    margin: 0 20px 0 20px;
+  }
+  #salvar:hover {
+    background-color: rgb(24, 20, 20, 0.5);
+  }
+  #salvar p {
+    margin-top: 20px;
+    color: #3B3737;
   }
   
   @media (max-width: 700px) {
