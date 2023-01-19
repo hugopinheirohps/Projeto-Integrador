@@ -50,9 +50,10 @@ const usuarioController = {
       session = req.session;
       session.userid=req.body.email; 
       session.idCliente=usuario.idCliente;
+      
       //console.log(session.idCliente);
 
-      res.redirect("/inicial");
+      res.redirect("/inicial",{usuario});
     }
   },
 
