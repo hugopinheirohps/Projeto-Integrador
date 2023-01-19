@@ -1,10 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
-}
+
 main > li{
     color: #3b3737;
 }
@@ -21,19 +15,7 @@ html {
     height: 100%;
 }
 
-header {
-    display: flex;
-    width: 100vw;
-    background-size: cover;
-    height: 100px;
-    margin: 0 auto;
-    margin-top: 5px;
-    background-image: url(/img/carro.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    align-items: center;
-    justify-content: space-between;
-}
+h
 
 header h2 {
     color: #fff;

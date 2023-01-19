@@ -18,7 +18,7 @@ const inputFile = document.querySelector('#perfil');
             }
         })
 
-        //Validando o login SCRIPT - Matheus
+        /*Validando o login SCRIPT - Matheus
         const logar = document.getElementById('logar');
 
         logar.addEventListener('click', (event) => {
@@ -100,4 +100,4 @@ const inputFile = document.querySelector('#perfil');
                 
             }
 
-        });
+        });*/
