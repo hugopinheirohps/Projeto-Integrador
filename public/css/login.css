@@ -21,6 +21,13 @@ section {
 .erros{
   color:red;
 }
+p{
+  background-color: green;
+  width: 200px;
+  height: 40px;
+  color: #fff;
+  text-align: center;
+}
 label{
   background-color: #3B3737;
   color:#fff;

@@ -18,13 +18,8 @@ const inputFile = document.querySelector('#perfil');
             }
         })
 
-<<<<<<< HEAD
-        /*Validando o login SCRIPT - Matheus
-        const logar = document.getElementById('logar');
-=======
         //Validando o login SCRIPT - Matheus
         // const logar = document.getElementById('logar');
->>>>>>> 9c6a44195471bd0067bc7f07183e254c8e04fcca
 
         // logar.addEventListener('click', (event) => {
         //     event.preventDefault();
@@ -105,8 +100,4 @@ const inputFile = document.querySelector('#perfil');
                 
         //     }
 
-<<<<<<< HEAD
-        });*/
-=======
         // });
->>>>>>> 9c6a44195471bd0067bc7f07183e254c8e04fcca

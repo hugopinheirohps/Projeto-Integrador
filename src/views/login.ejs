@@ -15,6 +15,7 @@
                         </a> -->
                         
                     </form>
+                   
                         <form action="/usuarios/cadastro" method="post" enctype="multipart/form-data"
                             id="form-cadastro">
                             <h2>Criar Conta</h2>
@@ -35,6 +36,8 @@
                                         <% } %>
                                         
                                     </div>
+                                   
+                                
                             <input type="text" name="nome" value="" cl placeholder="Digite seu nome completo">
                             <input type="email" name="email" id="email" value="" placeholder="Digite seu email"
                                 required>
@@ -44,11 +47,12 @@
                             <input type="text" name="telefone" id="telefone" value="" placeholder="Digite seu telefone"
                                 required>
                             <input type="password" name="senha" id="senha" value="" placeholder="Criar senha" required>
-                            <!-- <label for="perfil" class="picture"><span class="picture-image"></span></label> -->
-                            <!-- Direcionar para pagina usuario -->
-                            <!-- <input type="file" name="avatar" id="perfil" placeholder="imagem usuario"> -->
+                           <label for="perfil" class="picture"><span class="picture-image"></span></label> 
+                            <!--Direcionar para pagina usuario -->
+                             <input type="file" name="avatar" id="perfil" placeholder="imagem usuario"> 
                             <button type="submit" id="cadastro">CADASTRAR</button>
                         </form>
+                      
                 </section>
             </main>
             <%- include('./partials/footer.ejs') %>

@@ -26,6 +26,8 @@ module.exports = (sequelize, DataType) => {
 
         //Completar os dados de acordo com coluna da tabela
       },
+      avatar: DataType.STRING
+      
     },
     {
       tableName: "Clientes",
