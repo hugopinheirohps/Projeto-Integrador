@@ -21,22 +21,3 @@ Finalização do responsivo.
 colocar botões com funções de alterar dados diretamente na tabela
 Fazer pagina de logout resetar todo carrinho 
 Pesquisa Marcas em produtos
-
-
-# Apresentação:
-
-Nao vejo a necessidade de todos falarem...
-
-Planejar quem vai falar e falar um pouco.
-
-""""Primeiro apresentação pessoal, em seguida apresentar o Sistema o SITE....""""
-
-Cada um apresenta sobre o produto.
-
-FOCAR SO QUE ESTÁ FUNCIONANDO 
-
-APOS APRESENTAR COLCOAR O QUE NÃO FUNCIONA  E PLANEJAMENTO FUTURO.
-
-SEQUENCIA  --DESIGNER --PRODUTO --SISTEMA.
-
-15 MINUTOS NO MAXIMO...
